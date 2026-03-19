@@ -1,6 +1,5 @@
 {
   "name": "sketches",
-  "version": "0.1.0",
   "license": "MIT",
   "private": true,
   "description": "Generative art sketches built using p5.js with shared utility classes for creative coding.",
@@ -21,6 +20,7 @@
     "node": "^20.19.0 || ^22.13.0 || >=24"
   },
   "scripts": {
+    "docs": "typedoc",
     "lint:js": "eslint -c eslint.config.js.mjs .",
     "lint:ts": "eslint -c eslint.config.ts.mjs .",
     "lint:all": "npm run lint:js && npm run lint:ts",
@@ -30,6 +30,9 @@
     "build:check": "npm run build:dev && npm run build",
     "serve": "webpack-dev-server --mode production",
     "serve:dev": "webpack-dev-server --mode development"
+  },
+  "dependencies": {
+    "p5": "^2.2.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -41,6 +44,7 @@
     "html-webpack-plugin": "^5.6.6",
     "mini-css-extract-plugin": "^2.10.1",
     "ts-loader": "^9.5.4",
+    "typedoc": "^0.28.17",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.1",
     "webpack": "^5.105.4",

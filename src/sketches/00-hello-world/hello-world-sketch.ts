@@ -20,14 +20,18 @@
 
 import p5 from 'p5';
 
-import { Sketch } from './lib';
+import { Sketch } from '../../lib';
 
-import { HelloWorldSketch } from './sketches/00-hello-world';
+export class HelloWorldSketch implements Sketch {
+    public main(ctx: p5): void {
+        ctx.setup = (): void => {
+            ctx.createCanvas(720, 720);
+        };
 
-import '../assets/css/main.css';
-
-const sketch: Sketch = new HelloWorldSketch();
-
-const main: (ctx: p5) => void = sketch.main.bind(sketch);
-
-new p5(main);
+        ctx.draw = (): void => {
+            ctx.background(0);
+            ctx.fill(255);
+            ctx.ellipse(ctx.mouseX, ctx.mouseY, 100, 100);
+        };
+    }
+}

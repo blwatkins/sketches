@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2026 Brittni Watkins.
+ * Copyright (c) 2024-2026 Brittni Watkins.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"),
@@ -18,16 +18,20 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import p5 from 'p5';
+div.color-block {
+    text-align: center;
+}
 
-import { Sketch } from './lib';
+.color-block {
+    width: 100%;
+    margin: 0;
+    padding: 0.5em 0;
+}
 
-import { HelloWorldSketch } from './sketches/00-hello-world';
+.black-contrast {
+    color: black;
+}
 
-import '../assets/css/main.css';
-
-const sketch: Sketch = new HelloWorldSketch();
-
-const main: (ctx: p5) => void = sketch.main.bind(sketch);
-
-new p5(main);
+.white-contrast {
+    color: white;
+}

@@ -20,14 +20,17 @@
 
 import p5 from 'p5';
 
-import { Sketch } from './lib';
-
-import { HelloWorldSketch } from './sketches/00-hello-world';
-
-import '../assets/css/main.css';
-
-const sketch: Sketch = new HelloWorldSketch();
-
-const main: (ctx: p5) => void = sketch.main.bind(sketch);
-
-new p5(main);
+/**
+ * Interface to create a p5.js sketch.
+ *
+ * @category Sketch
+ */
+export interface Sketch {
+    /**
+     * The main method should define the setup, draw, and event handler functions of the p5.js sketch context.
+     * The main method will be passed to the p5 constructor as part of the sketch lifecycle.
+     *
+     * @param ctx - The p5.js sketch context.
+     */
+    main(ctx: p5): void;
+}
