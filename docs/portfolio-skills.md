@@ -14,11 +14,13 @@ This project showcases my ability to design, build, and ship generative art soft
 
 ## Technical Skills Applied
 
-- **Languages:** TypeScript, JavaScript, HTML, CSS, Markdown
-- **Runtime & Frameworks:** Node.js, p5.js
-- **Engineering Practices:** Linting (ESLint), Testing (Vitest), Documentation (TypeDoc)
-- **Tooling:** Git, GitHub, GitHub Actions, GitHub Pages
-- **Development Environments:** WebStorm, Visual Studio Code
+- **Programming Languages:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [Markdown](https://www.markdownguide.org/)
+- **Runtime & Frameworks:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/)
+- **Engineering Practices:** Linting ([ESLint](https://eslint.org/)), Testing ([Vitest](https://vitest.dev/)), Documentation ([TypeDoc](https://typedoc.org/))
+- **Versioning & Delivery:** [Git](https://git-scm.com/), [GitHub](https://github.com/), [GitHub Actions](https://github.com/features/actions), [GitHub Pages](https://docs.github.com/en/pages)
+- **Site Generation:** [Bundler](https://bundler.io/), [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)
+- **Environment Management:** [n](https://github.com/tj/n), [rbenv](https://rbenv.org/)
+- **Development Environments:** [WebStorm](https://www.jetbrains.com/webstorm/), [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Evidence in This Repository
 

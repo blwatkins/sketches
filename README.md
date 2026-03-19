@@ -15,10 +15,12 @@ The full text of the license is included with the project source code.
 ## Demonstrated Skills
 
 - **Creative Coding:** Generative Art, Creative Problem-Solving
-- **Programming:** TypeScript, JavaScript, Object-Oriented Programming
-- **Runtime & Frameworks:** Node.js, p5.js
-- **Code Quality & Docs:** ESLint, Vitest, TypeDoc
-- **Versioning & Delivery:** Git, GitHub, GitHub Actions, GitHub Pages
+- **Programming:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), Object-Oriented Programming
+- **Runtime & Frameworks:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/)
+- **Code Quality & Docs:** [ESLint](https://eslint.org/), [Vitest](https://vitest.dev/), [TypeDoc](https://typedoc.org/)
+- **Versioning & Delivery:** [Git](https://git-scm.com/), [GitHub](https://github.com/), [GitHub Actions](https://github.com/features/actions), [GitHub Pages](https://docs.github.com/en/pages)
+- **Site Generation:** [Bundler](https://bundler.io/), [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)
+- **Environment Management:** [n](https://github.com/tj/n), [rbenv](https://rbenv.org/)
 
 ## Additional Information
 
