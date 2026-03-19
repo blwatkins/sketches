@@ -20,10 +20,11 @@ minima:
       icon: linkedin
       url: "https://www.linkedin.com/in/brittni-watkins/"
   nav_pages:
-    - index.md
+    - title: "Source Code"
+      url: "https://github.com/blwatkins/sketches"
 
 title: "Sketches, by Brittni Watkins"
-description: "Generative art sketches built using p5.js with shared utility classes for creative coding"
+description: "Generative art sketches built using p5.js with shared utility classes for creative coding."
 show_downloads: true
 
 exclude:
