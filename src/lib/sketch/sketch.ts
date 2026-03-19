@@ -29,9 +29,7 @@ export interface Sketch {
     /**
      * The main method should define the setup, draw, and event handler functions of the p5.js sketch context.
      *
-     * @param ctx {p5} - The p5.js sketch context.
-     *
-     * @returns {void}
+     * @param ctx - The p5.js sketch context.
      */
     main(ctx: p5): void;
 }
