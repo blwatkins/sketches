@@ -1,0 +1,29 @@
+---
+title: "Sketches"
+layout: page
+---
+
+Generative art sketches built using p5.js with shared utility classes for creative coding.
+
+## LICENSE
+
+The source code of this project is licensed under the [MIT License](https://opensource.org/license/mit).
+The full text of the license is included with the project source code.
+
+## OUTPUT LICENSE
+
+The outputs of this project are licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) License](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+The full text of the license is included with the project source code.
+
+## Demonstrated Skills
+
+- **Creative Coding:** Generative Art, Creative Problem-Solving
+- **Programming:** TypeScript, JavaScript, Object-Oriented Programming
+- **Runtime & Frameworks:** Node.js, p5.js
+- **Code Quality & Docs:** ESLint, Vitest, TypeDoc
+- **Versioning & Delivery:** Git, GitHub, GitHub Actions, GitHub Pages
+
+## Additional Information
+
+- [Resources and References](resources-and-references.md)
+- [Portfolio Skills](portfolio-skills.md)
