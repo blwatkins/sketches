@@ -71,14 +71,14 @@ export default {
             directory: path.join(__dirname, '_dist')
         },
         client: {
-            overlay: true
+            overlay: false
         },
         compress: true,
         host: '127.0.0.1',
         port: 8080,
         hot: false,
         watchFiles: ['./src/**/*.ts'],
-        liveReload: true,
+        liveReload: false,
         open: true,
         webSocketServer: false
     }
