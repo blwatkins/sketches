@@ -12,6 +12,19 @@ The full text of the license is included with the project source code.
 The outputs of this project are licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) License](https://creativecommons.org/licenses/by-nc-nd/4.0/).
 The full text of the license is included with the project source code.
 
+## Demonstrated Skills
+
+- **Creative Coding:** Generative Art, Creative Problem-Solving
+- **Programming:** TypeScript, JavaScript, Object-Oriented Programming
+- **Runtime & Frameworks:** Node.js, p5.js
+- **Code Quality & Docs:** ESLint, Vitest, TypeDoc
+- **Versioning & Delivery:** Git, GitHub, GitHub Actions, GitHub Pages
+
+## Additional Information
+
+- [Resources and References](resources-and-references.md)
+- [Portfolio Skills](portfolio-skills.md)
+
 ----
 
 Copyright &copy; 2024-2026 by Brittni Watkins.
