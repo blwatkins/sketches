@@ -1,4 +1,7 @@
-# Sketches
+---
+title: "Sketches"
+layout: page
+---
 
 Generative art sketches built using p5.js with shared utility classes for creative coding.
 
@@ -22,9 +25,5 @@ The full text of the license is included with the project source code.
 
 ## Additional Information
 
-- [Resources and References](docs/resources-and-references.md)
-- [Portfolio Skills](docs/portfolio-skills.md)
-
-----
-
-Copyright &copy; 2024-2026 by Brittni Watkins.
+- [Resources and References](resources-and-references.md)
+- [Portfolio Skills](portfolio-skills.md)

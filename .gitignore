@@ -9,6 +9,10 @@
 # Node.js and npm
 node_modules/
 
+# Jekyll
+.sass-cache/
+_site/
+
 # Compiling, bundling, testing, and coverage output
 _compiled/
 _coverage/
