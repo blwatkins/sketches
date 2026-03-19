@@ -1,4 +1,4 @@
-name: npm Lint
+name: npm Lint and Build
 
 on:
   workflow_dispatch:
@@ -30,3 +30,4 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run lint:all
+      - run: npm run build:check
