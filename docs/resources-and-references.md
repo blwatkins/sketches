@@ -67,3 +67,9 @@ layout: page
 
 - [Bundler](https://bundler.io/)
 - [Jekyll](https://jekyllrb.com/)
+- [Liquid](https://shopify.github.io/liquid/)
+
+## Environment Management
+
+- [n](https://github.com/tj/n)
+- [rbenv](https://rbenv.org/)

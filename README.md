@@ -19,7 +19,8 @@ The full text of the license is included with the project source code.
 - **Runtime & Frameworks:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/)
 - **Code Quality & Docs:** [ESLint](https://eslint.org/), [Vitest](https://vitest.dev/), [TypeDoc](https://typedoc.org/)
 - **Versioning & Delivery:** [Git](https://git-scm.com/), [GitHub](https://github.com/), [GitHub Actions](https://github.com/features/actions), [GitHub Pages](https://docs.github.com/en/pages)
-- **Site Generation:** [Bundler](https://bundler.io/), [Jekyll](https://jekyllrb.com/), Liquid
+- **Site Generation:** [Bundler](https://bundler.io/), [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)
+- **Environment Management:** [n](https://github.com/tj/n), [rbenv](https://rbenv.org/)
 
 ## Additional Information
 
