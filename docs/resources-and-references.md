@@ -29,7 +29,7 @@ layout: page
 - [GitHub Docs - Quickstart for writing on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)
 - [GitHub Docs - Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
-## Runtime & Frameworks
+## Runtime & Libraries
 
 ### Node.js
 
@@ -40,33 +40,27 @@ layout: page
 
 - [p5.js](https://p5js.org/)
 
-## Engineering Practices
-
-### Linting
-
-#### ESLint
+## Code Quality
 
 - [ESLint](https://eslint.org/)
 - [ESLint Stylistic](https://eslint.style/)
 - [eslint-plugin-es-x](https://eslint-community.github.io/eslint-plugin-es-x/)
 - [typescript-eslint](https://typescript-eslint.io/)
 
-### Testing
+## Testing
 
 - [Vitest](https://vitest.dev/)
 
-### Documentation
+## Documentation
 
 - [TypeDoc](https://typedoc.org/)
 
-## Versioning & Delivery
-
-### Version Control
+## Versioning & Platform
 
 - [Git](https://git-scm.com/)
 - [GitHub](https://github.com/)
 
-### CI/CD & Hosting
+## Automation & Delivery
 
 - [GitHub Actions](https://github.com/features/actions)
 - [GitHub Docs - Dependabot quickstart guide](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide)
