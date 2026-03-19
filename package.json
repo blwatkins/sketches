@@ -21,6 +21,7 @@
     "node": "^20.19.0 || ^22.13.0 || >=24"
   },
   "scripts": {
+    "docs": "typedoc",
     "lint:js": "eslint -c eslint.config.js.mjs .",
     "lint:ts": "eslint -c eslint.config.ts.mjs .",
     "lint:all": "npm run lint:js && npm run lint:ts",
@@ -41,6 +42,7 @@
     "html-webpack-plugin": "^5.6.6",
     "mini-css-extract-plugin": "^2.10.1",
     "ts-loader": "^9.5.4",
+    "typedoc": "^0.28.17",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.1",
     "webpack": "^5.105.4",
