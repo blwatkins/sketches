@@ -11,3 +11,4 @@ node_modules/
 
 # Compiling, bundling, testing, and coverage output
 _compiled/
+_dist/
