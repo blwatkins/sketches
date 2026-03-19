@@ -5,20 +5,20 @@ layout: page
 
 ## Programming Languages
 
+### TypeScript
+
+- [TypeScript](https://www.typescriptlang.org/)
+
+### JavaScript
+
+- [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
 ### HTML
 
 ### CSS
 
 - [CSS-Tricks - Inheriting box-sizing Probably Slightly Better Best-Practice](https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/)
 - [CSS-Tricks - ::before vs :before](https://css-tricks.com/to-double-colon-or-not-do-double-colon/)
-
-### JavaScript
-
-- [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-
-### TypeScript
-
-- [TypeScript](https://www.typescriptlang.org/)
 
 ## Runtime & Frameworks
 
@@ -45,3 +45,25 @@ layout: page
 ### Testing
 
 - [Vitest](https://vitest.dev/)
+
+### Documentation
+
+- [TypeDoc](https://typedoc.org/)
+
+## Versioning & Delivery
+
+### Version Control
+
+- [Git](https://git-scm.com/)
+- [GitHub](https://github.com/)
+
+### CI/CD & Hosting
+
+- [GitHub Actions](https://github.com/features/actions)
+- [GitHub Docs - Dependabot quickstart guide](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide)
+- [GitHub Docs - GitHub Pages documentation](https://docs.github.com/en/pages)
+
+## Site Generation
+
+- [Bundler](https://bundler.io/)
+- [Jekyll](https://jekyllrb.com/)
