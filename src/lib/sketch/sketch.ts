@@ -20,6 +20,18 @@
 
 import p5 from 'p5';
 
+/**
+ * Interface to create a p5.js sketch.
+ *
+ * @category Sketch
+ */
 export interface Sketch {
+    /**
+     * The main method should define the setup, draw, and event handler functions of the p5.js sketch context.
+     *
+     * @param ctx {p5} - The p5.js sketch context.
+     *
+     * @returns {void}
+     */
     main(ctx: p5): void;
 }
