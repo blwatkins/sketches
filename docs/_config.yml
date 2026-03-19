@@ -10,6 +10,12 @@ minima:
   hide_site_feed_link: true
   show_excerpts: true
   social_links:
+    - title: "Source Code"
+      icon: git-alt
+      url: "https://github.com/blwatkins/sketches"
+    - title: "GitHub Pages"
+      icon: square-github
+      url: "https://blwatkins.github.io/"
     - title: GitHub
       icon: github
       url: "https://github.com/blwatkins"
@@ -20,7 +26,7 @@ minima:
       icon: linkedin
       url: "https://www.linkedin.com/in/brittni-watkins/"
   nav_pages:
-    - https://github.com/blwatkins/sketches
+    - index.md
 
 title: "Sketches, by Brittni Watkins"
 description: "Generative art sketches built using p5.js with shared utility classes for creative coding."
