@@ -30,7 +30,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default {
     entry: {
         main: {
-            import: './src/main.ts',
+            import: './src/main.ts'
         }
     },
     module: {
