@@ -20,7 +20,7 @@ This project showcases my ability to design, build, and ship generative art soft
 - **Versioning & Delivery:** [Git](https://git-scm.com/), [GitHub](https://github.com/), [GitHub Actions](https://github.com/features/actions), [GitHub Pages](https://docs.github.com/en/pages)
 - **Site Generation:** [Bundler](https://bundler.io/), [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)
 - **Environment Management:** [n](https://github.com/tj/n), [rbenv](https://rbenv.org/)
-- **Development Environments:** WebStorm, Visual Studio Code
+- **Development Environments:** [WebStorm](https://www.jetbrains.com/webstorm/), [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Evidence in This Repository
 
