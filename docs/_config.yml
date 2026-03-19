@@ -27,5 +27,6 @@ description: "Generative art sketches built using p5.js with shared utility clas
 show_downloads: true
 
 exclude:
+  - .ruby-version
   - Gemfile
   - Gemfile.lock
