@@ -1,0 +1,26 @@
+{
+  "name": "sketches",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "description": "Generative art sketches built using p5.js with shared utility classes for creative coding.",
+  "author": {
+    "name": "Brittni Watkins",
+    "url": "https://blwatkins.github.io/"
+  },
+  "homepage": "https://github.com/blwatkins/sketches#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blwatkins/sketches.git"
+  },
+  "bugs": {
+    "url": "https://github.com/blwatkins/sketches/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
