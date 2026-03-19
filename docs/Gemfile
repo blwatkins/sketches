@@ -4,6 +4,9 @@ source "https://rubygems.org"
 
 gem "jekyll", "~>3.10.0"
 
+gem "base64"
+gem "bigdecimal"
+
 group :jekyll_plugins do
     gem "jekyll-theme-primer"
     gem "jekyll-github-metadata"
