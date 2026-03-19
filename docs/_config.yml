@@ -23,7 +23,7 @@ minima:
     - index.md
 
 title: "Sketches, by Brittni Watkins"
-description: "Generative art sketches built using p5.js with shared utility classes for creative coding"
+description: "Generative art sketches built using p5.js with shared utility classes for creative coding."
 show_downloads: true
 
 exclude:
