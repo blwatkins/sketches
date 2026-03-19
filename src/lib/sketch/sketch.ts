@@ -28,6 +28,7 @@ import p5 from 'p5';
 export interface Sketch {
     /**
      * The main method should define the setup, draw, and event handler functions of the p5.js sketch context.
+     * The main method will be passed to the p5 constructor as part of the sketch lifecycle.
      *
      * @param ctx - The p5.js sketch context.
      */
