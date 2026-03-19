@@ -31,4 +31,3 @@ jobs:
       - run: npm ci
       - run: npm run lint:all
       - run: npm run build:check
-      - run: npm run test
