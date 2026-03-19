@@ -22,8 +22,8 @@ The full text of the license is included with the project source code.
 
 ## Additional Information
 
-- [Resources and References](docs/resources-and-references.md)
-- [Portfolio Skills](docs/portfolio-skills.md)
+- [Resources and References](https://blwatkins.github.io/sketches/resources-and-references.html)
+- [Portfolio Skills](https://blwatkins.github.io/sketches/portfolio-skills.html)
 
 ----
 
