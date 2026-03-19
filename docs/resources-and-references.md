@@ -39,4 +39,9 @@ layout: page
 
 - [ESLint](https://eslint.org/)
 - [ESLint Stylistic](https://eslint.style/)
+- [eslint-plugin-es-x](https://eslint-community.github.io/eslint-plugin-es-x/)
 - [typescript-eslint](https://typescript-eslint.io/)
+
+### Testing
+
+- [Vitest](https://vitest.dev/)

@@ -17,7 +17,7 @@ The full text of the license is included with the project source code.
 - **Creative Coding:** Generative Art, Creative Problem-Solving
 - **Programming:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), Object-Oriented Programming
 - **Runtime & Frameworks:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/)
-- **Code Quality & Docs:** [ESLint](https://eslint.org/), Vitest, TypeDoc
+- **Code Quality & Docs:** [ESLint](https://eslint.org/), [Vitest](https://vitest.dev/), TypeDoc
 - **Versioning & Delivery:** Git, GitHub, GitHub Actions, GitHub Pages, Jekyll, Liquid
 
 ## Additional Information

@@ -16,7 +16,7 @@ This project showcases my ability to design, build, and ship generative art soft
 
 - **Programming Languages:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), HTML, CSS, Markdown
 - **Runtime & Frameworks:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/)
-- **Engineering Practices:** Linting ([ESLint](https://eslint.org/)), Testing (Vitest), Documentation (TypeDoc)
+- **Engineering Practices:** Linting ([ESLint](https://eslint.org/)), Testing ([Vitest](https://vitest.dev/)), Documentation (TypeDoc)
 - **Tooling:** Git, GitHub, GitHub Actions, GitHub Pages, Jekyll, Liquid
 - **Development Environments:** WebStorm, Visual Studio Code
 
