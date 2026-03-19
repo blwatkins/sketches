@@ -30,6 +30,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 export default defineConfig([
     globalIgnores([
         '_compiled/**',
+        '_coverage/**',
         '_dist/**',
         '_doc/**'
     ]),
