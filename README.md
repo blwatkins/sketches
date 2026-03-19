@@ -14,4 +14,4 @@ The full text of the license is included with the project source code.
 
 ----
 
-Copyright &copy; 2026 by Brittni Watkins.
+Copyright &copy; 2024-2026 by Brittni Watkins.
