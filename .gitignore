@@ -5,3 +5,9 @@
 
 # Visual Studio Code
 .vscode/
+
+# Node.js and npm
+node_modules/
+
+# Compiling, bundling, testing, and coverage output
+_compiled/
