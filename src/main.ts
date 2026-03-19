@@ -18,4 +18,14 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-console.log('Hello, World!');
+import p5 from 'p5';
+
+import { Sketch } from './lib';
+
+import { HelloWorldSketch } from './sketches/00-hello-world';
+
+const sketch: Sketch = new HelloWorldSketch();
+
+const main: (ctx: p5) => void = sketch.main.bind(sketch);
+
+new p5(main);
