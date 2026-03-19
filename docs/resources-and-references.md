@@ -15,10 +15,19 @@ layout: page
 
 ### HTML
 
+- [MDN Web Docs - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+
 ### CSS
 
+- [MDN Web Docs - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [CSS-Tricks - Inheriting box-sizing Probably Slightly Better Best-Practice](https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/)
 - [CSS-Tricks - ::before vs :before](https://css-tricks.com/to-double-colon-or-not-do-double-colon/)
+
+### Markdown
+
+- [Markdown Guide](https://www.markdownguide.org/)
+- [GitHub Docs - Quickstart for writing on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)
+- [GitHub Docs - Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
 ## Runtime & Frameworks
 

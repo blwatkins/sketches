@@ -14,7 +14,7 @@ This project showcases my ability to design, build, and ship generative art soft
 
 ## Technical Skills Applied
 
-- **Programming Languages:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), HTML, CSS, Markdown
+- **Programming Languages:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [Markdown](https://www.markdownguide.org/)
 - **Runtime & Frameworks:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/)
 - **Engineering Practices:** Linting ([ESLint](https://eslint.org/)), Testing ([Vitest](https://vitest.dev/)), Documentation ([TypeDoc](https://typedoc.org/))
 - **Versioning & Delivery:** [Git](https://git-scm.com/), [GitHub](https://github.com/), [GitHub Actions](https://github.com/features/actions), [GitHub Pages](https://docs.github.com/en/pages)
