@@ -32,12 +32,12 @@ export abstract class Sketch {
      *
      * @param ctx - The p5.js sketch context.
      */
-    abstract main(ctx: p5): void;
+    public abstract main(ctx: p5): void;
 
     /**
      * @returns {number} The minimum resolution for a sketch.
      */
-    static get MIN_RESOLUTION(): number {
+    public static get MIN_RESOLUTION(): number {
         return 100;
     }
 }
