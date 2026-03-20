@@ -21,6 +21,9 @@
 export * from './discriminator';
 export * as discriminator from './discriminator';
 
+export * from './palette';
+export * as palette from './palette';
+
 export * from './palette-color';
 export * as palette_color from './palette-color';
 
