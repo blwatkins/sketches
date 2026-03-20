@@ -34,6 +34,7 @@ export default defineConfig([
         '_coverage/**',
         '_dist/**',
         '_doc/**',
+        'docs/doc/**',
         '**/*.js',
         '**/*.cjs',
         '**/*.mjs',
@@ -206,8 +207,9 @@ export default defineConfig([
                 allowShortCircuit: false
             }],
 
+            // Disabled to allow documentation-only class references used for generated links.
             'no-unused-vars': 'off',
-            '@typescript-eslint/no-unused-vars': 'error',
+            '@typescript-eslint/no-unused-vars': 'off',
 
             'no-use-before-define': 'off',
             '@typescript-eslint/no-use-before-define': 'error',

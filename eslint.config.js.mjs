@@ -32,7 +32,8 @@ export default defineConfig([
         '_compiled/**',
         '_coverage/**',
         '_dist/**',
-        '_doc/**'
+        '_doc/**',
+        'docs/doc/**'
     ]),
     {
         files: [
