@@ -18,6 +18,8 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import { Palette } from '../palette';
+import { PaletteColor } from '../palette-color';
 import { AspectRatioConfig } from '../sketch';
 
 /**
@@ -31,4 +33,14 @@ export enum Discriminators {
      * Discriminator for the {@link AspectRatioConfig} interface.
      */
     ASPECT_RATIO_CONFIG = 'I_ASPECT_RATIO_CONFIG',
+
+    /**
+     * Discriminator for the {@link Palette} interface.
+     */
+    PALETTE = 'I_PALETTE',
+
+    /**
+     * Discriminator for the {@link PaletteColor} interface.
+     */
+    PALETTE_COLOR = 'I_PALETTE_COLOR',
 }
