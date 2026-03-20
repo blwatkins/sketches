@@ -71,6 +71,7 @@ layout: page
 - [Bundler](https://bundler.io/)
 - [Jekyll](https://jekyllrb.com/)
 - [Liquid](https://shopify.github.io/liquid/)
+- [Minima](https://github.com/jekyll/minima)
 
 ## Environment Management
 
