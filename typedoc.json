@@ -6,6 +6,7 @@
   },
 
   "entryPoints": [
+    "./src/lib/discriminator/index.ts",
     "./src/lib/sketch/index.ts"
   ],
 
