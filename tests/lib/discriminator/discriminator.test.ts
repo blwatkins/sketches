@@ -20,7 +20,7 @@
 
 import { describe, test, expect } from 'vitest';
 
-import {ASPECT_RATIOS, Discriminator} from "../../../src/lib";
+import { ASPECT_RATIOS, Discriminator } from '../../../src/lib';
 
 describe('Discriminator', (): void => {
     const FAILURE_INPUTS: unknown[] = [
@@ -48,7 +48,7 @@ describe('Discriminator', (): void => {
         }
     ];
 
-    const FAILURE_CASES: { input: unknown; expected: false }[] = FAILURE_INPUTS.map((input: unknown): { input: unknown; expected: false } => ({ input: input, expected: false }));
+    const FAILURE_CASES: { input: unknown; expected: false; }[] = FAILURE_INPUTS.map((input: unknown): { input: unknown; expected: false; } => ({ input: input, expected: false }));
 
     describe('new Discriminator()', (): void => {
         test('Discriminator constructor should throw an Error', (): void => {
@@ -58,15 +58,15 @@ describe('Discriminator', (): void => {
 
     // TODO - test all ASPECT_RATIOS - add to test cases by iterating through the Record
     describe('Discriminator.isAspectRatioConfig()', (): void => {
-       const TEST_CASES:  { input: unknown; expected: boolean }[] = [
-           ...FAILURE_CASES,
-           { input: ASPECT_RATIOS.SQUARE, expected: true },
-       ];
+        const TEST_CASES: { input: unknown; expected: boolean; }[] = [
+            ...FAILURE_CASES,
+            { input: ASPECT_RATIOS.SQUARE, expected: true }
+        ];
 
-       test.each(
-           TEST_CASES
-       )('Discriminator.isAspectRatioConfig($input) should return $expected', ({ input, expected }): void => {
-              expect(Discriminator.isAspectRatioConfig(input)).toBe(expected);
-       });
+        test.each(
+            TEST_CASES
+        )('Discriminator.isAspectRatioConfig($input) should return $expected', ({ input, expected }): void => {
+            expect(Discriminator.isAspectRatioConfig(input)).toBe(expected);
+        });
     });
 });
