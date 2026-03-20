@@ -20,7 +20,7 @@
 
 import { describe, test, expect } from 'vitest';
 
-import { ASPECT_RATIOS, Discriminator, Discriminators } from '../../../src/lib';
+import {ASPECT_RATIOS, AspectRatioConfig, Discriminator, Discriminators} from '../../../src/lib';
 
 describe('Discriminator', (): void => {
     const FAILURE_INPUTS: unknown[] = [
@@ -29,7 +29,7 @@ describe('Discriminator', (): void => {
         Number.MIN_SAFE_INTEGER,
         Number.MAX_SAFE_INTEGER,
         Number.MIN_VALUE,
-        Number.MIN_VALUE,
+        Number.MAX_VALUE,
         Math.random(),
         NaN,
         'Hello, World!',
@@ -56,11 +56,12 @@ describe('Discriminator', (): void => {
         });
     });
 
-    // TODO - test all ASPECT_RATIOS - add to test cases by iterating through the Record
     describe('Discriminator.isAspectRatioConfig()', (): void => {
+        const ASPECT_RATIO_CASES: { input: AspectRatioConfig; expected: true }[] = Object.values(ASPECT_RATIOS).map((value: AspectRatioConfig): { input: AspectRatioConfig; expected: true; } => ({ input: value, expected: true }));
+
         const TEST_CASES: { input: unknown; expected: boolean; }[] = [
             ...FAILURE_CASES,
-            { input: ASPECT_RATIOS.SQUARE, expected: true },
+            ...ASPECT_RATIO_CASES,
             {
                 input: {
                     DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
