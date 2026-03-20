@@ -20,7 +20,7 @@
 
 import { describe, test, expect } from 'vitest';
 
-import { ASPECT_RATIOS, Discriminator } from '../../../src/lib';
+import { ASPECT_RATIOS, Discriminator, Discriminators } from '../../../src/lib';
 
 describe('Discriminator', (): void => {
     const FAILURE_INPUTS: unknown[] = [
@@ -60,7 +60,30 @@ describe('Discriminator', (): void => {
     describe('Discriminator.isAspectRatioConfig()', (): void => {
         const TEST_CASES: { input: unknown; expected: boolean; }[] = [
             ...FAILURE_CASES,
-            { input: ASPECT_RATIOS.SQUARE, expected: true }
+            { input: ASPECT_RATIOS.SQUARE, expected: true },
+            {
+                input: {
+                    DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+                },
+                expected: true
+            },
+            {
+                input: {
+                    WIDTH_RATIO: 100,
+                    HEIGHT_RATIO: 99,
+                    DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+                },
+                expected: true
+            },
+            {
+                input: {
+                    WIDTH_RATIO: 100,
+                    HEIGHT_RATIO: 99,
+                    NAME: 'test ratio config',
+                    DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+                },
+                expected: true
+            }
         ];
 
         test.each(
