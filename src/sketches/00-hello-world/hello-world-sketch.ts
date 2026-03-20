@@ -22,7 +22,7 @@ import p5 from 'p5';
 
 import { Sketch } from '../../lib';
 
-export class HelloWorldSketch implements Sketch {
+export class HelloWorldSketch extends Sketch {
     public main(ctx: p5): void {
         ctx.setup = (): void => {
             ctx.createCanvas(720, 720);
