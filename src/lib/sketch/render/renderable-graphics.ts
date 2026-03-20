@@ -23,7 +23,16 @@ import p5 from 'p5';
 import { Renderable } from './renderable';
 
 export abstract class RenderableGraphics implements Renderable {
+    readonly #graphics: p5.Graphics;
+
+    protected constructor(graphics: p5.Graphics) {
+        this.#graphics = graphics;
+    }
     public abstract draw(): void;
 
     public abstract drawToContext(ctx: p5 | p5.Graphics | p5.Renderer): void;
+
+    public get graphics(): p5.Graphics {
+        return this.#graphics;
+    }
 }
