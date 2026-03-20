@@ -18,9 +18,9 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import p5 from "p5";
+import p5 from 'p5';
 
-import {SketchTile} from "./sketch-tile";
+import { SketchTile } from './sketch-tile';
 
 export abstract class SketchTileFactory {
     public abstract buildSketchTile(graphics: p5.Graphics): SketchTile;

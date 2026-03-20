@@ -22,7 +22,7 @@ import p5 from 'p5';
 
 import { Sketch } from './lib';
 
-import { SketchGridSketch } from "./sketches/01-experiments/00-sketch-grid/sketch-grid-sketch";
+import { SketchGridSketch } from './sketches/01-experiments/00-sketch-grid/sketch-grid-sketch';
 
 import '../assets/css/main.css';
 

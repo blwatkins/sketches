@@ -20,10 +20,8 @@
 
 import p5 from 'p5';
 
-import {Discriminators, Sketch} from '../../../lib';
-import {SketchGrid} from "../../../lib/sketch/sketch-grid/sketch-grid";
-import {SketchTileFactory} from "../../../lib/sketch/sketch-grid/sketch-tile-factory";
-import {SketchTile} from "../../../lib/sketch/sketch-grid/sketch-tile";
+import { Discriminators, Sketch } from '../../../lib';
+import { SketchGrid, SketchTile, SketchTileFactory } from '../../../lib/sketch/sketch-grid';
 
 class SketchGridSketchTile extends SketchTile {
     #r;

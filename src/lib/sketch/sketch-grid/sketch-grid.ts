@@ -20,10 +20,10 @@
 
 import p5 from 'p5';
 
-import {AspectRatio, AspectRatioConfig} from "../aspect-ratio";
+import { AspectRatio, AspectRatioConfig } from '../aspect-ratio';
 
-import {SketchTile} from "./sketch-tile";
-import {SketchTileFactory} from "./sketch-tile-factory";
+import { SketchTile } from './sketch-tile';
+import { SketchTileFactory } from './sketch-tile-factory';
 
 export interface SketchGridConfig {
     ASPECT_RATIO_CONFIG: AspectRatioConfig;
