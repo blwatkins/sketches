@@ -25,12 +25,19 @@ import p5 from 'p5';
  *
  * @category Sketch
  */
-export interface Sketch {
+export abstract class Sketch {
     /**
      * The main method should define the setup, draw, and event handler functions of the p5.js sketch context.
      * The main method will be passed to the p5 constructor as part of the sketch lifecycle.
      *
      * @param ctx - The p5.js sketch context.
      */
-    main(ctx: p5): void;
+    abstract main(ctx: p5): void;
+
+    /**
+     * @returns {number} The minimum resolution for a sketch.
+     */
+    static get MIN_RESOLUTION(): number {
+        return 100;
+    }
 }
