@@ -20,7 +20,7 @@
 
 import p5 from 'p5';
 
-import {AspectRatio, AspectRatioConfig} from "../aspect_ratio";
+import {AspectRatio, AspectRatioConfig} from "../aspect-ratio";
 
 import {SketchTile} from "./sketch-tile";
 import {SketchTileFactory} from "./sketch-tile-factory";
