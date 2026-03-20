@@ -20,3 +20,4 @@
 
 export * from './aspect-ratio';
 export * from './aspect-ratio-config';
+export * from './aspect-ratios';
