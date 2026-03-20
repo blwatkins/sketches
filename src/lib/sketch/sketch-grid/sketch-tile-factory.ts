@@ -18,16 +18,10 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import p5 from 'p5';
+import p5 from "p5";
 
-import { Sketch } from './lib';
+import {SketchTile} from "./sketch-tile";
 
-import { SketchGridSketch } from "./sketches/01-experiments/00-sketch-grid/sketch-grid-sketch";
-
-import '../assets/css/main.css';
-
-const sketch: Sketch = new SketchGridSketch();
-
-const main: (ctx: p5) => void = sketch.main.bind(sketch);
-
-new p5(main);
+export abstract class SketchTileFactory {
+    public abstract buildSketchTile(graphics: p5.Graphics): SketchTile;
+}
