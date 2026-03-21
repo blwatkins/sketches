@@ -21,7 +21,7 @@
 import * as z from 'zod';
 
 import { Palette } from '../palette/palette';
-import { PaletteColor } from '../palette-color';
+import { PaletteColor } from '../palette-color/palette-color';
 import { AspectRatioConfig, ASPECT_RATIO_CONFIG_SCHEMA } from '../sketch';
 
 import { Discriminable } from './discriminable';

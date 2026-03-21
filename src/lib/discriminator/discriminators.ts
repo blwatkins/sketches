@@ -19,7 +19,7 @@
  */
 
 import { type Palette } from '../palette/palette';
-import { type PaletteColor } from '../palette-color';
+import { type PaletteColor } from '../palette-color/palette-color';
 import { type AspectRatioConfig } from '../sketch';
 
 /**

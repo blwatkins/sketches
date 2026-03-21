@@ -18,13 +18,13 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Discriminable, Discriminators } from '../discriminator';
-import { Palette } from '../palette';
+import { Discriminable } from '../discriminator/discriminable';
+import { Discriminators } from '../discriminator/discriminators';
+
+import { type Palette } from '../palette/palette';
 
 /**
  * A color to be used in a {@link Palette}.
- *
- * @category PaletteColor
  */
 export interface PaletteColor extends Discriminable {
     /**
