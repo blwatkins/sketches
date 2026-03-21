@@ -18,9 +18,11 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import * as z from 'zod';
+
 import { Palette } from '../palette';
 import { PaletteColor } from '../palette-color';
-import { AspectRatioConfig } from '../sketch';
+import { AspectRatioConfig, ASPECT_RATIO_CONFIG_SCHEMA } from '../sketch';
 
 import { Discriminable } from './discriminable';
 import { Discriminators } from './discriminators';
@@ -46,7 +48,7 @@ export class Discriminator {
      * @returns {object is AspectRatioConfig} `true` if the given object implements the {@link AspectRatioConfig} interface, `false` if it does not.
      */
     public static isAspectRatioConfig(object: unknown): object is AspectRatioConfig {
-        return Discriminator.#hasDiscriminatorMatch(object, Discriminators.ASPECT_RATIO_CONFIG);
+        return (Discriminator.#hasDiscriminatorMatch(object, Discriminators.ASPECT_RATIO_CONFIG) && Discriminator.#hasZodMach(object as Discriminable, ASPECT_RATIO_CONFIG_SCHEMA));
     }
 
     /**
@@ -87,5 +89,10 @@ export class Discriminator {
         }
 
         return false;
+    }
+
+    static #hasZodMach(object: Discriminable, schema: z.ZodObject): boolean {
+        const result = schema.safeParse(object);
+        return result.success;
     }
 }

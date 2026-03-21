@@ -18,7 +18,7 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Discriminators } from '../../discriminator';
+import { Discriminators } from '../../discriminator/discriminators';
 
 import { AspectRatioConfig } from './aspect-ratio-config';
 

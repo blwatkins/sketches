@@ -20,9 +20,217 @@
 
 import { describe, test, expect } from 'vitest';
 
-import {ASPECT_RATIOS, AspectRatioConfig, Discriminator, Discriminators} from '../../../src/lib';
+import {
+    ASPECT_RATIOS,
+    AspectRatioConfig,
+    Discriminator,
+    Discriminators
+} from '../../../src/lib';
 
 describe('Discriminator', (): void => {
+    const INVALID_ASPECT_RATIO_CONFIG_INPUTS: unknown[] = [
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: 99,
+            NAME: null,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            HEIGHT_RATIO: 99,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+        },
+        {
+            WIDTH_RATIO: 100,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: 99,
+            NAME: 'test ratio config',
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: 99,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.PALETTE
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: 99,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.PALETTE_COLOR
+        },
+        {
+            WIDTH_RATIO: '100',
+            HEIGHT_RATIO: 99,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: '99',
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: 99,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+            EXTRA_PROPERTY: 'extra value'
+        },
+        {
+            WIDTH_RATIO: Infinity,
+            HEIGHT_RATIO: 99,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: Infinity,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: -Infinity,
+            HEIGHT_RATIO: 99,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: -Infinity,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: NaN,
+            HEIGHT_RATIO: 99,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: NaN,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: 0.1,
+            HEIGHT_RATIO: 99,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: 0.1,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: -100,
+            HEIGHT_RATIO: 99,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: -99,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            HEIGHT_RATIO: 99,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+        },
+        {
+            WIDTH_RATIO: 100,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: 99,
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: 99,
+            DISCRIMINATOR: Discriminators.PALETTE
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: 99,
+            DISCRIMINATOR: Discriminators.PALETTE_COLOR
+        },
+        {
+            WIDTH_RATIO: '100',
+            HEIGHT_RATIO: 99,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: '99',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: 99,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+            EXTRA_PROPERTY: 'extra value'
+        },
+        {
+            WIDTH_RATIO: Infinity,
+            HEIGHT_RATIO: 99,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: Infinity,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: -Infinity,
+            HEIGHT_RATIO: 99,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: -Infinity,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: NaN,
+            HEIGHT_RATIO: 99,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: NaN,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: 0.1,
+            HEIGHT_RATIO: 99,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: 0.1,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: -100,
+            HEIGHT_RATIO: 99,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: -99,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG,
+        },
+    ];
+
     const FAILURE_INPUTS: unknown[] = [
         10,
         10.10,
@@ -41,10 +249,38 @@ describe('Discriminator', (): void => {
         {},
         { DISCRIMINATOR: '' },
         { DISCRIMINATOR: 'SOME_VALUE' },
-        document,
         Math.random,
         (): number => {
             return 5;
+        },
+        ...Object.values(Discriminators).map((value: Discriminators) => ({ DISCRIMINATOR: value })),
+        ...INVALID_ASPECT_RATIO_CONFIG_INPUTS
+    ];
+
+
+    const VALID_ASPECT_RATIO_CONFIG_INPUTS: AspectRatioConfig[] = [
+        ...Object.values(ASPECT_RATIOS),
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: 99,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+        },
+        {
+            WIDTH_RATIO: 100,
+            HEIGHT_RATIO: 99,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+        },
+        {
+            WIDTH_RATIO: 2.4,
+            HEIGHT_RATIO: 1.5,
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+        },
+        {
+            WIDTH_RATIO: 2.4,
+            HEIGHT_RATIO: 1.5,
+            NAME: 'test ratio config',
+            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
         }
     ];
 
@@ -57,34 +293,11 @@ describe('Discriminator', (): void => {
     });
 
     describe('Discriminator.isAspectRatioConfig()', (): void => {
-        const ASPECT_RATIO_CASES: { input: AspectRatioConfig; expected: true }[] = Object.values(ASPECT_RATIOS).map((value: AspectRatioConfig): { input: AspectRatioConfig; expected: true; } => ({ input: value, expected: true }));
+        const SUCCESS_CASES: { input: AspectRatioConfig; expected: true }[] = VALID_ASPECT_RATIO_CONFIG_INPUTS.map((value: AspectRatioConfig): { input: AspectRatioConfig; expected: true; } => ({ input: value, expected: true }));
 
         const TEST_CASES: { input: unknown; expected: boolean; }[] = [
             ...FAILURE_CASES,
-            ...ASPECT_RATIO_CASES,
-            {
-                input: {
-                    DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
-                },
-                expected: true
-            },
-            {
-                input: {
-                    WIDTH_RATIO: 100,
-                    HEIGHT_RATIO: 99,
-                    DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
-                },
-                expected: true
-            },
-            {
-                input: {
-                    WIDTH_RATIO: 100,
-                    HEIGHT_RATIO: 99,
-                    NAME: 'test ratio config',
-                    DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
-                },
-                expected: true
-            }
+            ...SUCCESS_CASES,
         ];
 
         test.each(

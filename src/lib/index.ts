@@ -18,8 +18,9 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-export * from './discriminator';
-export * as discriminator from './discriminator';
+export type { Discriminable } from './discriminator/discriminable';
+export { Discriminator } from './discriminator/discriminator';
+export { Discriminators } from './discriminator/discriminators';
 
 export * from './palette';
 export * as palette from './palette';

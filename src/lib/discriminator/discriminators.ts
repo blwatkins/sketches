@@ -18,9 +18,9 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Palette } from '../palette';
-import { PaletteColor } from '../palette-color';
-import { AspectRatioConfig } from '../sketch';
+import { type Palette } from '../palette';
+import { type PaletteColor } from '../palette-color';
+import { type AspectRatioConfig } from '../sketch';
 
 /**
  * Discriminator values for library interfaces.

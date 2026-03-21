@@ -18,7 +18,7 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Discriminator } from '../../discriminator';
+import { Discriminator } from '../../discriminator/discriminator';
 
 import { Sketch } from '../sketch';
 
