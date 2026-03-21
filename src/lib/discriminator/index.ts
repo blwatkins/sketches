@@ -18,17 +18,4 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { type Discriminator } from './discriminator';
-import { Discriminators } from './discriminators';
-
-/**
- * Interface for objects that can be categorized by a discriminator value and the {@link Discriminator} class.
- */
-export interface Discriminable {
-    /**
-     * Discriminator value for the implementing interface.
-     *
-     * @readonly
-     */
-    readonly DISCRIMINATOR: Discriminators;
-}
+export * as discriminator from './typedoc';

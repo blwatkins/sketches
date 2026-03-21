@@ -25,8 +25,6 @@ import { type AspectRatioConfig } from '../sketch';
 /**
  * Discriminator values for library interfaces.
  * All values should be unique.
- *
- * @category Discriminator
  */
 export enum Discriminators {
     /**

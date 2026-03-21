@@ -29,8 +29,6 @@ import { Discriminators } from './discriminators';
 
 /**
  * Static class methods for evaluating if objects implement various interfaces for type safety.
- *
- * @category Discriminator
  */
 export class Discriminator {
     /**
@@ -41,58 +39,68 @@ export class Discriminator {
     }
 
     /**
-     * Does the given object implement the {@link AspectRatioConfig} interface?
+     * Does the given input implement the {@link AspectRatioConfig} interface?
      *
-     * @param object {unknown} - The object to check.
+     * @param input {unknown} - The input to check.
      *
-     * @returns {object is AspectRatioConfig} `true` if the given object implements the {@link AspectRatioConfig} interface, `false` if it does not.
+     * @returns {input is AspectRatioConfig} `true` if the given input implements the {@link AspectRatioConfig} interface, `false` if it does not.
      */
-    public static isAspectRatioConfig(object: unknown): object is AspectRatioConfig {
-        return (Discriminator.#hasDiscriminatorMatch(object, Discriminators.ASPECT_RATIO_CONFIG) && Discriminator.#hasZodMach(object as Discriminable, ASPECT_RATIO_CONFIG_SCHEMA));
+    public static isAspectRatioConfig(input: unknown): input is AspectRatioConfig {
+        return (Discriminator.#hasDiscriminatorMatch(input, Discriminators.ASPECT_RATIO_CONFIG) && Discriminator.#hasZodMach(input as Discriminable, ASPECT_RATIO_CONFIG_SCHEMA));
     }
 
     /**
-     * Does the given object implement the {@link Palette} interface?
+     * Does the given input implement the {@link Palette} interface?
      *
-     * @param object {unknown} - The object to check.
+     * @param input {unknown} - The input to check.
      *
-     * @returns {object is Palette} `true` if the given object implements the {@link Palette} interface, `false` if it does not.
+     * @returns {input is Palette} `true` if the given input implements the {@link Palette} interface, `false` if it does not.
      */
-    public static isPalette(object: unknown): object is Palette {
-        return Discriminator.#hasDiscriminatorMatch(object, Discriminators.PALETTE);
+    public static isPalette(input: unknown): input is Palette {
+        return Discriminator.#hasDiscriminatorMatch(input, Discriminators.PALETTE);
     }
 
     /**
-     * Does the given object implement the {@link PaletteColor} interface?
+     * Does the given input implement the {@link PaletteColor} interface?
      *
-     * @param object {unknown} - The object to check.
+     * @param input {unknown} - The input to check.
      *
-     * @returns {object is PaletteColor} `true` if the given object implements the {@link PaletteColor} interface, `false` if it does not.
+     * @returns {input is PaletteColor} `true` if the given input implements the {@link PaletteColor} interface, `false` if it does not.
      */
-    public static isPaletteColor(object: unknown): object is PaletteColor {
-        return Discriminator.#hasDiscriminatorMatch(object, Discriminators.PALETTE_COLOR);
+    public static isPaletteColor(input: unknown): input is PaletteColor {
+        return Discriminator.#hasDiscriminatorMatch(input, Discriminators.PALETTE_COLOR);
     }
 
     /**
-     * Does the given object implement the {@link Discriminable} interface, and does the object's {@link Discriminable.DISCRIMINATOR} value match the given discriminator?
+     * Does the given input implement the {@link Discriminable} interface, and does the input's {@link Discriminable.DISCRIMINATOR} value match the given discriminator?
      *
-     * @param object {unknown} - The object to check.
+     * @param input {unknown} - The input to check.
      * @param discriminator {Discriminators} - The discriminator value to check against.
      *
-     * @returns {boolean} `true` if the object implements {@link Discriminable} and has a matching discriminator value, `false` otherwise.
+     * @returns {boolean} `true` if the input implements {@link Discriminable} and has a matching discriminator value, `false` otherwise.
      *
      * @private
      */
-    static #hasDiscriminatorMatch(object: unknown, discriminator: Discriminators): boolean {
-        if (object && typeof object === 'object') {
-            return (object as Discriminable).DISCRIMINATOR === discriminator;
+    static #hasDiscriminatorMatch(input: unknown, discriminator: Discriminators): boolean {
+        if (input && typeof input === 'object') {
+            return (input as Discriminable).DISCRIMINATOR === discriminator;
         }
 
         return false;
     }
 
-    static #hasZodMach(object: Discriminable, schema: z.ZodObject): boolean {
-        const result = schema.safeParse(object);
+    /**
+     * Does the given input match the given Zod schema?
+     *
+     * @param input {unknown} - The input to check.
+     * @param schema {z.ZodObject} - The Zod schema to check against.
+     *
+     * @returns {boolean} `true` if the input matches the given Zod schema, `false` otherwise.
+     *
+     * @private
+     */
+    static #hasZodMach(input: Discriminable, schema: z.ZodObject): boolean {
+        const result = schema.safeParse(input);
         return result.success;
     }
 }
