@@ -19,12 +19,12 @@
  */
 
 import { Discriminator } from '../../discriminator/discriminator';
+import { NumberValidator } from '../../number/number-validator';
+import { StringValidator } from '../../string/string-validator';
 
 import { Sketch } from '../sketch';
 
 import { AspectRatioConfig } from './aspect-ratio-config';
-import {StringValidator} from "../../string/string-validator";
-import {NumberValidator} from "../../number/number-validator";
 
 /**
  * Defines the width-to-height ratio of a canvas or graphic.

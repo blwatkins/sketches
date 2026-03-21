@@ -68,7 +68,6 @@ export class StringValidator {
      * @returns {boolean} `true` if the given input is a non-empty string, `false` otherwise.
      */
     public static isNonEmptyString(input: unknown): boolean {
-        return (typeof input === 'string')
-            && (input.trim().length > 0);
+        return (typeof input === 'string') && (input.trim().length > 0);
     }
 }
