@@ -20,7 +20,7 @@
 
 import * as z from 'zod';
 
-import { Palette } from '../palette';
+import { Palette } from '../palette/palette';
 import { PaletteColor } from '../palette-color';
 import { AspectRatioConfig, ASPECT_RATIO_CONFIG_SCHEMA } from '../sketch';
 

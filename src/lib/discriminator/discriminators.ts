@@ -18,7 +18,7 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { type Palette } from '../palette';
+import { type Palette } from '../palette/palette';
 import { type PaletteColor } from '../palette-color';
 import { type AspectRatioConfig } from '../sketch';
 
