@@ -21,13 +21,12 @@
 import * as z from 'zod';
 
 import { Palette } from '../palette/palette';
-import { PaletteColor } from '../palette-color/palette-color';
+import { PALETTE_COLOR_SCHEMA, PaletteColor } from '../palette-color/palette-color';
 import { ASPECT_RATIO_CONFIG_SCHEMA, AspectRatioConfig } from '../sketch/aspect-ratio';
 
 import { Discriminable } from './discriminable';
 import { Discriminators } from './discriminators';
 
-// TODO - update palette color validation
 /**
  * Static methods for evaluating if objects implement various interfaces for type safety.
  */
@@ -47,7 +46,8 @@ export class Discriminator {
      * @returns {input is AspectRatioConfig} `true` if the given input implements the {@link AspectRatioConfig} interface, `false` if it does not.
      */
     public static isAspectRatioConfig(input: unknown): input is AspectRatioConfig {
-        return (Discriminator.#hasDiscriminatorMatch(input, Discriminators.ASPECT_RATIO_CONFIG) && Discriminator.#hasZodMach(input as Discriminable, ASPECT_RATIO_CONFIG_SCHEMA));
+        return (Discriminator.#hasDiscriminatorMatch(input, Discriminators.ASPECT_RATIO_CONFIG)
+            && Discriminator.#hasZodMach(input, ASPECT_RATIO_CONFIG_SCHEMA));
     }
 
     /**
@@ -69,7 +69,8 @@ export class Discriminator {
      * @returns {input is PaletteColor} `true` if the given input implements the {@link PaletteColor} interface, `false` if it does not.
      */
     public static isPaletteColor(input: unknown): input is PaletteColor {
-        return Discriminator.#hasDiscriminatorMatch(input, Discriminators.PALETTE_COLOR);
+        return Discriminator.#hasDiscriminatorMatch(input, Discriminators.PALETTE_COLOR)
+            && Discriminator.#hasZodMach(input, PALETTE_COLOR_SCHEMA);
     }
 
     /**
@@ -100,7 +101,7 @@ export class Discriminator {
      *
      * @private
      */
-    static #hasZodMach(input: Discriminable, schema: z.ZodObject): boolean {
+    static #hasZodMach(input: unknown, schema: z.ZodObject): boolean {
         const result = schema.safeParse(input);
         return result.success;
     }

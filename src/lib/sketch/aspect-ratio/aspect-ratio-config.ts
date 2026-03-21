@@ -20,13 +20,15 @@
 
 import * as z from 'zod';
 
-// import { Discriminable } from '../../discriminator/discriminable';
+import { type Discriminable } from '../../discriminator/discriminable';
 import { Discriminators } from '../../discriminator/discriminators';
 
 import { type AspectRatio } from './aspect-ratio';
 
 /**
  * Zod schema for validating that an object implements the {@link AspectRatioConfig} interface.
+ *
+ * @see {@link Discriminable}
  */
 export const ASPECT_RATIO_CONFIG_SCHEMA = z.strictObject({
     /**
@@ -66,5 +68,7 @@ export const ASPECT_RATIO_CONFIG_SCHEMA = z.strictObject({
 
 /**
  * A configuration for an {@link AspectRatio} object.
+ *
+ * @see {@link Discriminable}
  */
 export type AspectRatioConfig = z.infer<typeof ASPECT_RATIO_CONFIG_SCHEMA>;
