@@ -18,13 +18,4 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-export * from './aspect-ratio';
-
-/**
- * @category Namespace
- *
- * @since 2.0.0
- */
-export * as aspect_ratio from './aspect-ratio';
-
-export * from './sketch';
+export * as sketch from './typedoc';

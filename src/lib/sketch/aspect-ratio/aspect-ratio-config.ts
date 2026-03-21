@@ -21,53 +21,50 @@
 import * as z from 'zod';
 
 import { Discriminable } from '../../discriminator/discriminable';
-import { Discriminators } from "../../discriminator/discriminators";
+import { Discriminators } from '../../discriminator/discriminators';
 
-// import { AspectRatio } from './aspect-ratio';
+import { type AspectRatio } from './aspect-ratio';
 
 /**
  * Zod schema for validating that an object implements the {@link AspectRatioConfig} interface.
- *
- * @category Aspect Ratio
  */
 export const ASPECT_RATIO_CONFIG_SCHEMA = z.strictObject({
+    /**
+     * The name of the aspect ratio.
+     * This property is optional.
+     *
+     * @readonly
+     */
     NAME: z.string().readonly().optional(),
+
+    /**
+     * The width component of the aspect ratio.
+     * Must be greater than or equal to 1.
+     *
+     * @readonly
+     */
     WIDTH_RATIO: z.number().gte(1).readonly(),
+
+    /**
+     * The height component of the aspect ratio.
+     * Must be greater than or equal to 1.
+     *
+     * @readonly
+     */
     HEIGHT_RATIO: z.number().gte(1).readonly(),
-    DISCRIMINATOR: z.enum(Object.values(Discriminators)).extract([Discriminators.ASPECT_RATIO_CONFIG]).readonly(),
+
+    /**
+     * Discriminator value for the {@link AspectRatioConfig} interface.
+     *
+     * @see {@link Discriminable}
+     * @see {@link Discriminators.ASPECT_RATIO_CONFIG}
+     *
+     * @readonly
+     */
+    DISCRIMINATOR: z.enum(Object.values(Discriminators)).extract([Discriminators.ASPECT_RATIO_CONFIG]).readonly()
 });
 
+/**
+ * A configuration for an {@link AspectRatio} object.
+ */
 export type AspectRatioConfig = z.infer<typeof ASPECT_RATIO_CONFIG_SCHEMA> & Discriminable;
-
-// /**
-//  * A configuration for an {@link AspectRatio} object.
-//  *
-//  * @category Aspect Ratio
-//  */
-// export interface AspectRatioConfig extends Discriminable {
-//     /**
-//      * The name of the aspect ratio.
-//      *
-//      * @readonly
-//      */
-//     readonly NAME?: string;
-//
-//     /**
-//      * The width component of the aspect ratio.
-//      *
-//      * @readonly
-//      */
-//     readonly WIDTH_RATIO: number;
-//
-//     /**
-//      * The height component of the aspect ratio.
-//      *
-//      * @readonly
-//      */
-//     readonly HEIGHT_RATIO: number;
-//
-//     /**
-//      * @inheritDoc
-//      */
-//     readonly DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG;
-// }

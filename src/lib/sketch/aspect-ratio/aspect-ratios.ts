@@ -25,8 +25,6 @@ import { AspectRatioConfig } from './aspect-ratio-config';
 /**
  * Valid keys for the {@link ASPECT_RATIOS} record.
  * Each key corresponds to a pre-saved {@link AspectRatioConfig} object.
- *
- * @category Aspect Ratio
  */
 export enum AspectRatioName {
     /**
@@ -67,8 +65,6 @@ export enum AspectRatioName {
 
 /**
  * Pre-set {@link AspectRatioConfig} objects for easy access.
- *
- * @category Aspect Ratio
  */
 export const ASPECT_RATIOS: Record<AspectRatioName, AspectRatioConfig> = {
     [AspectRatioName.INSTAGRAM_PHOTO]: {

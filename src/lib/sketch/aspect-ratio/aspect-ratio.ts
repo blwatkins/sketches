@@ -26,8 +26,6 @@ import { AspectRatioConfig } from './aspect-ratio-config';
 
 /**
  * Defines the width-to-height ratio of a canvas or graphic.
- *
- * @category Aspect Ratio
  */
 export class AspectRatio {
     /**
@@ -71,16 +69,8 @@ export class AspectRatio {
     constructor(arg1: AspectRatioConfig | number, arg2?: number, arg3?: string) {
         if (Discriminator.isAspectRatioConfig(arg1)) {
             const config: AspectRatioConfig = arg1;
-            let widthRatio: number = config.WIDTH_RATIO;
-            let heightRatio: number = config.HEIGHT_RATIO;
-
-            if (widthRatio < 1 || heightRatio < 1) {
-                widthRatio = 1;
-                heightRatio = 1;
-            }
-
-            this.#WIDTH_RATIO = widthRatio;
-            this.#HEIGHT_RATIO = heightRatio;
+            this.#WIDTH_RATIO = config.WIDTH_RATIO;
+            this.#HEIGHT_RATIO = config.HEIGHT_RATIO;
             this.#NAME = this.#buildName(config.NAME);
         } else if ((arg1 >= Sketch.MIN_RESOLUTION) && (typeof arg2 === 'number' && arg2 >= Sketch.MIN_RESOLUTION)) {
             const width: number = arg1;

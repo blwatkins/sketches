@@ -22,7 +22,7 @@ import * as z from 'zod';
 
 import { Palette } from '../palette/palette';
 import { PaletteColor } from '../palette-color/palette-color';
-import { AspectRatioConfig, ASPECT_RATIO_CONFIG_SCHEMA } from '../sketch';
+import { ASPECT_RATIO_CONFIG_SCHEMA, AspectRatioConfig } from '../sketch/aspect-ratio';
 
 import { Discriminable } from './discriminable';
 import { Discriminators } from './discriminators';

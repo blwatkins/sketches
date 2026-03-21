@@ -22,11 +22,12 @@ export type { Discriminable } from './discriminator/discriminable';
 export { Discriminator } from './discriminator/discriminator';
 export { Discriminators } from './discriminator/discriminators';
 
-export * from './palette';
-export * as palette from './palette';
+export * from './palette/typedoc';
+export * as palette from './palette/typedoc';
 
-export * from './palette-color';
-export * as palette_color from './palette-color';
+export * from './palette-color/typedoc';
+export * as palette_color from './palette-color/typedoc';
 
-export * from './sketch';
-export * as sketch from './sketch';
+export * from './sketch/aspect-ratio';
+
+export { Sketch } from './sketch/sketch';

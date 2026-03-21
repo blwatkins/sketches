@@ -22,8 +22,6 @@ import p5 from 'p5';
 
 /**
  * Interface to create a p5.js sketch.
- *
- * @category Sketch
  */
 export abstract class Sketch {
     /**

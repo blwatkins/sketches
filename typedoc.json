@@ -46,6 +46,10 @@
     "notDocumented": true
   },
 
+  "intentionallyNotDocumented": [
+    "sketch.sketch.aspect_ratio.ASPECT_RATIO_CONFIG_SCHEMA.__type.DISCRIMINATOR.__type.I_ASPECT_RATIO_CONFIG"
+  ],
+
   "treatWarningsAsErrors": true,
 
   "customFooterHtml": "<br/>Copyright &copy; 2024-2026 Brittni Watkins."
