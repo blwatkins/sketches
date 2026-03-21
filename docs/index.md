@@ -32,7 +32,7 @@ The full text of the license is included with the project source code.
 
 - **Creative Coding:** Generative Art, Creative Problem-Solving
 - **Programming Languages:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [Markdown](https://www.markdownguide.org/)
-- **Runtime & Libraries:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/)
+- **Runtime & Libraries:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/), [Zod](https://zod.dev/)
 - **Code Quality:** [ESLint](https://eslint.org/)
 - **Testing:** [Vitest](https://vitest.dev/)
 - **Documentation:** [TypeDoc](https://typedoc.org/)
@@ -40,6 +40,7 @@ The full text of the license is included with the project source code.
 - **Automation & Delivery:** [GitHub Actions](https://github.com/features/actions), [GitHub Pages](https://docs.github.com/en/pages)
 - **Site Generation:** [Bundler](https://bundler.io/), [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)
 - **Environment Management:** [n](https://github.com/tj/n), [rbenv](https://rbenv.org/)
+- **Development Environments:** [WebStorm](https://www.jetbrains.com/webstorm/), [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Additional Information
 

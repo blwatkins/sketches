@@ -22,7 +22,7 @@ This page is a living technical record of skills, tools, and engineering practic
 ## Skills and Tooling Inventory
 
 - **Programming Languages:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [Markdown](https://www.markdownguide.org/)
-- **Runtime & Libraries:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/)
+- **Runtime & Libraries:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/), [Zod](https://zod.dev/)
 - **Code Quality:** [ESLint](https://eslint.org/)
 - **Testing:** [Vitest](https://vitest.dev/)
 - **Documentation:** [TypeDoc](https://typedoc.org/)

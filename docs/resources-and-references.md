@@ -40,6 +40,10 @@ layout: page
 
 - [p5.js](https://p5js.org/)
 
+### Zod
+
+- [Zod](https://zod.dev/)
+
 ## Code Quality
 
 - [ESLint](https://eslint.org/)
