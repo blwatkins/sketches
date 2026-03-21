@@ -12,6 +12,7 @@ layout: page
 ### JavaScript
 
 - [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [MDN Web Docs - Number.isNaN()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
 
 ### HTML
 
@@ -48,12 +49,14 @@ layout: page
 
 - [ESLint](https://eslint.org/)
 - [ESLint Stylistic](https://eslint.style/)
+  - [ESLint Stylistic - operator-linebreak](https://eslint.style/rules/operator-linebreak)
 - [eslint-plugin-es-x](https://eslint-community.github.io/eslint-plugin-es-x/)
 - [typescript-eslint](https://typescript-eslint.io/)
 
 ## Testing
 
 - [Vitest](https://vitest.dev/)
+- [RegEx Pal](https://www.regexpal.com/)
 
 ## Documentation
 
