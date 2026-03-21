@@ -32,6 +32,7 @@ describe('Discriminator', (): void => {
     });
 
     describe('Discriminator.isAspectRatioConfig()', (): void => {
+        // TODO - test palette color test cases (all should fail)
         const SUCCESS_CASES: { input: AspectRatioConfig; expected: true; }[] = VALID_ASPECT_RATIO_CONFIG_INPUTS.map((value: AspectRatioConfig): { input: AspectRatioConfig; expected: true; } => ({ input: value, expected: true }));
 
         const TEST_CASES: { input: unknown; expected: boolean; }[] = [
@@ -45,4 +46,6 @@ describe('Discriminator', (): void => {
             expect(Discriminator.isAspectRatioConfig(input)).toBe(expected);
         });
     });
+
+    // TODO - add palette color tests
 });

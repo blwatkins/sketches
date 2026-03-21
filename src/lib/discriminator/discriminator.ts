@@ -27,8 +27,9 @@ import { ASPECT_RATIO_CONFIG_SCHEMA, AspectRatioConfig } from '../sketch/aspect-
 import { Discriminable } from './discriminable';
 import { Discriminators } from './discriminators';
 
+// TODO - update palette color validation
 /**
- * Static class methods for evaluating if objects implement various interfaces for type safety.
+ * Static methods for evaluating if objects implement various interfaces for type safety.
  */
 export class Discriminator {
     /**

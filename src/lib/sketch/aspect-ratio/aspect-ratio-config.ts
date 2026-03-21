@@ -20,7 +20,7 @@
 
 import * as z from 'zod';
 
-import { Discriminable } from '../../discriminator/discriminable';
+// import { Discriminable } from '../../discriminator/discriminable';
 import { Discriminators } from '../../discriminator/discriminators';
 
 import { type AspectRatio } from './aspect-ratio';
@@ -35,7 +35,7 @@ export const ASPECT_RATIO_CONFIG_SCHEMA = z.strictObject({
      *
      * @readonly
      */
-    NAME: z.string().readonly().optional(),
+    NAME: z.string().trim().nonempty().readonly().optional(),
 
     /**
      * The width component of the aspect ratio.
@@ -67,4 +67,4 @@ export const ASPECT_RATIO_CONFIG_SCHEMA = z.strictObject({
 /**
  * A configuration for an {@link AspectRatio} object.
  */
-export type AspectRatioConfig = z.infer<typeof ASPECT_RATIO_CONFIG_SCHEMA> & Discriminable;
+export type AspectRatioConfig = z.infer<typeof ASPECT_RATIO_CONFIG_SCHEMA>;

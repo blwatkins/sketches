@@ -18,94 +18,113 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import * as z from 'zod';
+
 import { Discriminable } from '../discriminator/discriminable';
 import { Discriminators } from '../discriminator/discriminators';
-
 import { type Palette } from '../palette/palette';
+import { StringValidator } from '../string/string-validator';
 
-/**
- * A color to be used in a {@link Palette}.
- */
-export interface PaletteColor extends Discriminable {
+export const PALETTE_COLOR_SCHEMA = z.strictObject({
     /**
      * The hex string representation of the color (format: `#RRGGBB`).
+     * Must match the regular expression defined in {@link StringValidator.HEX_COLOR_PATTERN_RGB}.
      *
      * @readonly
      */
-    readonly HEX: string;
+    HEX: z.hex().regex(StringValidator.HEX_COLOR_PATTERN_RGB).readonly(),
 
     /**
      * The name of the color.
+     * Must be a non-empty string in lowercase.
      *
      * @readonly
      */
-    readonly NAME: string;
+    NAME: z.string().lowercase().nonempty().readonly(),
 
     /**
      * The luminance of the color (0-1).
      *
      * @readonly
      */
-    readonly LUMINANCE?: number;
+    LUMINANCE: z.number().gte(0).lte(1).readonly(),
 
     /**
      * The RGB (red, green, blue) components of the color.
+     * This property is optional.
      *
      * @readonly
      */
-    readonly RGB?: {
+    RGB: z.strictObject({
         /**
-         * The red component (0-255).
+         * The red component.
+         * Must be an integer between 0 and 255.
          *
          * @readonly
          */
-        readonly R: number;
+        R: z.number().int().gte(0).lte(255).readonly(),
 
         /**
-         * The green component (0-255).
+         * The green component.
+         * Must be an integer between 0 and 255.
          *
          * @readonly
          */
-        readonly G: number;
+        G: z.number().int().gte(0).lte(255).readonly(),
 
         /**
-         * The blue component (0-255).
+         * The blue component.
+         * Must be an integer between 0 and 255.
          *
          * @readonly
          */
-        readonly B: number;
-    };
+        B: z.number().int().gte(0).lte(255).readonly()
+    }).readonly().optional(),
 
     /**
      * The HSL (hue, saturation, lightness) components of the color.
+     * This property is optional.
      *
      * @readonly
      */
-    readonly HSL?: {
+    HSL: z.strictObject({
         /**
-         * The hue component (0-360).
+         * The hue component.
+         * Must be an integer between 0 and 360.
          *
          * @readonly
          */
-        readonly H: number;
+        H: z.number().int().gte(0).lte(360).readonly(),
 
         /**
-         * The saturation component (0-100).
+         * The saturation component.
+         * Must be an integer between 0 and 100.
          *
          * @readonly
          */
-        readonly S: number;
+        S: z.number().int().gte(0).lte(100).readonly(),
 
         /**
-         * The lightness component (0-100).
+         * The lightness component.
+         * Must be an integer between 0 and 100.
          *
          * @readonly
          */
-        readonly L: number;
-    };
+        L: z.number().int().gte(0).lte(100).readonly()
+    }).readonly().optional(),
 
     /**
-     * @inheritDoc
+     * Discriminator value for the {@link PaletteColor} interface.
+     *
+     * @see {@link Discriminable}
+     * @see {@link Discriminators.PALETTE_COLOR}
+     *
+     * @readonly
      */
-    readonly DISCRIMINATOR: Discriminators.PALETTE_COLOR;
-}
+    DISCRIMINATOR: z.enum(Object.values(Discriminators)).extract([Discriminators.PALETTE_COLOR]).readonly()
+});
+
+/**
+ * A color to be used in a {@link Palette}.
+ */
+export type PaletteColor = z.infer<typeof PALETTE_COLOR_SCHEMA> & Discriminable;

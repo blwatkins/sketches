@@ -23,6 +23,8 @@ import { Discriminator } from '../../discriminator/discriminator';
 import { Sketch } from '../sketch';
 
 import { AspectRatioConfig } from './aspect-ratio-config';
+import {StringValidator} from "../../string/string-validator";
+import {NumberValidator} from "../../number/number-validator";
 
 /**
  * Defines the width-to-height ratio of a canvas or graphic.
@@ -52,6 +54,7 @@ export class AspectRatio {
      */
     readonly #HEIGHT_RATIO: number;
 
+    // TODO - constructor should throw error for invalid parameters or configuration
     /**
      *  Create an aspect ratio using the given target width and height.
      *
@@ -72,7 +75,8 @@ export class AspectRatio {
             this.#WIDTH_RATIO = config.WIDTH_RATIO;
             this.#HEIGHT_RATIO = config.HEIGHT_RATIO;
             this.#NAME = this.#buildName(config.NAME);
-        } else if ((arg1 >= Sketch.MIN_RESOLUTION) && (typeof arg2 === 'number' && arg2 >= Sketch.MIN_RESOLUTION)) {
+        } else if ((NumberValidator.isPositiveFiniteNumber(arg1) && arg1 >= Sketch.MIN_RESOLUTION)
+            && (typeof arg2 === 'number' && NumberValidator.isPositiveFiniteNumber(arg2) && arg2 >= Sketch.MIN_RESOLUTION)) {
             const width: number = arg1;
             const height: number = arg2;
             const name: string | undefined = arg3;
@@ -110,6 +114,7 @@ export class AspectRatio {
         return this.#HEIGHT_RATIO;
     }
 
+    // TODO - resolution must be positive and finite
     /**
      * @param resolution {number} - The target resolution.
      * @param applyToLongSide {boolean} - When `true`, the long side of the canvas or graphic will be equal to the target resolution.
@@ -121,6 +126,7 @@ export class AspectRatio {
         return Math.floor(this.#calculateUnit(resolution, applyToLongSide) * this.#WIDTH_RATIO);
     }
 
+    // TODO - resolution must be positive and finite
     /**
      * @param resolution {number} - The target resolution.
      * @param applyToLongSide {boolean} - When `true`, the long side of the canvas or graphic will be equal to the target resolution.
@@ -132,6 +138,7 @@ export class AspectRatio {
         return Math.floor(this.#calculateUnit(resolution, applyToLongSide) * this.#HEIGHT_RATIO);
     }
 
+    // TODO - resolution must be positive and finite
     /**
      * @param resolution {number} - The target resolution.
      * @param applyToLongSide {boolean} - When `true`, the long side of the canvas or graphic will be equal to the target resolution.
@@ -163,8 +170,8 @@ export class AspectRatio {
      * @private
      */
     #buildName(name?: string): string {
-        if (name) {
-            return name;
+        if (name && StringValidator.isNonEmptyString(name)) {
+            return name.trim();
         }
 
         return `${this.#WIDTH_RATIO}:${this.#HEIGHT_RATIO}`;

@@ -20,11 +20,31 @@
 
 import { AspectRatioConfig, Discriminators, ASPECT_RATIOS } from '../../../src/lib';
 
+// TODO - add palette color test cases
+
 const INVALID_ASPECT_RATIO_CONFIG_INPUTS: unknown[] = [
     {
         WIDTH_RATIO: 100,
         HEIGHT_RATIO: 99,
         NAME: null,
+        DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+    },
+    {
+        WIDTH_RATIO: 100,
+        HEIGHT_RATIO: 99,
+        NAME: '',
+        DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+    },
+    {
+        WIDTH_RATIO: 100,
+        HEIGHT_RATIO: 99,
+        NAME: '          ',
+        DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+    },
+    {
+        WIDTH_RATIO: 100,
+        HEIGHT_RATIO: 99,
+        NAME: '\n\t',
         DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
     },
     {
