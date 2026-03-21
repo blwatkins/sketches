@@ -168,7 +168,7 @@ export default defineConfig([
                 }
             }],
 
-            '@stylistic/operator-linebreak': ['error', 'after'],
+            '@stylistic/operator-linebreak': ['error', 'before'],
 
             '@stylistic/quotes': ['error',
                 'single',
