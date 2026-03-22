@@ -31,6 +31,7 @@ This page is a living technical record of skills, tools, and engineering practic
 - **Site Generation:** [Bundler](https://bundler.io/), [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)
 - **Environment Management:** [n](https://github.com/tj/n), [rbenv](https://rbenv.org/)
 - **Development Environments:** [WebStorm](https://www.jetbrains.com/webstorm/), [Visual Studio Code](https://code.visualstudio.com/)
+- **AI-Assisted Development:** [GitHub Copilot](https://github.com/features/copilot) (Agentic Coding, Pair Programming)
 
 ## Capability Record
 
@@ -39,6 +40,7 @@ This page is a living technical record of skills, tools, and engineering practic
 - Typed entrypoint composition and runtime binding
 - CI-based lint, build, and test verification
 - Automated static site deployment and project documentation generation
+- AI-assisted feature development and pair programming using GitHub Copilot agentic workflows
 
 ## Detailed Technical Notes
 
@@ -79,3 +81,10 @@ This page is a living technical record of skills, tools, and engineering practic
   - [`typedoc.json`](https://github.com/blwatkins/sketches/blob/main/typedoc.json)
   - [`.github/workflows/gh-pages-jekyll.yml`](https://github.com/blwatkins/sketches/blob/main/.github/workflows/gh-pages-jekyll.yml)
   - [`docs/`](https://github.com/blwatkins/sketches/tree/main/docs)
+
+### AI-assisted development with GitHub Copilot
+
+- GitHub Copilot is used for agentic coding workflows, including automated code generation, refactoring, and implementation of new features via natural language prompts.
+- Copilot pair programming is used interactively during development to accelerate iteration and maintain code quality.
+- Evidence:
+  - [`.github/copilot-instructions.md`](https://github.com/blwatkins/sketches/blob/main/.github/copilot-instructions.md)
