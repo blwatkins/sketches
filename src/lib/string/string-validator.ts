@@ -25,7 +25,7 @@ const REGULAR_EXPRESSIONS = {
 };
 
 /**
- * Static methods for validating string types.
+ * Static properties and methods for validating string types.
  */
 export class StringValidator {
     // noinspection JSUnusedLocalSymbols
@@ -62,6 +62,7 @@ export class StringValidator {
 
     /**
      * Is the given input a non-empty string?
+     * In this context, non-empty strings must contain at least one non-whitespace character.
      *
      * @param input - The input to be tested.
      *
