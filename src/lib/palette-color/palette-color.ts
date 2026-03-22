@@ -134,5 +134,8 @@ export const PALETTE_COLOR_SCHEMA = z.strictObject({
 
 /**
  * A color to be used in a {@link Palette}.
+ *
+ * @see {@link Discriminable}
+ * @see {@link PALETTE_COLOR_SCHEMA}
  */
 export type PaletteColor = z.infer<typeof PALETTE_COLOR_SCHEMA>;

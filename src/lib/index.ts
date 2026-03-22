@@ -27,8 +27,7 @@ export { NumberValidator } from './number/number-validator';
 export * from './palette/typedoc';
 export * as palette from './palette/typedoc';
 
-export * from './palette-color/typedoc';
-export * as palette_color from './palette-color/typedoc';
+export { type PaletteColor, PALETTE_COLOR_SCHEMA } from './palette-color/palette-color';
 
 export * from './sketch/aspect-ratio';
 
