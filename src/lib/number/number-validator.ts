@@ -18,20 +18,36 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-// TODO - add constructor that throws error
-// TODO - constructor unit tests
-// TODO - documentation
+/**
+ * Static methods for validating number types.
+ */
 export class NumberValidator {
-    // TODO - unit tests
+    // noinspection JSUnusedLocalSymbols
+    /**
+     * @throws {Error} - NumberValidator is a static class and cannot be instantiated.
+     */
+    private constructor() {
+        throw new Error('NumberValidator is a static class and cannot be instantiated.');
+    }
+
+    /**
+     * Checks whether the input is a finite positive number, or zero when `zeroInclusive` is `true`.
+     *
+     * @param input - The input to check.
+     * @param zeroInclusive - `true` if zero should be considered a valid input.
+     * `false` if zero should be considered an invalid input.
+     *
+     * @returns {boolean} - `true` if the given input is a finite positive number, or zero when `zeroInclusive` is `true`; `false` otherwise.
+     */
     public static isPositiveFiniteNumber(input: unknown, zeroInclusive?: boolean): boolean {
-        if (typeof input === 'number' && !Number.isNaN(input) && Number.isFinite(input)) {
-            if (zeroInclusive) {
-                return input >= 0;
-            } else {
-                return input > 0;
-            }
+        if (typeof input !== 'number' || !Number.isFinite(input)) {
+            return false;
         }
 
-        return false;
+        if (zeroInclusive === true) {
+            return input >= 0;
+        }
+
+        return input > 0;
     }
 }

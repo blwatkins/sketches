@@ -25,6 +25,9 @@ import { Discriminators } from '../discriminator/discriminators';
 import { type Palette } from '../palette/palette';
 import { StringValidator } from '../string/string-validator';
 
+/**
+ * TODO
+ */
 export const PALETTE_COLOR_SCHEMA = z.strictObject({
     /**
      * The hex string representation of the color (format: `#RRGGBB`).

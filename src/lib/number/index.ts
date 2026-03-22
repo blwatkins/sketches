@@ -18,28 +18,4 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { describe, test, expect } from 'vitest';
-
-import { AspectRatioConfig, Discriminator } from '../../../src/lib';
-
-import { VALID_ASPECT_RATIO_CONFIG_INPUTS, FAILURE_CASES } from './constants';
-
-describe('Discriminator', (): void => {
-    describe('Discriminator.isAspectRatioConfig()', (): void => {
-        // TODO - test valid palette color test cases (all should fail)
-        const SUCCESS_CASES: { input: AspectRatioConfig; expected: true; }[] = VALID_ASPECT_RATIO_CONFIG_INPUTS.map((value: AspectRatioConfig): { input: AspectRatioConfig; expected: true; } => ({ input: value, expected: true }));
-
-        const TEST_CASES: { input: unknown; expected: boolean; }[] = [
-            ...FAILURE_CASES,
-            ...SUCCESS_CASES
-        ];
-
-        test.each(
-            TEST_CASES
-        )('Discriminator.isAspectRatioConfig($input) should return $expected', ({ input, expected }): void => {
-            expect(Discriminator.isAspectRatioConfig(input)).toBe(expected);
-        });
-    });
-
-    // TODO - add palette color tests
-});
+export * as number from './typedoc';

@@ -22,6 +22,8 @@ export type { Discriminable } from './discriminator/discriminable';
 export { Discriminator } from './discriminator/discriminator';
 export { Discriminators } from './discriminator/discriminators';
 
+export { NumberValidator } from './number/number-validator';
+
 export * from './palette/typedoc';
 export * as palette from './palette/typedoc';
 

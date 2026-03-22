@@ -31,7 +31,7 @@ export class StringValidator {
     /**
      * @throws {Error} - StringValidator is a static class and cannot be instantiated.
      */
-    public constructor() {
+    private constructor() {
         throw new Error('StringValidator is a static class and cannot be instantiated.');
     }
 

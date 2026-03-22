@@ -7,9 +7,11 @@
 
   "entryPoints": [
     "./src/lib/discriminator/index.ts",
+    "./src/lib/number/index.ts",
     "./src/lib/palette/index.ts",
     "./src/lib/palette-color/index.ts",
-    "./src/lib/sketch/index.ts"
+    "./src/lib/sketch/index.ts",
+    "./src/lib/string/string-validator.ts"
   ],
 
   "out": "./_doc",
@@ -48,7 +50,8 @@
   },
 
   "intentionallyNotDocumented": [
-    "sketch.sketch.aspect_ratio.ASPECT_RATIO_CONFIG_SCHEMA.__type.DISCRIMINATOR.__type.I_ASPECT_RATIO_CONFIG"
+    "sketch.sketch.aspect_ratio.ASPECT_RATIO_CONFIG_SCHEMA.__type.DISCRIMINATOR.__type.I_ASPECT_RATIO_CONFIG",
+    "palette-color.palette_color.PALETTE_COLOR_SCHEMA.__type.DISCRIMINATOR.__type.I_PALETTE_COLOR"
   ],
 
   "treatWarningsAsErrors": true,

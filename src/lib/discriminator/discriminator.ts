@@ -34,7 +34,7 @@ export class Discriminator {
     /**
      * @throws {Error} - Discriminator is a static class and cannot be instantiated.
      */
-    public constructor() {
+    private constructor() {
         throw new Error('Discriminator is a static class and cannot be instantiated.');
     }
 
