@@ -6,7 +6,7 @@ This repository contains generative art sketches built using [p5.js](https://p5j
 
 - **Repository:** [blwatkins/sketches](https://github.com/blwatkins/sketches)
 - **Homepage:** [blwatkins.github.io/sketches](https://blwatkins.github.io/sketches/)
-- **Documentation:** Generated via TypeDoc to `_doc/`
+- **Documentation:** Generated via TypeDoc to `_doc/` and copied manually to the GitHub Pages site in `docs/`
 
 ---
 
@@ -31,7 +31,7 @@ This repository contains generative art sketches built using [p5.js](https://p5j
 sketches/
 ├── .github/                  # GitHub Actions workflows, Dependabot config, CODEOWNERS
 ├── assets/                   # Static assets (e.g., favicon)
-├── docs/                     # Jekyll-based GitHub Pages site (do NOT put TypeDoc output here)
+├── docs/                     # Jekyll-based GitHub Pages site (TypeDoc output copied here manually)
 ├── src/
 │   ├── lib/                  # Shared utility library (validators, palette, sketch, etc.)
 │   │   ├── discriminator/    # Discriminable interface, Discriminator, Discriminators
