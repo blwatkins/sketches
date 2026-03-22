@@ -12,6 +12,9 @@ layout: page
 ### JavaScript
 
 - [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [MDN Web Docs - JavaScript data types and data structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures)
+- [MDN Web Docs - Falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+- [MDN Web Docs - Number.MIN_VALUE](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_VALUE)
 - [MDN Web Docs - Number.isNaN()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
 
 ### HTML
@@ -88,4 +91,5 @@ layout: page
 ## Development Environments
 
 - [WebStorm](https://www.jetbrains.com/webstorm/)
+- [WebStorm - Disabling and enabling inspections](https://www.jetbrains.com/help/webstorm/disabling-and-enabling-inspections.html)
 - [Visual Studio Code](https://code.visualstudio.com/)
