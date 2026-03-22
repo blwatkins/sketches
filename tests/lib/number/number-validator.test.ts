@@ -23,7 +23,7 @@ import { describe, test, expect } from 'vitest';
 import { NumberValidator } from '../../../src/lib';
 
 describe('NumberValidator', (): void => {
-    type TestCase = { input: unknown; expected: boolean };
+    interface TestCase { input: unknown; expected: boolean; }
 
     function buildTestCases(inputs: readonly unknown[], expected: boolean): TestCase[] {
         return inputs.map((input: unknown): TestCase => ({ input, expected }));
