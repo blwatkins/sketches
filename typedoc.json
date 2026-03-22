@@ -11,7 +11,7 @@
     "./src/lib/palette/index.ts",
     "./src/lib/palette-color/index.ts",
     "./src/lib/sketch/index.ts",
-    "./src/lib/string/string-validator.ts"
+    "./src/lib/string/index.ts"
   ],
 
   "out": "./_doc",
