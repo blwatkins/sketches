@@ -62,7 +62,7 @@ export class StringValidator {
 
     /**
      * Is the given input a non-empty string?
-     * In this context, non-empty strings must contain at least one non-whitespace character.
+     * Non-empty strings must contain at least one non-whitespace character.
      *
      * @param input - The input to be tested.
      *

@@ -20,18 +20,21 @@
 
 import * as z from 'zod';
 
-import { Discriminable } from '../discriminator/discriminable';
+import { type Discriminable } from '../discriminator/discriminable';
 import { Discriminators } from '../discriminator/discriminators';
 import { type Palette } from '../palette/palette';
 import { StringValidator } from '../string/string-validator';
 
 /**
- * TODO
+ * Zod schema for validating that an object implements the {@link PaletteColor} interface.
+ *
+ * @see {@link Discriminable}
  */
 export const PALETTE_COLOR_SCHEMA = z.strictObject({
     /**
      * The hex string representation of the color (format: `#RRGGBB`).
      * Must match the regular expression defined in {@link StringValidator.HEX_COLOR_PATTERN_RGB}.
+     * Case must be consistent in hex color strings: either all lowercase or all uppercase.
      *
      * @readonly
      */
@@ -40,17 +43,19 @@ export const PALETTE_COLOR_SCHEMA = z.strictObject({
     /**
      * The name of the color.
      * Must be a non-empty string in lowercase.
+     * Non-empty strings must contain at least one non-whitespace character.
      *
      * @readonly
      */
-    NAME: z.string().lowercase().nonempty().readonly(),
+    NAME: z.string().trim().lowercase().nonempty().readonly(),
 
     /**
      * The luminance of the color (0-1).
+     * This property is optional.
      *
      * @readonly
      */
-    LUMINANCE: z.number().gte(0).lte(1).readonly(),
+    LUMINANCE: z.number().gte(0).lte(1).readonly().optional(),
 
     /**
      * The RGB (red, green, blue) components of the color.
@@ -129,5 +134,8 @@ export const PALETTE_COLOR_SCHEMA = z.strictObject({
 
 /**
  * A color to be used in a {@link Palette}.
+ *
+ * @see {@link Discriminable}
+ * @see {@link PALETTE_COLOR_SCHEMA}
  */
-export type PaletteColor = z.infer<typeof PALETTE_COLOR_SCHEMA> & Discriminable;
+export type PaletteColor = z.infer<typeof PALETTE_COLOR_SCHEMA>;

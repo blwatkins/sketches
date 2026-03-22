@@ -31,6 +31,7 @@ import { Discriminators } from './discriminators';
  * Static methods for evaluating if objects implement various interfaces for type safety.
  */
 export class Discriminator {
+    // noinspection JSUnusedLocalSymbols
     /**
      * @throws {Error} - Discriminator is a static class and cannot be instantiated.
      */
@@ -41,7 +42,7 @@ export class Discriminator {
     /**
      * Does the given input implement the {@link AspectRatioConfig} interface?
      *
-     * @param input {unknown} - The input to check.
+     * @param input - The input to check.
      *
      * @returns {input is AspectRatioConfig} `true` if the given input implements the {@link AspectRatioConfig} interface, `false` if it does not.
      */
@@ -53,7 +54,7 @@ export class Discriminator {
     /**
      * Does the given input implement the {@link Palette} interface?
      *
-     * @param input {unknown} - The input to check.
+     * @param input - The input to check.
      *
      * @returns {input is Palette} `true` if the given input implements the {@link Palette} interface, `false` if it does not.
      */
@@ -64,7 +65,7 @@ export class Discriminator {
     /**
      * Does the given input implement the {@link PaletteColor} interface?
      *
-     * @param input {unknown} - The input to check.
+     * @param input - The input to check.
      *
      * @returns {input is PaletteColor} `true` if the given input implements the {@link PaletteColor} interface, `false` if it does not.
      */
@@ -76,8 +77,8 @@ export class Discriminator {
     /**
      * Does the given input implement the {@link Discriminable} interface, and does the input's {@link Discriminable.DISCRIMINATOR} value match the given discriminator?
      *
-     * @param input {unknown} - The input to check.
-     * @param discriminator {Discriminators} - The discriminator value to check against.
+     * @param input - The input to check.
+     * @param discriminator - The discriminator value to check against.
      *
      * @returns {boolean} `true` if the input implements {@link Discriminable} and has a matching discriminator value, `false` otherwise.
      *
@@ -94,8 +95,8 @@ export class Discriminator {
     /**
      * Does the given input match the given Zod schema?
      *
-     * @param input {unknown} - The input to check.
-     * @param schema {z.ZodObject} - The Zod schema to check against.
+     * @param input - The input to check.
+     * @param schema - The Zod schema to check against.
      *
      * @returns {boolean} `true` if the input matches the given Zod schema, `false` otherwise.
      *

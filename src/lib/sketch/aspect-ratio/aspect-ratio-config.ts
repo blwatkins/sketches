@@ -70,5 +70,6 @@ export const ASPECT_RATIO_CONFIG_SCHEMA = z.strictObject({
  * A configuration for an {@link AspectRatio} object.
  *
  * @see {@link Discriminable}
+ * @see {@link ASPECT_RATIO_CONFIG_SCHEMA}
  */
 export type AspectRatioConfig = z.infer<typeof ASPECT_RATIO_CONFIG_SCHEMA>;
