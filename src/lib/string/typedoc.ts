@@ -18,20 +18,4 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-export type { Discriminable } from './discriminator/discriminable';
-export { Discriminator } from './discriminator/discriminator';
-export { Discriminators } from './discriminator/discriminators';
-
-export { NumberValidator } from './number/number-validator';
-
-export * from './palette/typedoc';
-export * as palette from './palette/typedoc';
-
-export * from './palette-color/typedoc';
-export * as palette_color from './palette-color/typedoc';
-
-export * from './sketch/aspect-ratio';
-
-export { Sketch } from './sketch/sketch';
-
-export { StringValidator } from './string/string-validator';
+export * from './string-validator';

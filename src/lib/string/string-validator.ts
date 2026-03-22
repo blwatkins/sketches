@@ -25,9 +25,10 @@ const REGULAR_EXPRESSIONS = {
 };
 
 /**
- * Static methods for validating string types.
+ * Static properties and methods for validating string types.
  */
 export class StringValidator {
+    // noinspection JSUnusedLocalSymbols
     /**
      * @throws {Error} - StringValidator is a static class and cannot be instantiated.
      */
@@ -59,9 +60,9 @@ export class StringValidator {
         return REGULAR_EXPRESSIONS.HEX_COLOR_PATTERN_RGBA;
     }
 
-    // TODO - unit tests
     /**
      * Is the given input a non-empty string?
+     * In this context, non-empty strings must contain at least one non-whitespace character.
      *
      * @param input - The input to be tested.
      *
