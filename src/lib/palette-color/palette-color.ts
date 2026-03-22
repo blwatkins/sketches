@@ -38,7 +38,7 @@ export const PALETTE_COLOR_SCHEMA = z.strictObject({
      *
      * @readonly
      */
-    HEX: z.hex().regex(StringValidator.HEX_COLOR_PATTERN_RGB).readonly(),
+    HEX: z.string().regex(StringValidator.HEX_COLOR_PATTERN_RGB).readonly(),
 
     /**
      * The name of the color.

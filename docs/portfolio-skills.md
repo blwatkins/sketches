@@ -39,6 +39,9 @@ This page is a living technical record of skills, tools, and engineering practic
 - Typed entrypoint composition and runtime binding
 - CI-based lint, build, and test verification
 - Automated static site deployment and project documentation generation
+- Runtime schema validation with Zod for type-safe data structures
+- Discriminated union pattern for runtime type narrowing
+- Static utility class pattern with enforced non-instantiability
 
 ## Detailed Technical Notes
 
@@ -79,3 +82,29 @@ This page is a living technical record of skills, tools, and engineering practic
   - [`typedoc.json`](https://github.com/blwatkins/sketches/blob/main/typedoc.json)
   - [`.github/workflows/gh-pages-jekyll.yml`](https://github.com/blwatkins/sketches/blob/main/.github/workflows/gh-pages-jekyll.yml)
   - [`docs/`](https://github.com/blwatkins/sketches/tree/main/docs)
+
+### Runtime schema validation with Zod
+
+- Zod `strictObject` schemas enforce the shape of shared data types (`PaletteColor`, `AspectRatioConfig`) at runtime.
+- Types are derived from schemas using `z.infer<typeof SCHEMA>` for compile-time safety alongside runtime checks.
+- Evidence:
+  - [`src/lib/palette-color/palette-color.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/palette-color/palette-color.ts)
+  - [`src/lib/sketch/aspect-ratio/aspect-ratio-config.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/sketch/aspect-ratio/aspect-ratio-config.ts)
+
+### Discriminated union pattern for runtime type narrowing
+
+- A `DISCRIMINATOR` property on shared data types enables reliable runtime type narrowing without `instanceof`.
+- The `Discriminator` static class exposes `isAspectRatioConfig`, `isPalette`, and `isPaletteColor` type guard methods.
+- Type guards combine discriminator matching with Zod schema validation where applicable.
+- Evidence:
+  - [`src/lib/discriminator/discriminator.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/discriminator/discriminator.ts)
+  - [`src/lib/discriminator/discriminators.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/discriminator/discriminators.ts)
+
+### Static utility class pattern
+
+- Utility classes (`StringValidator`, `NumberValidator`, `Discriminator`) expose only static methods and prevent instantiation at runtime.
+- Private constructors throw `Error` to guard against accidental instantiation, even when the class is cast or bypassed via TypeScript.
+- Evidence:
+  - [`src/lib/string/string-validator.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/string/string-validator.ts)
+  - [`src/lib/number/number-validator.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/number/number-validator.ts)
+  - [`src/lib/discriminator/discriminator.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/discriminator/discriminator.ts)

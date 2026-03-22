@@ -91,7 +91,7 @@ sketches/
 - **Output directory:** `_compiled/` (from `tsc`)
 - **No implicit `any`**, no implicit returns, no unused locals or parameters
 - **`noEmitOnError: true`** — the compiler will not emit output if there are errors
-- **Type definitions:** Use `interface` (not `type`) for object type definitions, enforced by ESLint rule `@typescript-eslint/consistent-type-definitions: ['error', 'interface']`
+- **Type definitions:** Use `interface` (not `type`) for object type definitions, enforced by ESLint rule `@typescript-eslint/consistent-type-definitions: ['error', 'interface']`. **Exception:** Zod-derived types use `type X = z.infer<typeof SCHEMA>` (e.g., `PaletteColor`, `AspectRatioConfig`). The ESLint rule applies only to object type literal definitions (`type Foo = { ... }`), not to type aliases that reference other types, so `z.infer<typeof SCHEMA>` is not flagged.
 - **Module exports:** Use barrel `index.ts` files for each module in `src/lib/`
 
 ### Static Classes
