@@ -20,8 +20,8 @@
 
 import * as z from 'zod';
 
-import { Palette } from '../palette/palette';
-import { PALETTE_COLOR_SCHEMA, PaletteColor } from '../palette-color/palette-color';
+import { PALETTE_SCHEMA, type Palette } from '../palette/palette';
+import { PALETTE_COLOR_SCHEMA, type PaletteColor } from '../palette-color/palette-color';
 import { ASPECT_RATIO_CONFIG_SCHEMA, AspectRatioConfig } from '../sketch/aspect-ratio';
 
 import { Discriminable } from './discriminable';
@@ -52,14 +52,15 @@ export class Discriminator {
     }
 
     /**
-     * Does the given input implement the {@link Palette} interface?
+     * Does the given input implement the {@link Palette} type?
      *
      * @param input - The input to check.
      *
-     * @returns {input is Palette} `true` if the given input implements the {@link Palette} interface, `false` if it does not.
+     * @returns {input is Palette} `true` if the given input implements the {@link Palette} type, `false` if it does not.
      */
     public static isPalette(input: unknown): input is Palette {
-        return Discriminator.#hasDiscriminatorMatch(input, Discriminators.PALETTE);
+        return (Discriminator.#hasDiscriminatorMatch(input, Discriminators.PALETTE)
+            && Discriminator.#hasZodMach(input, PALETTE_SCHEMA));
     }
 
     /**

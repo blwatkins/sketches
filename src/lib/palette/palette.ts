@@ -18,49 +18,61 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Discriminable } from '../discriminator/discriminable';
+import * as z from 'zod';
+
+import { type Discriminable } from '../discriminator/discriminable';
 import { Discriminators } from '../discriminator/discriminators';
 
-import { PaletteColor } from '../palette-color/palette-color';
+import { PALETTE_COLOR_SCHEMA } from '../palette-color/palette-color';
 
 /**
- * A collection of {@link PaletteColor} objects.
+ * Zod schema for validating that an object implements the {@link Palette} type.
+ *
+ * @see {@link Discriminable}
  */
-export interface Palette extends Discriminable {
+export const PALETTE_SCHEMA = z.strictObject({
     /**
      * The name of the palette.
+     * Must be a non-empty string.
+     * Non-empty strings must contain at least one non-whitespace character.
      *
      * @readonly
      */
-    readonly NAME: string;
+    NAME: z.string().trim().nonempty().readonly(),
 
     /**
      * The source of the palette.
+     * Must be a non-empty string when provided.
+     * Non-empty strings must contain at least one non-whitespace character.
+     * This property is optional.
      *
      * @readonly
      */
-    readonly SOURCE?: string;
+    SOURCE: z.string().trim().nonempty().readonly().optional(),
 
     /**
      * The source URL of the palette.
+     * Must be a non-empty string when provided.
+     * Non-empty strings must contain at least one non-whitespace character.
+     * This property is optional.
      *
      * @readonly
      */
-    readonly SOURCE_URL?: string;
+    SOURCE_URL: z.string().trim().nonempty().readonly().optional(),
 
     /**
      * A flag indicating if the palette is a gradient.
      *
      * @readonly
      */
-    readonly IS_GRADIENT: boolean;
+    IS_GRADIENT: z.boolean().readonly(),
 
     /**
      * The list of {@link PaletteColor} objects that compose the palette.
      *
      * @readonly
      */
-    readonly COLORS: PaletteColor[];
+    COLORS: z.array(PALETTE_COLOR_SCHEMA).readonly(),
 
     /**
      * A map of hex color strings to arrays of hex colors,
@@ -68,39 +80,27 @@ export interface Palette extends Discriminable {
      * with normal and large size text when compared to the key.<br/>
      * The only colors listed in this map should be the colors of the
      * palette, black (#000000), and white (#FFFFFF).
+     * This property is optional.
      *
      * @readonly
      */
-    readonly CONTRAST_MAP?: {
-        /**
-         * The colors in the palette that pass the WCAG AA standard when
-         * compared to black (#000000). This list should NOT contain
-         * white (#FFFFFF) unless it is a color listed in the palette.
-         *
-         * @readonly
-         */
-        readonly '#000000': string[];
-
-        /**
-         * The colors in the palette that pass the WCAG AA standard when
-         * compared to white (#FFFFFF). This list should NOT contain
-         * black (#000000) unless it is a color listed in the palette.
-         *
-         * @readonly
-         */
-        readonly '#FFFFFF': string[];
-
-        /**
-         * The colors in the palette that pass the WCAG AA standard when
-         * compared to any other color in the palette.
-         *
-         * @readonly
-         */
-        readonly [HEX: string]: string[];
-    };
+    CONTRAST_MAP: z.record(z.string(), z.array(z.string()).readonly()).readonly().optional(),
 
     /**
-     * @inheritDoc
+     * Discriminator value for the {@link Palette} type.
+     *
+     * @see {@link Discriminable}
+     * @see {@link Discriminators.PALETTE}
+     *
+     * @readonly
      */
-    readonly DISCRIMINATOR: Discriminators.PALETTE;
-}
+    DISCRIMINATOR: z.enum(Object.values(Discriminators)).extract([Discriminators.PALETTE]).readonly()
+});
+
+/**
+ * A collection of {@link PaletteColor} objects.
+ *
+ * @see {@link Discriminable}
+ * @see {@link PALETTE_SCHEMA}
+ */
+export type Palette = z.infer<typeof PALETTE_SCHEMA>;
