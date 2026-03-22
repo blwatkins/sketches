@@ -31,7 +31,7 @@ This page is a living technical record of skills, tools, and engineering practic
 - **Site Generation:** [Bundler](https://bundler.io/), [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)
 - **Environment Management:** [n](https://github.com/tj/n), [rbenv](https://rbenv.org/)
 - **Development Environments:** [WebStorm](https://www.jetbrains.com/webstorm/), [Visual Studio Code](https://code.visualstudio.com/)
-- **AI-Assisted Development:** [GitHub Copilot](https://github.com/features/copilot) (Agentic Coding, Pair Programming)
+- **AI-Assisted Development:** [GitHub Copilot](https://github.com/features/copilot)
 
 ## Capability Record
 

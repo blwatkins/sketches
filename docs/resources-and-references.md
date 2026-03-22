@@ -82,3 +82,7 @@ layout: page
 
 - [WebStorm](https://www.jetbrains.com/webstorm/)
 - [Visual Studio Code](https://code.visualstudio.com/)
+
+## AI-Assisted Development
+
+- [GitHub Copilot](https://github.com/features/copilot)

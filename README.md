@@ -24,7 +24,7 @@ The full text of the license is included with the project source code.
 - **Automation & Delivery:** [GitHub Actions](https://github.com/features/actions), [GitHub Pages](https://docs.github.com/en/pages)
 - **Site Generation:** [Bundler](https://bundler.io/), [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)
 - **Environment Management:** [n](https://github.com/tj/n), [rbenv](https://rbenv.org/)
-- **AI-Assisted Development:** [GitHub Copilot](https://github.com/features/copilot) (Agentic Coding, Pair Programming)
+- **AI-Assisted Development:** [GitHub Copilot](https://github.com/features/copilot)
 
 ## Additional Information
 
