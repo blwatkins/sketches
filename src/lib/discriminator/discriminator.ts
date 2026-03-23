@@ -47,7 +47,7 @@ export class Discriminator {
      */
     public static isAspectRatioConfig(input: unknown): input is AspectRatioConfig {
         return (Discriminator.#hasDiscriminatorMatch(input, Discriminators.ASPECT_RATIO_CONFIG)
-            && Discriminator.#hasZodMach(input, ASPECT_RATIO_CONFIG_SCHEMA));
+            && Discriminator.#hasZodMatch(input, ASPECT_RATIO_CONFIG_SCHEMA));
     }
 
     /**
@@ -59,7 +59,7 @@ export class Discriminator {
      */
     public static isPalette(input: unknown): input is Palette {
         return (Discriminator.#hasDiscriminatorMatch(input, Discriminators.PALETTE)
-            && Discriminator.#hasZodMach(input, PALETTE_SCHEMA));
+            && Discriminator.#hasZodMatch(input, PALETTE_SCHEMA));
     }
 
     /**
@@ -71,7 +71,7 @@ export class Discriminator {
      */
     public static isPaletteColor(input: unknown): input is PaletteColor {
         return Discriminator.#hasDiscriminatorMatch(input, Discriminators.PALETTE_COLOR)
-            && Discriminator.#hasZodMach(input, PALETTE_COLOR_SCHEMA);
+            && Discriminator.#hasZodMatch(input, PALETTE_COLOR_SCHEMA);
     }
 
     /**
@@ -102,7 +102,7 @@ export class Discriminator {
      *
      * @private
      */
-    static #hasZodMach(input: unknown, schema: z.ZodObject): boolean {
+    static #hasZodMatch(input: unknown, schema: z.ZodObject): boolean {
         const result = schema.safeParse(input);
         return result.success;
     }
