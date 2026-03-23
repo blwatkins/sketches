@@ -24,7 +24,7 @@ export default defineConfig({
     test: {
         globals: true,
         environment: 'jsdom',
-        include: ['tests/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+        include: ['test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
         exclude: ['node_modules', '_dist', '_compiled', '_doc', 'docs'],
         coverage: {
             provider: 'v8',
