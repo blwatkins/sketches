@@ -23,7 +23,7 @@ import * as z from 'zod';
 import { type Discriminable } from '../discriminator/discriminable';
 import { Discriminators } from '../discriminator/discriminators';
 import { PALETTE_COLOR_SCHEMA } from '../palette-color/palette-color';
-import {StringValidator} from "../string/string-validator";
+import { StringValidator } from '../string/string-validator';
 
 /**
  * Zod schema for validating that an object implements the {@link Palette} type.
