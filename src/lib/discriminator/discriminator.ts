@@ -22,13 +22,12 @@ import * as z from 'zod';
 
 import { PALETTE_SCHEMA, type Palette } from '../palette/palette';
 import { PALETTE_COLOR_SCHEMA, type PaletteColor } from '../palette-color/palette-color';
-import { ASPECT_RATIO_CONFIG_SCHEMA, AspectRatioConfig } from '../sketch/aspect-ratio';
-
-import { Discriminable } from './discriminable';
+import { ASPECT_RATIO_CONFIG_SCHEMA, type AspectRatioConfig } from '../sketch/aspect-ratio';
+import { type Discriminable } from './discriminable';
 import { Discriminators } from './discriminators';
 
 /**
- * Static methods for evaluating if objects implement various interfaces for type safety.
+ * Static methods for evaluating if objects implement various interfaces and types for type safety.
  */
 export class Discriminator {
     // noinspection JSUnusedLocalSymbols
@@ -40,11 +39,11 @@ export class Discriminator {
     }
 
     /**
-     * Does the given input implement the {@link AspectRatioConfig} interface?
+     * Does the given input implement the {@link AspectRatioConfig} type?
      *
      * @param input - The input to check.
      *
-     * @returns {input is AspectRatioConfig} `true` if the given input implements the {@link AspectRatioConfig} interface, `false` if it does not.
+     * @returns {input is AspectRatioConfig} `true` if the given input implements the {@link AspectRatioConfig} type, `false` if it does not.
      */
     public static isAspectRatioConfig(input: unknown): input is AspectRatioConfig {
         return (Discriminator.#hasDiscriminatorMatch(input, Discriminators.ASPECT_RATIO_CONFIG)
@@ -64,11 +63,11 @@ export class Discriminator {
     }
 
     /**
-     * Does the given input implement the {@link PaletteColor} interface?
+     * Does the given input implement the {@link PaletteColor} type?
      *
      * @param input - The input to check.
      *
-     * @returns {input is PaletteColor} `true` if the given input implements the {@link PaletteColor} interface, `false` if it does not.
+     * @returns {input is PaletteColor} `true` if the given input implements the {@link PaletteColor} type, `false` if it does not.
      */
     public static isPaletteColor(input: unknown): input is PaletteColor {
         return Discriminator.#hasDiscriminatorMatch(input, Discriminators.PALETTE_COLOR)
