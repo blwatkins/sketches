@@ -93,3 +93,7 @@ layout: page
 - [WebStorm](https://www.jetbrains.com/webstorm/)
 - [WebStorm - Disabling and enabling inspections](https://www.jetbrains.com/help/webstorm/disabling-and-enabling-inspections.html)
 - [Visual Studio Code](https://code.visualstudio.com/)
+
+## AI-Assisted Development
+
+- [GitHub Copilot](https://github.com/features/copilot)
