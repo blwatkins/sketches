@@ -22,7 +22,7 @@ import * as z from 'zod';
 
 import { type Discriminable } from '../discriminator/discriminable';
 import { Discriminators } from '../discriminator/discriminators';
-import { PALETTE_COLOR_SCHEMA } from '../palette-color/palette-color';
+import { type PaletteColor, PALETTE_COLOR_SCHEMA } from '../palette-color/palette-color';
 import { StringValidator } from '../string/string-validator';
 
 /**
