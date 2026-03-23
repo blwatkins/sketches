@@ -91,8 +91,16 @@ sketches/
 - **Output directory:** `_compiled/` (from `tsc`)
 - **No implicit `any`**, no implicit returns, no unused locals or parameters
 - **`noEmitOnError: true`** — the compiler will not emit output if there are errors
-- **Type definitions:** Use `interface` (not `type`) for object type definitions, enforced by ESLint rule `@typescript-eslint/consistent-type-definitions: ['error', 'interface']`
+- **Type definitions:** Use `interface` (not `type`) for object type definitions, enforced by ESLint rule `@typescript-eslint/consistent-type-definitions: ['error', 'interface']`. **Exception:** Types derived from Zod schemas must use `type` (e.g., `type Palette = z.infer<typeof PALETTE_SCHEMA>`).
 - **Module exports:** Use barrel `index.ts` files for each module in `src/lib/`
+
+### Zod Schemas
+
+Types derived from Zod schemas (e.g., `Palette`, `PaletteColor`, `AspectRatioConfig`) follow this pattern:
+- Define a named `z.strictObject(...)` schema constant (e.g., `PALETTE_SCHEMA`, `PALETTE_COLOR_SCHEMA`, `ASPECT_RATIO_CONFIG_SCHEMA`)
+- Export a `type` alias derived via `z.infer<typeof SCHEMA>` instead of a separate `interface`
+- Include a `DISCRIMINATOR` field in the schema using `z.enum(Object.values(Discriminators)).extract([Discriminators.VALUE]).readonly()`
+- Document all schema fields with JSDoc comments
 
 ### Static Classes
 

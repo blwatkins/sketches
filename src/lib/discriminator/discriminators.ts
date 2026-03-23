@@ -23,22 +23,22 @@ import { type PaletteColor } from '../palette-color/palette-color';
 import { type AspectRatioConfig } from '../sketch/aspect-ratio';
 
 /**
- * Discriminator values for library interfaces.
+ * Discriminator values for library interfaces and types.
  * All values should be unique.
  */
 export enum Discriminators {
     /**
-     * Discriminator for the {@link AspectRatioConfig} interface.
+     * Discriminator for the {@link AspectRatioConfig} type.
      */
     ASPECT_RATIO_CONFIG = 'I_ASPECT_RATIO_CONFIG',
 
     /**
-     * Discriminator for the {@link Palette} interface.
+     * Discriminator for the {@link Palette} type.
      */
     PALETTE = 'I_PALETTE',
 
     /**
-     * Discriminator for the {@link PaletteColor} interface.
+     * Discriminator for the {@link PaletteColor} type.
      */
     PALETTE_COLOR = 'I_PALETTE_COLOR'
 }

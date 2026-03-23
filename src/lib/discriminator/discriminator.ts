@@ -20,15 +20,14 @@
 
 import * as z from 'zod';
 
-import { Palette } from '../palette/palette';
-import { PALETTE_COLOR_SCHEMA, PaletteColor } from '../palette-color/palette-color';
-import { ASPECT_RATIO_CONFIG_SCHEMA, AspectRatioConfig } from '../sketch/aspect-ratio';
-
-import { Discriminable } from './discriminable';
+import { PALETTE_SCHEMA, type Palette } from '../palette/palette';
+import { PALETTE_COLOR_SCHEMA, type PaletteColor } from '../palette-color/palette-color';
+import { ASPECT_RATIO_CONFIG_SCHEMA, type AspectRatioConfig } from '../sketch/aspect-ratio';
+import { type Discriminable } from './discriminable';
 import { Discriminators } from './discriminators';
 
 /**
- * Static methods for evaluating if objects implement various interfaces for type safety.
+ * Static methods for evaluating if objects implement various interfaces and types for type safety.
  */
 export class Discriminator {
     // noinspection JSUnusedLocalSymbols
@@ -40,38 +39,39 @@ export class Discriminator {
     }
 
     /**
-     * Does the given input implement the {@link AspectRatioConfig} interface?
+     * Does the given input implement the {@link AspectRatioConfig} type?
      *
      * @param input - The input to check.
      *
-     * @returns {input is AspectRatioConfig} `true` if the given input implements the {@link AspectRatioConfig} interface, `false` if it does not.
+     * @returns {input is AspectRatioConfig} `true` if the given input implements the {@link AspectRatioConfig} type, `false` if it does not.
      */
     public static isAspectRatioConfig(input: unknown): input is AspectRatioConfig {
         return (Discriminator.#hasDiscriminatorMatch(input, Discriminators.ASPECT_RATIO_CONFIG)
-            && Discriminator.#hasZodMach(input, ASPECT_RATIO_CONFIG_SCHEMA));
+            && Discriminator.#hasZodMatch(input, ASPECT_RATIO_CONFIG_SCHEMA));
     }
 
     /**
-     * Does the given input implement the {@link Palette} interface?
+     * Does the given input implement the {@link Palette} type?
      *
      * @param input - The input to check.
      *
-     * @returns {input is Palette} `true` if the given input implements the {@link Palette} interface, `false` if it does not.
+     * @returns {input is Palette} `true` if the given input implements the {@link Palette} type, `false` if it does not.
      */
     public static isPalette(input: unknown): input is Palette {
-        return Discriminator.#hasDiscriminatorMatch(input, Discriminators.PALETTE);
+        return (Discriminator.#hasDiscriminatorMatch(input, Discriminators.PALETTE)
+            && Discriminator.#hasZodMatch(input, PALETTE_SCHEMA));
     }
 
     /**
-     * Does the given input implement the {@link PaletteColor} interface?
+     * Does the given input implement the {@link PaletteColor} type?
      *
      * @param input - The input to check.
      *
-     * @returns {input is PaletteColor} `true` if the given input implements the {@link PaletteColor} interface, `false` if it does not.
+     * @returns {input is PaletteColor} `true` if the given input implements the {@link PaletteColor} type, `false` if it does not.
      */
     public static isPaletteColor(input: unknown): input is PaletteColor {
         return Discriminator.#hasDiscriminatorMatch(input, Discriminators.PALETTE_COLOR)
-            && Discriminator.#hasZodMach(input, PALETTE_COLOR_SCHEMA);
+            && Discriminator.#hasZodMatch(input, PALETTE_COLOR_SCHEMA);
     }
 
     /**
@@ -102,7 +102,7 @@ export class Discriminator {
      *
      * @private
      */
-    static #hasZodMach(input: unknown, schema: z.ZodObject): boolean {
+    static #hasZodMatch(input: unknown, schema: z.ZodObject): boolean {
         const result = schema.safeParse(input);
         return result.success;
     }

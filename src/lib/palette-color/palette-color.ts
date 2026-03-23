@@ -26,7 +26,7 @@ import { type Palette } from '../palette/palette';
 import { StringValidator } from '../string/string-validator';
 
 /**
- * Zod schema for validating that an object implements the {@link PaletteColor} interface.
+ * Zod schema for validating that an object implements the {@link PaletteColor} type.
  *
  * @see {@link Discriminable}
  */
@@ -47,7 +47,7 @@ export const PALETTE_COLOR_SCHEMA = z.strictObject({
      *
      * @readonly
      */
-    NAME: z.string().trim().lowercase().nonempty().readonly(),
+    NAME: z.string().trim().nonempty().lowercase().readonly(),
 
     /**
      * The luminance of the color (0-1).
