@@ -47,7 +47,7 @@ export const PALETTE_COLOR_SCHEMA = z.strictObject({
      *
      * @readonly
      */
-    NAME: z.string().trim().lowercase().nonempty().readonly(),
+    NAME: z.string().trim().nonempty().lowercase().readonly(),
 
     /**
      * The luminance of the color (0-1).

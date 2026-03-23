@@ -39,7 +39,7 @@ export const ASPECT_RATIO_CONFIG_SCHEMA = z.strictObject({
      *
      * @readonly
      */
-    NAME: z.string().trim().lowercase().nonempty().readonly().optional(),
+    NAME: z.string().trim().nonempty().lowercase().readonly().optional(),
 
     /**
      * The width component of the aspect ratio.

@@ -38,7 +38,7 @@ export const PALETTE_SCHEMA = z.strictObject({
      *
      * @readonly
      */
-    NAME: z.string().trim().lowercase().nonempty().readonly(),
+    NAME: z.string().trim().nonempty().lowercase().readonly(),
 
     /**
      * The source of the palette.
@@ -57,7 +57,7 @@ export const PALETTE_SCHEMA = z.strictObject({
      *
      * @readonly
      */
-    SOURCE_URL: z.url().trim().readonly().optional(),
+    SOURCE_URL: z.url().readonly().optional(),
 
     /**
      * A flag indicating if the palette is a gradient.
