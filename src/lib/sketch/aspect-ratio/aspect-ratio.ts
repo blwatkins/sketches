@@ -171,7 +171,7 @@ export class AspectRatio {
      */
     #buildName(name?: string): string {
         if (name && StringValidator.isNonEmptyString(name)) {
-            return name.trim();
+            return name.trim().toLowerCase();
         }
 
         return `${this.#WIDTH_RATIO}:${this.#HEIGHT_RATIO}`;

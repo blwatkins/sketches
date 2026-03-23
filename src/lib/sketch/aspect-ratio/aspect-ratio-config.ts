@@ -26,18 +26,20 @@ import { Discriminators } from '../../discriminator/discriminators';
 import { type AspectRatio } from './aspect-ratio';
 
 /**
- * Zod schema for validating that an object implements the {@link AspectRatioConfig} interface.
+ * Zod schema for validating that an object implements the {@link AspectRatioConfig} type.
  *
  * @see {@link Discriminable}
  */
 export const ASPECT_RATIO_CONFIG_SCHEMA = z.strictObject({
     /**
      * The name of the aspect ratio.
+     * Must be a non-empty string in lowercase when provided.
+     * Non-empty strings must contain at least one non-whitespace character.
      * This property is optional.
      *
      * @readonly
      */
-    NAME: z.string().trim().nonempty().readonly().optional(),
+    NAME: z.string().trim().lowercase().nonempty().readonly().optional(),
 
     /**
      * The width component of the aspect ratio.

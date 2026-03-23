@@ -26,7 +26,7 @@ import { type Palette } from '../palette/palette';
 import { StringValidator } from '../string/string-validator';
 
 /**
- * Zod schema for validating that an object implements the {@link PaletteColor} interface.
+ * Zod schema for validating that an object implements the {@link PaletteColor} type.
  *
  * @see {@link Discriminable}
  */

@@ -22,8 +22,8 @@ import * as z from 'zod';
 
 import { type Discriminable } from '../discriminator/discriminable';
 import { Discriminators } from '../discriminator/discriminators';
-
 import { PALETTE_COLOR_SCHEMA } from '../palette-color/palette-color';
+import {StringValidator} from "../string/string-validator";
 
 /**
  * Zod schema for validating that an object implements the {@link Palette} type.
@@ -33,12 +33,12 @@ import { PALETTE_COLOR_SCHEMA } from '../palette-color/palette-color';
 export const PALETTE_SCHEMA = z.strictObject({
     /**
      * The name of the palette.
-     * Must be a non-empty string.
+     * Must be a non-empty string in lowercase.
      * Non-empty strings must contain at least one non-whitespace character.
      *
      * @readonly
      */
-    NAME: z.string().trim().nonempty().readonly(),
+    NAME: z.string().trim().lowercase().nonempty().readonly(),
 
     /**
      * The source of the palette.
@@ -52,13 +52,12 @@ export const PALETTE_SCHEMA = z.strictObject({
 
     /**
      * The source URL of the palette.
-     * Must be a non-empty string when provided.
-     * Non-empty strings must contain at least one non-whitespace character.
+     * Must be a URL when provided.
      * This property is optional.
      *
      * @readonly
      */
-    SOURCE_URL: z.string().trim().nonempty().readonly().optional(),
+    SOURCE_URL: z.url().trim().readonly().optional(),
 
     /**
      * A flag indicating if the palette is a gradient.
@@ -69,10 +68,11 @@ export const PALETTE_SCHEMA = z.strictObject({
 
     /**
      * The list of {@link PaletteColor} objects that compose the palette.
+     * Palettes must contain at least two colors.
      *
      * @readonly
      */
-    COLORS: z.array(PALETTE_COLOR_SCHEMA).readonly(),
+    COLORS: z.array(PALETTE_COLOR_SCHEMA).min(2).readonly(),
 
     /**
      * A map of hex color strings to arrays of hex colors,
@@ -84,7 +84,10 @@ export const PALETTE_SCHEMA = z.strictObject({
      *
      * @readonly
      */
-    CONTRAST_MAP: z.record(z.string(), z.array(z.string()).readonly()).readonly().optional(),
+    CONTRAST_MAP: z.record(
+        z.string().regex(StringValidator.HEX_COLOR_PATTERN_RGB),
+        z.array(z.string().regex(StringValidator.HEX_COLOR_PATTERN_RGB)).readonly()
+    ).readonly().optional(),
 
     /**
      * Discriminator value for the {@link Palette} type.
