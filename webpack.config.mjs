@@ -58,8 +58,8 @@ export default {
     },
     output: {
         path: path.resolve(__dirname, '_dist'),
-        filename: '[name].[hash:8].js',
-        chunkFilename: '[name].[hash:8].js',
+        filename: '[name].[contenthash:8].js',
+        chunkFilename: '[name].[contenthash:8].js',
         clean: true
     },
     devServer: {
