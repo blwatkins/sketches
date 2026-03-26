@@ -51,15 +51,18 @@ export default {
             inject: 'body',
             favicon: './assets/icon/favicon.ico'
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash:6].css',
+            chunkFilename: '[name].[contenthash:6].css'
+        })
     ],
     optimization: {
         emitOnErrors: false
     },
     output: {
         path: path.resolve(__dirname, '_dist'),
-        filename: '[name].[contenthash:8].js',
-        chunkFilename: '[name].[contenthash:8].js',
+        filename: '[name].[contenthash:6].js',
+        chunkFilename: '[name].[contenthash:6].js',
         clean: true
     },
     devServer: {
@@ -67,15 +70,15 @@ export default {
             directory: path.join(__dirname, '_dist')
         },
         client: {
-            overlay: false
+            overlay: true
         },
         compress: true,
         host: '127.0.0.1',
         port: 8080,
-        hot: false,
+        hot: true,
         watchFiles: ['./src/**/*.ts'],
-        liveReload: false,
+        liveReload: true,
         open: true,
-        webSocketServer: false
+        webSocketServer: 'ws'
     }
 };
