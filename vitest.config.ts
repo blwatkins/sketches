@@ -37,7 +37,8 @@ export default defineConfig({
                 '_doc/',
                 'docs/',
                 'src/sketches/',
-                'tests/',
+                'src/main.ts',
+                'test/',
                 '**/*.d.ts',
                 '**/*.config.{js,mjs,cjs,ts}',
                 'eslint.config.*.mjs'

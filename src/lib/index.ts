@@ -24,8 +24,7 @@ export { Discriminators } from './discriminator/discriminators';
 
 export { NumberValidator } from './number/number-validator';
 
-export * from './palette/typedoc';
-export * as palette from './palette/typedoc';
+export { type Palette, PALETTE_SCHEMA } from './palette/palette';
 
 export { type PaletteColor, PALETTE_COLOR_SCHEMA } from './palette-color/palette-color';
 
