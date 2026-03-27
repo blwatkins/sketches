@@ -20,7 +20,7 @@
 
 import { describe, test, expect } from 'vitest';
 
-import {ASPECT_RATIOS, AspectRatioConfig, Discriminator, Discriminators} from '../../../src/lib';
+import { ASPECT_RATIOS, AspectRatioConfig, Discriminator, Discriminators } from '../../../src/lib';
 
 import {
     NEGATIVE_NUMBER_INPUTS,
@@ -78,13 +78,15 @@ describe('Discriminator', (): void => {
         }
     ];
 
-    function buildInputsWithAdditionalKey(validObjects: { [key: string]: unknown }[]): unknown[] {
+    function buildInputsWithAdditionalKey(validObjects: readonly Record<string, unknown>[]): unknown[] {
         const objects: unknown[] = [];
 
         for (const validObject of validObjects) {
-            const baseObject: { [key: string]: unknown } = { ...validObject };
-            baseObject['EXTRA_KEY'] = 'extra value';
-            objects.push(baseObject);
+            const newObject: Record<string, unknown> = {
+                ...validObject,
+                EXTRA_KEY: 'extra value'
+            };
+            objects.push(newObject);
         }
 
         return objects;
@@ -96,7 +98,7 @@ describe('Discriminator', (): void => {
 
             for (const validObject of validObjects) {
                 for (const value of values) {
-                    const baseObject: { [key: string]: unknown } = { ...validObject };
+                    const baseObject: Record<string, unknown> = { ...validObject };
                     baseObject[key] = value;
                     objects.push(baseObject);
                 }
@@ -110,7 +112,7 @@ describe('Discriminator', (): void => {
 
             for (const validObject of validObjects) {
                 for (const key of keysToRemove) {
-                    const baseObject: { [key: string]: unknown } = {...validObject};
+                    const baseObject: Record<string, unknown> = { ...validObject };
                     delete baseObject[key];
                     objects.push(baseObject);
                 }
@@ -119,7 +121,7 @@ describe('Discriminator', (): void => {
             return objects;
         }
 
-        const SCENARIOS: { label: string; inputs: unknown[]; expected: boolean }[] = [
+        const SCENARIOS: { label: string; inputs: unknown[]; expected: boolean; }[] = [
             {
                 label: 'valid objects',
                 inputs: [
@@ -189,7 +191,7 @@ describe('Discriminator', (): void => {
                 label: 'invalid NAME values',
                 inputs: [
                     ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'NAME', [
-                        ...NON_STRING_INPUTS.filter((value) => value !== undefined),
+                        ...NON_STRING_INPUTS.filter(value => value !== undefined),
                         ...EMPTY_STRING_INPUTS,
                         'Mixed Case Name',
                         'CAPITALIZED NAME'
@@ -200,14 +202,14 @@ describe('Discriminator', (): void => {
 
         describe.each(
             SCENARIOS
-        )('$label', ({ inputs, expected }): void => {
-            const testCases: TestCase[] = buildTestCases(inputs, expected);
+        )('$label', ({ inputs, expected: scenarioExpected }): void => {
+            const testCases: TestCase[] = buildTestCases(inputs, scenarioExpected);
 
             test.each(
                 testCases
-            )('$input should return $expected', ({ input, expected }): void => {
-                expect(Discriminator.isAspectRatioConfig(input)).toBe(expected);
-            })
+            )('$input should return $expected', ({ input, expected: testExpected }: TestCase): void => {
+                expect(Discriminator.isAspectRatioConfig(input)).toBe(testExpected);
+            });
         });
     });
 });
