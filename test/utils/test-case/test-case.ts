@@ -18,7 +18,16 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-export interface TestCase { readonly INPUT: unknown; readonly EXPECTED: boolean; }
+export interface TestCase {
+    readonly INPUT: unknown;
+    readonly EXPECTED: boolean;
+}
+
+export interface Scenario {
+    readonly LABEL: string;
+    readonly INPUTS: unknown[];
+    readonly EXPECTED: boolean;
+}
 
 export function buildTestCases(inputs: readonly unknown[], expected: boolean): TestCase[] {
     return inputs.map((input: unknown): TestCase => ({ INPUT: input, EXPECTED: expected }));
