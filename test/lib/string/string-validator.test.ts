@@ -21,54 +21,10 @@
 import { describe, test, expect } from 'vitest';
 
 import { StringValidator } from '../../../src/lib';
+import { buildTestCases, TestCase } from "../../utils/test-case/test-case";
+import { EMPTY_STRING_INPUTS, NON_EMPTY_STRING_INPUTS, NON_STRING_INPUTS } from "../../utils/input/string-inputs";
 
 describe('StringValidator', (): void => {
-    interface TestCase { input: unknown; expected: boolean; }
-
-    function buildTestCases(inputs: readonly unknown[], expected: boolean): TestCase[] {
-        return inputs.map((input: unknown): TestCase => ({ input, expected }));
-    }
-
-    // noinspection JSPrimitiveTypeWrapperUsage
-    const NON_STRING_INPUTS: unknown[] = [
-        null,
-        undefined,
-        0,
-        -1,
-        Number.NaN,
-        Infinity,
-        true,
-        false,
-        {},
-        { key: 'value' },
-        [],
-        ['value'],
-        (): string => 'value',
-        new String('value'),
-        10n
-    ];
-
-    const EMPTY_STRING_INPUTS: string[] = [
-        '',
-        ' ',
-        '     ',
-        '\n',
-        '\t',
-        '\n\t',
-        ' \n\t '
-    ];
-
-    const NON_EMPTY_STRING_INPUTS: string[] = [
-        'value',
-        'a',
-        '0',
-        ' false ',
-        '#A1B2C3',
-        '#a1b2c3d4',
-        '  trimmed value  ',
-        ' \n\ttrimmed value\t\n '
-    ];
-
     describe('new StringValidator()', (): void => {
         describe('Runtime behavior guards', (): void => {
             test('Constructor should throw an error when instantiated at runtime', (): void => {
@@ -80,18 +36,38 @@ describe('StringValidator', (): void => {
         });
     });
 
+    // TODO - make scenario interface
+    // TODO - make fields readonly
+    // TODO - make similar updates in number tests
     describe('isNonEmptyString', (): void => {
-        const testCases: TestCase[] = [
-            ...buildTestCases(NON_STRING_INPUTS, false),
-            ...buildTestCases(EMPTY_STRING_INPUTS, false),
-            ...buildTestCases(NON_EMPTY_STRING_INPUTS, true)
+        const SCENARIOS: { label: string; inputs: unknown[]; expected: boolean; }[] = [
+            {
+                label: 'non-string inputs',
+                inputs: [...NON_STRING_INPUTS],
+                expected: false
+            },
+            {
+                label: 'empty string inputs',
+                inputs: [...EMPTY_STRING_INPUTS],
+                expected: false
+            },
+            {
+                label: 'non-empty string inputs',
+                inputs: [...NON_EMPTY_STRING_INPUTS],
+                expected: true
+            }
         ];
 
-        test.each(
-            testCases
-        )('({ input: $input, expected: $expected })', ({ input, expected }: TestCase): void => {
-            const actual = StringValidator.isNonEmptyString(input);
-            expect(actual).toBe(expected);
+        describe.each(
+            SCENARIOS
+        )('$label', ({inputs: scenarioInputs, expected: scenarioExpected}): void => {
+            const testCases: TestCase[] = buildTestCases(scenarioInputs, scenarioExpected);
+
+            test.each(
+                testCases
+            )('$INPUT should return $EXPECTED', ({ INPUT: testInput, EXPECTED: testExpected }: TestCase): void => {
+                expect(StringValidator.isNonEmptyString(testInput)).toBe(testExpected);
+            });
         });
     });
 });
