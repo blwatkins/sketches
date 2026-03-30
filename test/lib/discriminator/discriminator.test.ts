@@ -30,6 +30,10 @@ import {
 } from '../../utils/input/number-inputs';
 import { EMPTY_STRING_INPUTS, NON_STRING_INPUTS } from '../../utils/input/string-inputs';
 
+// TODO - test runtime constructor
+// TODO - use shared types
+// TODO - use shared test case builders
+// TODO - test palette and palette color interfaces
 describe('Discriminator', (): void => {
     interface TestCase { input: unknown; expected: boolean; }
 

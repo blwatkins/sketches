@@ -37,8 +37,6 @@ describe('StringValidator', (): void => {
         });
     });
 
-    // TODO - make similar updates in number tests
-    // TODO - update types in discriminator tests
     describe('isNonEmptyString', (): void => {
         const SCENARIOS: Scenario[] = [
             {
