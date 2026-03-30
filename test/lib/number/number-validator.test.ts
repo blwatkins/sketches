@@ -21,68 +21,20 @@
 import { describe, test, expect } from 'vitest';
 
 import { NumberValidator } from '../../../src/lib';
+import { buildTestCases, TestCase } from '../../utils/test-case/test-case';
+import {
+    NEGATIVE_NUMBER_INPUTS,
+    NON_FINITE_NUMBER_INPUTS,
+    NON_NUMBER_INPUTS,
+    POSITIVE_NUMBER_INPUTS, ZERO_INPUTS
+} from '../../utils/input/number-inputs';
 
 describe('NumberValidator', (): void => {
-    interface TestCase { input: unknown; expected: boolean; }
-
-    function buildTestCases(inputs: readonly unknown[], expected: boolean): TestCase[] {
-        return inputs.map((input: unknown): TestCase => ({ input, expected }));
-    }
-
-    // noinspection JSPrimitiveTypeWrapperUsage
-    const NON_NUMBER_INPUTS: unknown[] = [
-        null,
-        undefined,
-        '',
-        'string',
-        '\n\t',
-        '     ',
-        {},
-        { key: 'value' },
-        (): number => 10,
-        Math.random,
-        true,
-        false,
-        '5',
-        '5.5',
-        new Number(10),
-        10n,
-        [],
-        ['value']
-    ];
-
-    const NON_FINITE_NUMBER_INPUTS: number[] = [
-        NaN,
-        Infinity,
-        -Infinity
-    ];
-
-    const POSITIVE_NUMBER_INPUTS: number[] = [
-        10,
-        10.01,
-        Number.MIN_VALUE,
-        Number.MAX_VALUE,
-        Number.MAX_SAFE_INTEGER,
-        Number.EPSILON
-    ];
-
-    const NEGATIVE_NUMBER_INPUTS: number[] = [
-        -10,
-        -10.01,
-        -Number.MIN_VALUE,
-        -Number.MAX_VALUE,
-        -Number.MAX_SAFE_INTEGER,
-        -Number.EPSILON,
-        Number.MIN_SAFE_INTEGER
-    ];
-
-    const ZERO_INPUTS: number[] = [0, -0];
-
     describe('new NumberValidator()', (): void => {
         describe('Runtime behavior guards', (): void => {
             test('Constructor should throw an error when instantiated at runtime', (): void => {
-                const RuntimeCtor = NumberValidator as unknown as new () => NumberValidator;
-                expect((): NumberValidator => new RuntimeCtor()).toThrow(
+                const RuntimeConstructor = NumberValidator as unknown as new () => NumberValidator;
+                expect((): NumberValidator => new RuntimeConstructor()).toThrow(
                     'NumberValidator is a static class and cannot be instantiated.'
                 );
             });
@@ -90,7 +42,7 @@ describe('NumberValidator', (): void => {
     });
 
     describe('isPositiveFiniteNumber', (): void => {
-        const scenarios: {
+        const FUNCTION_SCENARIOS: {
             label: string;
             zeroInclusiveArg?: boolean;
             successInputs: readonly unknown[];
@@ -124,7 +76,7 @@ describe('NumberValidator', (): void => {
         }
 
         describe.each(
-            scenarios
+            FUNCTION_SCENARIOS
         )('$label', ({ zeroInclusiveArg, successInputs, failureInputs }: { label: string; zeroInclusiveArg?: boolean; successInputs: readonly unknown[]; failureInputs: readonly unknown[]; }): void => {
             const testCases: TestCase[] = [
                 ...buildTestCases(failureInputs, false),
@@ -133,9 +85,9 @@ describe('NumberValidator', (): void => {
 
             test.each(
                 testCases
-            )('({ input: $input, expected: $expected })', ({ input, expected }: TestCase): void => {
-                const actual = callIsPositiveFiniteNumber(input, zeroInclusiveArg);
-                expect(actual).toBe(expected);
+            )('({ input: $input, expected: $expected })', ({ INPUT: testInput, EXPECTED: testExpected }: TestCase): void => {
+                const actual = callIsPositiveFiniteNumber(testInput, zeroInclusiveArg);
+                expect(actual).toBe(testExpected);
             });
         });
 
