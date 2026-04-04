@@ -98,16 +98,17 @@ This page is a living technical record of skills, tools, and engineering practic
 
 ### Schema-driven type definitions
 
-- Runtime types for domain objects (`Palette`, `PaletteColor`, `AspectRatioConfig`) are derived directly from TypeBox or Zod schemas using `Static<typeof Schema>` or `z.infer<typeof SCHEMA>`.
+- Runtime types for domain objects (`Discriminable`, `Palette`, `PaletteColor`, `AspectRatioConfig`) are derived directly from TypeBox or Zod schemas using `Static<typeof Schema>` or `z.infer<typeof SCHEMA>`.
 - This eliminates duplication between the type definition and its validation logic and ensures that compile-time types and runtime validation stay in sync.
 - Evidence:
+  - [`src/lib/discriminator/discriminable.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/discriminator/discriminable.ts)
   - [`src/lib/sketch/aspect-ratio/aspect-ratio-config.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/sketch/aspect-ratio/aspect-ratio-config.ts)
   - [`src/lib/palette/palette.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/palette/palette.ts)
   - [`src/lib/palette-color/palette-color.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/palette-color/palette-color.ts)
 
 ### Runtime type validation via discriminator pattern
 
-- The `Discriminator` static class validates objects at runtime using a two-step approach: first checking a `DISCRIMINATOR` field for a type tag match, then applying the full TypeBox or Zod schema parse.
+- The `Discriminator` static class validates objects at runtime using a two-step approach: first checking a `discriminator` field for a type tag match, then applying the full TypeBox or Zod schema parse.
 - This combines lightweight tag-based narrowing with exhaustive schema validation, and works uniformly across both schema libraries.
 - Evidence:
   - [`src/lib/discriminator/discriminator.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/discriminator/discriminator.ts)
