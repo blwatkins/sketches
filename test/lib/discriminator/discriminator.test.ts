@@ -70,15 +70,15 @@ describe('Discriminator', (): void => {
 
     const VALID_ASPECT_RATIO_CONFIGS: AspectRatioConfig[] = [
         {
-            NAME: 'test config',
-            WIDTH_RATIO: 1,
-            HEIGHT_RATIO: 1,
-            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+            name: 'test config',
+            widthRatio: 1,
+            heightRatio: 1,
+            discriminator: Discriminators.ASPECT_RATIO_CONFIG
         },
         {
-            WIDTH_RATIO: 1,
-            HEIGHT_RATIO: 1,
-            DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+            widthRatio: 1,
+            heightRatio: 1,
+            discriminator: Discriminators.ASPECT_RATIO_CONFIG
         }
     ];
 
@@ -131,7 +131,7 @@ describe('Discriminator', (): void => {
                 inputs: [
                     ...VALID_ASPECT_RATIO_CONFIGS,
                     ...Object.values(AspectRatios),
-                    ...buildAspectRatioConfigInputs([VALID_ASPECT_RATIO_CONFIGS[0]], 'NAME', [
+                    ...buildAspectRatioConfigInputs([VALID_ASPECT_RATIO_CONFIGS[0]], 'name', [
                         'UPPERCASE NAME',
                         'Mixed Case Name',
                         ...EMPTY_STRING_INPUTS.filter(value => value !== '')
@@ -147,7 +147,7 @@ describe('Discriminator', (): void => {
             },
             {
                 label: 'objects with missing key',
-                inputs: [...buildAspectRatioConfigInputsWithoutKeys(VALID_ASPECT_RATIO_CONFIGS, ['WIDTH_RATIO', 'HEIGHT_RATIO', 'DISCRIMINATOR'])],
+                inputs: [...buildAspectRatioConfigInputsWithoutKeys(VALID_ASPECT_RATIO_CONFIGS, ['widthRatio', 'heightRatio', 'discriminator'])],
                 expected: false
             },
             {
@@ -158,7 +158,7 @@ describe('Discriminator', (): void => {
             {
                 label: 'invalid WIDTH_RATIO values',
                 inputs: [
-                    ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'WIDTH_RATIO', [
+                    ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'widthRatio', [
                         ...NON_NUMBER_INPUTS,
                         ...NON_FINITE_NUMBER_INPUTS,
                         ...NEGATIVE_NUMBER_INPUTS,
@@ -172,7 +172,7 @@ describe('Discriminator', (): void => {
             {
                 label: 'invalid HEIGHT_RATIO values',
                 inputs: [
-                    ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'HEIGHT_RATIO', [
+                    ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'heightRatio', [
                         ...NON_NUMBER_INPUTS,
                         ...NON_FINITE_NUMBER_INPUTS,
                         ...NEGATIVE_NUMBER_INPUTS,
@@ -186,7 +186,7 @@ describe('Discriminator', (): void => {
             {
                 label: 'invalid DISCRIMINATOR values',
                 inputs: [
-                    ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'DISCRIMINATOR', [
+                    ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'discriminator', [
                         ...NON_STRING_INPUTS,
                         ...EMPTY_STRING_INPUTS,
                         Discriminators.PALETTE,
@@ -199,7 +199,7 @@ describe('Discriminator', (): void => {
             {
                 label: 'invalid NAME values',
                 inputs: [
-                    ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'NAME', [
+                    ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'name', [
                         ...NON_STRING_INPUTS.filter(value => value !== undefined),
                         ''
                     ])],
