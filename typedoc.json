@@ -50,7 +50,6 @@
   },
 
   "intentionallyNotDocumented": [
-    "sketch.sketch.aspect_ratio.ASPECT_RATIO_CONFIG_SCHEMA.__type.DISCRIMINATOR.__type.I_ASPECT_RATIO_CONFIG",
     "palette.palette.PALETTE_SCHEMA.__type.COLORS.__type.DISCRIMINATOR.__type.I_PALETTE_COLOR",
     "palette.palette.PALETTE_SCHEMA.__type.DISCRIMINATOR.__type.I_PALETTE",
     "palette-color.palette_color.PALETTE_COLOR_SCHEMA.__type.DISCRIMINATOR.__type.I_PALETTE_COLOR"
