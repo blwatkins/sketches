@@ -23,7 +23,7 @@ This page is a living technical record of skills, tools, and engineering practic
 
 - **Programming Languages:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [Markdown](https://www.markdownguide.org/), [YAML](https://yaml.org/)
 - **Runtime & Libraries:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/)
-- **TypeSafety & Validation:** [TypeBox](https://github.com/sinclairzx81/typebox)
+- **TypeSafety & Validation:** [TypeBox](https://github.com/sinclairzx81/typebox), [Zod](https://zod.dev/)
 - **Testing:** [Vitest](https://vitest.dev/)
 - **Bundling:** [webpack](https://webpack.js.org/)
 - **Code Quality:** [ESLint](https://eslint.org/)
@@ -41,6 +41,10 @@ This page is a living technical record of skills, tools, and engineering practic
 - Interface-driven architecture for sketch implementations
 - Class-based visual logic organized around p5 lifecycle hooks
 - Typed entrypoint composition and runtime binding
+- Schema-driven type definitions using TypeBox and Zod
+- Runtime type validation via discriminator pattern across multiple schema libraries
+- Static validator utilities for number and string types
+- Parameterized unit testing with Vitest
 - CI-based lint, build, and test verification
 - Automated static site deployment and project documentation generation
 - AI-assisted feature development and pair programming using GitHub Copilot agentic workflows
@@ -91,3 +95,39 @@ This page is a living technical record of skills, tools, and engineering practic
 - Copilot pair programming is used interactively during development to accelerate iteration and maintain code quality.
 - Evidence:
   - [`.github/copilot-instructions.md`](https://github.com/blwatkins/sketches/blob/main/.github/copilot-instructions.md)
+
+### Schema-driven type definitions
+
+- Runtime types for domain objects (`Palette`, `PaletteColor`, `AspectRatioConfig`) are derived directly from TypeBox or Zod schemas using `Static<typeof Schema>` or `z.infer<typeof SCHEMA>`.
+- This eliminates duplication between the type definition and its validation logic and ensures that compile-time types and runtime validation stay in sync.
+- Evidence:
+  - [`src/lib/sketch/aspect-ratio/aspect-ratio-config.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/sketch/aspect-ratio/aspect-ratio-config.ts)
+  - [`src/lib/palette/palette.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/palette/palette.ts)
+  - [`src/lib/palette-color/palette-color.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/palette-color/palette-color.ts)
+
+### Runtime type validation via discriminator pattern
+
+- The `Discriminator` static class validates objects at runtime using a two-step approach: first checking a `DISCRIMINATOR` field for a type tag match, then applying the full TypeBox or Zod schema parse.
+- This combines lightweight tag-based narrowing with exhaustive schema validation, and works uniformly across both schema libraries.
+- Evidence:
+  - [`src/lib/discriminator/discriminator.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/discriminator/discriminator.ts)
+  - [`src/lib/discriminator/discriminable.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/discriminator/discriminable.ts)
+  - [`src/lib/discriminator/discriminators.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/discriminator/discriminators.ts)
+
+### Static validator utilities
+
+- `NumberValidator` and `StringValidator` are static utility classes that expose reusable validation predicates and regular expression patterns (e.g., hex color format matching).
+- Both classes use a private constructor with a runtime `throw` to prevent instantiation, ensuring they are always used as namespaces rather than objects.
+- Evidence:
+  - [`src/lib/number/number-validator.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/number/number-validator.ts)
+  - [`src/lib/string/string-validator.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/string/string-validator.ts)
+
+### Parameterized unit testing with Vitest
+
+- Unit tests use `test.each` for parameterized cases, covering valid and invalid inputs including boundary values (zero, negative numbers, non-finite values, empty strings, non-string types).
+- Shared test input constants are centralized under `test/utils/input/` and reused across test suites to keep coverage consistent.
+- Evidence:
+  - [`test/lib/number/number-validator.test.ts`](https://github.com/blwatkins/sketches/blob/main/test/lib/number/number-validator.test.ts)
+  - [`test/lib/string/string-validator.test.ts`](https://github.com/blwatkins/sketches/blob/main/test/lib/string/string-validator.test.ts)
+  - [`test/lib/discriminator/discriminator.test.ts`](https://github.com/blwatkins/sketches/blob/main/test/lib/discriminator/discriminator.test.ts)
+  - [`test/utils/input/`](https://github.com/blwatkins/sketches/tree/main/test/utils/input)
