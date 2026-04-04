@@ -21,14 +21,17 @@ This page is a living technical record of skills, tools, and engineering practic
 
 ## Skills and Tooling Inventory
 
-- **Programming Languages:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [Markdown](https://www.markdownguide.org/)
+- **Programming Languages:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [Markdown](https://www.markdownguide.org/), [YAML](https://yaml.org/)
 - **Runtime & Libraries:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/)
-- **Code Quality:** [ESLint](https://eslint.org/)
+- **TypeSafety & Validation:** [TypeBox](https://github.com/sinclairzx81/typebox)
 - **Testing:** [Vitest](https://vitest.dev/)
+- **Bundling:** [webpack](https://webpack.js.org/)
+- **Code Quality:** [ESLint](https://eslint.org/)
 - **Documentation:** [TypeDoc](https://typedoc.org/)
-- **Versioning & Platform:** [Git](https://git-scm.com/), [GitHub](https://github.com/)
-- **Automation & Delivery:** [GitHub Actions](https://github.com/features/actions), [GitHub Pages](https://docs.github.com/en/pages)
 - **Site Generation:** [Bundler](https://bundler.io/), [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)
+- **Dependency Management:** [npm](https://www.npmjs.com/), [GitHub Dependabot](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies)
+- **Versioning & Platform:** [Git](https://git-scm.com/), [GitHub](https://github.com/)
+- **CI/CD:** [GitHub Actions](https://github.com/features/actions), [GitHub Pages](https://docs.github.com/en/pages), [CodeQL](https://codeql.github.com/)
 - **Environment Management:** [n](https://github.com/tj/n), [rbenv](https://rbenv.org/)
 - **Development Environments:** [WebStorm](https://www.jetbrains.com/webstorm/), [Visual Studio Code](https://code.visualstudio.com/)
 - **AI-Assisted Development:** [GitHub Copilot](https://github.com/features/copilot)
