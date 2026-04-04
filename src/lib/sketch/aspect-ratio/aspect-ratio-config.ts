@@ -25,7 +25,6 @@ import { Discriminators } from '../../discriminator/discriminators';
 
 import { type AspectRatio } from './aspect-ratio';
 
-
 // TODO - update property case in schema, Discriminable, and Unit Tests
 export const AspectRatioConfigSchema = Type.Object(
     {

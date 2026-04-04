@@ -58,7 +58,7 @@ describe('StringValidator', (): void => {
 
         describe.each(
             SCENARIOS
-        )('$LABEL', ({ INPUTS: scenarioInputs, EXPECTED: scenarioExpected}: Scenario): void => {
+        )('$LABEL', ({ INPUTS: scenarioInputs, EXPECTED: scenarioExpected }: Scenario): void => {
             const TEST_CASES: TestCase[] = buildTestCases(scenarioInputs, scenarioExpected);
 
             test.each(

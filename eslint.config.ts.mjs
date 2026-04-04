@@ -207,9 +207,8 @@ export default defineConfig([
                 allowShortCircuit: false
             }],
 
-            // Disabled to allow documentation-only class references used for generated links.
             'no-unused-vars': 'off',
-            '@typescript-eslint/no-unused-vars': 'off',
+            '@typescript-eslint/no-unused-vars': 'warn',
 
             'no-use-before-define': 'off',
             '@typescript-eslint/no-use-before-define': 'error',
@@ -221,7 +220,7 @@ export default defineConfig([
 
             '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
 
-            '@typescript-eslint/no-dynamic-delete': 'off',
+            '@typescript-eslint/no-dynamic-delete': 'warn',
 
             '@typescript-eslint/no-explicit-any': 'error',
 
@@ -230,6 +229,8 @@ export default defineConfig([
             }],
 
             '@typescript-eslint/no-inferrable-types': 'off',
+
+            '@typescript-eslint/no-unsafe-member-access': 'warn',
 
             '@typescript-eslint/prefer-for-of': 'error',
 

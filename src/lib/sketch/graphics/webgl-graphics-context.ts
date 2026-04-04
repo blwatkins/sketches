@@ -20,7 +20,7 @@
 
 import p5 from 'p5';
 
-import { GraphicsContext } from "./graphics-context";
+import { GraphicsContext } from './graphics-context';
 
 export class WebGLGraphicsContext extends GraphicsContext {
     protected static override buildGraphicsContext(p5Ctx: p5, width: number, height: number): p5.Graphics {
@@ -43,11 +43,11 @@ export class WebGLGraphicsContext extends GraphicsContext {
         return (this.height / 2.0);
     }
 
-    public override get centerX(): number  {
+    public override get centerX(): number {
         return 0;
     }
 
-    public override get centerY(): number  {
+    public override get centerY(): number {
         return 0;
     }
 }

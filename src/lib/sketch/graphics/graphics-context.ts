@@ -45,9 +45,9 @@ export class GraphicsContext {
         const width: number = aspectRatio.getWidth(config.resolution, config.resolutionIsLongSide);
         const height: number = aspectRatio.getHeight(config.resolution, config.resolutionIsLongSide);
         const graphics: p5.Graphics = GraphicsContext.buildGraphicsContext(config.p5Ctx, width, height);
-        // TODO - ts-ignore is required due to a combination of compiler and runtime errors in p5.js.
+        // TODO - ts-expect-error is required due to a combination of compiler and runtime errors in p5.js.
         // TODO - periodically check with new versions of p5.js to see if the error has been resolved.
-        // @ts-ignore
+        // @ts-expect-error required due to a combination of compiler and runtime errors in p5.js.
         graphics.canvas.id = config.name ?? GraphicsContext.#buildName();
         return graphics;
     }
@@ -88,11 +88,11 @@ export class GraphicsContext {
         return this.#p5Ctx.createVector(this.centerX, this.centerY);
     }
 
-    public get centerX(): number  {
+    public get centerX(): number {
         return this.width / 2.0;
     }
 
-    public get centerY(): number  {
+    public get centerY(): number {
         return this.height / 2.0;
     }
 
