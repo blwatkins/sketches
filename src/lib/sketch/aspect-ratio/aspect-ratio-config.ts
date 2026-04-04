@@ -20,7 +20,7 @@
 
 import { Type, type Static } from 'typebox';
 
-import {type Discriminable, DiscriminableSchema} from '../../discriminator/discriminable';
+import { type Discriminable, DiscriminableSchema } from '../../discriminator/discriminable';
 import { Discriminators } from '../../discriminator/discriminators';
 
 import { type AspectRatio } from './aspect-ratio';
@@ -84,7 +84,7 @@ export const AspectRatioConfigSchema = Type.Intersect([
                 Type.Literal(Discriminators.ASPECT_RATIO_CONFIG)
             )
         },
-        { additionalProperties: false },
+        { additionalProperties: false }
     )
 ]);
 

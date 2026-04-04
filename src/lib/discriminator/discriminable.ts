@@ -34,7 +34,7 @@ export const DiscriminableSchema = Type.Object(
          * @readonly
          */
         discriminator: Type.Readonly(
-            Type.Enum(Discriminators),
+            Type.Enum(Discriminators)
         )
     }
 );
