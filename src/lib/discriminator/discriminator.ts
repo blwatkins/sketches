@@ -22,7 +22,7 @@ import Schema from 'typebox/schema';
 
 import * as z from 'zod';
 
-import { TIntersect, TObject } from 'typebox';
+import { TSchema } from 'typebox';
 
 import { PALETTE_SCHEMA, type Palette } from '../palette/palette';
 import { PALETTE_COLOR_SCHEMA, type PaletteColor } from '../palette-color/palette-color';
@@ -121,7 +121,7 @@ export class Discriminator {
      *
      * @private
      */
-    static #hasTypeBoxMatch(input: unknown, schema: TObject | TIntersect): boolean {
+    static #hasTypeBoxMatch(input: unknown, schema: TSchema): boolean {
         return Schema.Check(schema, input);
     }
 }
