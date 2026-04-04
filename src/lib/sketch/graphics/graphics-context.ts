@@ -35,7 +35,7 @@ export class GraphicsContext {
     readonly #graphics: p5.Graphics;
     readonly #p5Ctx: p5;
 
-    protected constructor(p5Ctx: p5, graphics: p5.Graphics) {
+    public constructor(p5Ctx: p5, graphics: p5.Graphics) {
         this.#graphics = graphics;
         this.#p5Ctx = p5Ctx;
     }
@@ -45,7 +45,10 @@ export class GraphicsContext {
         const width: number = aspectRatio.getWidth(config.resolution, config.resolutionIsLongSide);
         const height: number = aspectRatio.getHeight(config.resolution, config.resolutionIsLongSide);
         const graphics: p5.Graphics = GraphicsContext.buildGraphicsContext(config.p5Ctx, width, height);
-        graphics.id(config.name ?? GraphicsContext.#buildName());
+        // TODO - ts-ignore is required due to a combination of compiler and runtime errors in p5.js.
+        // TODO - periodically check with new versions of p5.js to see if the error has been resolved.
+        // @ts-ignore
+        graphics.canvas.id = config.name ?? GraphicsContext.#buildName();
         return graphics;
     }
 
@@ -79,6 +82,10 @@ export class GraphicsContext {
 
     public get maxY(): number {
         return this.height;
+    }
+
+    public get center(): p5.Vector {
+        return this.#p5Ctx.createVector(this.centerX, this.centerY);
     }
 
     public get centerX(): number  {
