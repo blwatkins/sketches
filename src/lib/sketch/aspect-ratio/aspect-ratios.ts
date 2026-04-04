@@ -23,90 +23,90 @@ import { Discriminators } from '../../discriminator/discriminators';
 import { AspectRatioConfig } from './aspect-ratio-config';
 
 /**
- * Valid keys for the {@link ASPECT_RATIOS} record.
+ * Valid keys for the {@link AspectRatios} record.
  * Each key corresponds to a pre-saved {@link AspectRatioConfig} object.
  */
-export enum AspectRatioName {
+export enum AspectRatioKey {
     /**
      * The standard aspect ratio of an Instagram photo.
      */
-    INSTAGRAM_PHOTO = 'INSTAGRAM_PHOTO',
+    INSTAGRAM_PHOTO = 'instagram_photo',
 
     /**
      * The standard aspect ratio of a Pinterest pin.
      */
-    PINTEREST_PIN = 'PINTEREST_PIN',
+    PINTEREST_PIN = 'pinterest_pin',
 
     /**
      * The standard aspect ratio of a social media video (e.g. TikTok, Instagram Reels, YouTube Shorts).
      */
-    SOCIAL_VIDEO = 'SOCIAL_VIDEO',
+    SOCIAL_VIDEO = 'social_video',
 
     /**
      * Square (1:1) aspect ratio.
      */
-    SQUARE = 'SQUARE',
+    SQUARE = 'square',
 
     /**
      * The aspect ratio for a photo post in TikTok.
      */
-    TIKTOK_PHOTO = 'TIKTOK_PHOTO',
+    TIKTOK_PHOTO = 'tiktok_photo',
 
     /**
      * The ratio for a 21:9 ultrawide movie.
      */
-    ULTRAWIDE = 'ULTRAWIDE',
+    ULTRAWIDE = 'ultrawide',
 
     /**
      * The ratio for a 16:9 widescreen movie.
      */
-    WIDESCREEN = 'WIDESCREEN'
+    WIDESCREEN = 'widescreen'
 }
 
 /**
  * Pre-set {@link AspectRatioConfig} objects for easy access.
  */
-export const ASPECT_RATIOS: Record<AspectRatioName, AspectRatioConfig> = {
-    [AspectRatioName.INSTAGRAM_PHOTO]: {
-        NAME: '4:5',
-        WIDTH_RATIO: 4,
-        HEIGHT_RATIO: 5,
-        DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+export const AspectRatios: Record<AspectRatioKey, AspectRatioConfig> = {
+    [AspectRatioKey.INSTAGRAM_PHOTO]: {
+        name: '4:5',
+        widthRatio: 4,
+        heightRatio: 5,
+        discriminator: Discriminators.ASPECT_RATIO_CONFIG
     },
-    [AspectRatioName.PINTEREST_PIN]: {
-        NAME: '2:3',
-        WIDTH_RATIO: 2,
-        HEIGHT_RATIO: 3,
-        DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+    [AspectRatioKey.PINTEREST_PIN]: {
+        name: '2:3',
+        widthRatio: 2,
+        heightRatio: 3,
+        discriminator: Discriminators.ASPECT_RATIO_CONFIG
     },
-    [AspectRatioName.SOCIAL_VIDEO]: {
-        NAME: '9:16',
-        WIDTH_RATIO: 9,
-        HEIGHT_RATIO: 16,
-        DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+    [AspectRatioKey.SOCIAL_VIDEO]: {
+        name: '9:16',
+        widthRatio: 9,
+        heightRatio: 16,
+        discriminator: Discriminators.ASPECT_RATIO_CONFIG
     },
-    [AspectRatioName.SQUARE]: {
-        NAME: 'square',
-        WIDTH_RATIO: 1,
-        HEIGHT_RATIO: 1,
-        DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+    [AspectRatioKey.SQUARE]: {
+        name: 'square',
+        widthRatio: 1,
+        heightRatio: 1,
+        discriminator: Discriminators.ASPECT_RATIO_CONFIG
     },
-    [AspectRatioName.TIKTOK_PHOTO]: {
-        NAME: '3:4',
-        WIDTH_RATIO: 3,
-        HEIGHT_RATIO: 4,
-        DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+    [AspectRatioKey.TIKTOK_PHOTO]: {
+        name: '3:4',
+        widthRatio: 3,
+        heightRatio: 4,
+        discriminator: Discriminators.ASPECT_RATIO_CONFIG
     },
-    [AspectRatioName.ULTRAWIDE]: {
-        NAME: 'ultrawide (21:9)',
-        WIDTH_RATIO: 64,
-        HEIGHT_RATIO: 27,
-        DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+    [AspectRatioKey.ULTRAWIDE]: {
+        name: 'ultrawide (21:9)',
+        widthRatio: 64,
+        heightRatio: 27,
+        discriminator: Discriminators.ASPECT_RATIO_CONFIG
     },
-    [AspectRatioName.WIDESCREEN]: {
-        NAME: 'widescreen (16:9)',
-        WIDTH_RATIO: 16,
-        HEIGHT_RATIO: 9,
-        DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+    [AspectRatioKey.WIDESCREEN]: {
+        name: 'widescreen (16:9)',
+        widthRatio: 16,
+        heightRatio: 9,
+        discriminator: Discriminators.ASPECT_RATIO_CONFIG
     }
 };

@@ -61,9 +61,9 @@ export class SketchGridSketch extends Sketch {
             ctx.createCanvas(720, 720);
             sketchGrid = new SketchGrid({
                 ASPECT_RATIO_CONFIG: {
-                    WIDTH_RATIO: 4,
-                    HEIGHT_RATIO: 5,
-                    DISCRIMINATOR: Discriminators.ASPECT_RATIO_CONFIG
+                    widthRatio: 4,
+                    heightRatio: 5,
+                    discriminator: Discriminators.ASPECT_RATIO_CONFIG
                 },
                 GRID_RESOLUTION: 720,
                 TILE_RESOLUTION: 720,

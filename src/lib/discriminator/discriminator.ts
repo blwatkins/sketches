@@ -22,7 +22,7 @@ import Schema from 'typebox/schema';
 
 import * as z from 'zod';
 
-import { TObject } from 'typebox';
+import { TIntersect, TObject } from 'typebox';
 
 import { PALETTE_SCHEMA, type Palette } from '../palette/palette';
 import { PALETTE_COLOR_SCHEMA, type PaletteColor } from '../palette-color/palette-color';
@@ -79,7 +79,7 @@ export class Discriminator {
     }
 
     /**
-     * Does the given input implement the {@link Discriminable} interface, and does the input's {@link Discriminable.DISCRIMINATOR} value match the given discriminator?
+     * Does the given input implement the {@link Discriminable} type, and does the input's {@link Discriminable.discriminator} value match the given discriminator?
      *
      * @param input - The input to check.
      * @param discriminator - The discriminator value to check against.
@@ -90,7 +90,7 @@ export class Discriminator {
      */
     static #hasDiscriminatorMatch(input: unknown, discriminator: Discriminators): boolean {
         if (input && typeof input === 'object') {
-            return (input as Discriminable).DISCRIMINATOR === discriminator;
+            return (input as Discriminable).discriminator === discriminator;
         }
 
         return false;
@@ -111,7 +111,17 @@ export class Discriminator {
         return result.success;
     }
 
-    static #hasTypeBoxMatch(input: unknown, schema: TObject): boolean {
+    /**
+     * Does the given input match the given TypeBox schema?
+     *
+     * @param input - The input to check.
+     * @param schema - The TypeBox schema to check against.
+     *
+     * @returns {boolean} `true` if the input matches the given TypeBox schema, `false` otherwise.
+     *
+     * @private
+     */
+    static #hasTypeBoxMatch(input: unknown, schema: TObject | TIntersect): boolean {
         return Schema.Check(schema, input);
     }
 }

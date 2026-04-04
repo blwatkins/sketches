@@ -35,7 +35,7 @@ sketches/
 ├── docs/                     # Jekyll-based GitHub Pages site (TypeDoc output copied here manually)
 ├── src/
 │   ├── lib/                  # Shared utility library (validators, palette, sketch, etc.)
-│   │   ├── discriminator/    # Discriminable interface, Discriminator, Discriminators
+│   │   ├── discriminator/    # Discriminable type, DiscriminableSchema, Discriminator, Discriminators
 │   │   ├── number/           # NumberValidator
 │   │   ├── palette/          # Palette
 │   │   ├── palette-color/    # PaletteColor
@@ -93,7 +93,7 @@ sketches/
 - **Output directory:** `_compiled/` (from `tsc`)
 - **No implicit `any`**, no implicit returns, no unused locals or parameters
 - **`noEmitOnError: true`** — the compiler will not emit output if there are errors
-- **Type definitions:** Use `interface` (not `type`) for object type definitions, enforced by ESLint rule `@typescript-eslint/consistent-type-definitions: ['error', 'interface']`. **Exception:** Types derived from Zod or TypeBox schemas must use `type` (e.g., `type Palette = z.infer<typeof PALETTE_SCHEMA>`, `type AspectRatioConfig = Static<typeof AspectRatioConfigSchema>`).
+- **Type definitions:** Use `interface` (not `type`) for object type definitions, enforced by ESLint rule `@typescript-eslint/consistent-type-definitions: ['error', 'interface']`. **Exception:** Types derived from Zod or TypeBox schemas must use `type` (e.g., `type Palette = z.infer<typeof PALETTE_SCHEMA>`, `type Discriminable = Static<typeof DiscriminableSchema>`, `type AspectRatioConfig = Static<typeof AspectRatioConfigSchema>`).
 - **Module exports:** Use barrel `index.ts` files for each module in `src/lib/`
 
 ### Zod Schemas
@@ -106,11 +106,17 @@ Types derived from Zod schemas (e.g., `Palette`, `PaletteColor`) follow this pat
 
 ### TypeBox Schemas
 
-Types derived from TypeBox schemas (e.g., `AspectRatioConfig`) follow this pattern:
-- Define a named `Type.Object(...)` schema constant (e.g., `AspectRatioConfigSchema`) with `{ additionalProperties: false }` to enforce strict objects
+Types derived from TypeBox schemas (e.g., `Discriminable`, `AspectRatioConfig`) follow this pattern:
 - Export a `type` alias derived via `Static<typeof SCHEMA>` instead of a separate `interface`
-- Include a `DISCRIMINATOR` field in the schema using `Type.Readonly(Type.Literal(Discriminators.VALUE))`
 - Document all schema fields with JSDoc comments
+
+The base `Discriminable` type uses a shared `DiscriminableSchema`:
+- `DiscriminableSchema` is defined as `Type.Object({ discriminator: Type.Readonly(Type.Enum(Discriminators)) })`
+- `type Discriminable = Static<typeof DiscriminableSchema>`
+
+Types that implement `Discriminable` (e.g., `AspectRatioConfig`) use `Type.Intersect`:
+- Define a named schema constant using `Type.Intersect([DiscriminableSchema, Type.Object({...}, { additionalProperties: false })])` (e.g., `AspectRatioConfigSchema`)
+- Include a `discriminator` field in the `Type.Object` using `Type.Readonly(Type.Literal(Discriminators.VALUE))` to narrow the inherited `discriminator` to the specific value for that type
 
 ### Static Classes
 
