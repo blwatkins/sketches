@@ -36,7 +36,7 @@ export class AspectRatio {
      * @readonly
      * @private
      */
-    readonly #NAME: string;
+    readonly #name: string;
 
     /**
      * The width component of the aspect ratio.
@@ -44,7 +44,7 @@ export class AspectRatio {
      * @readonly
      * @private
      */
-    readonly #WIDTH_RATIO: number;
+    readonly #widthRatio: number;
 
     /**
      * The height component of the aspect ratio.
@@ -52,29 +52,32 @@ export class AspectRatio {
      * @readonly
      * @private
      */
-    readonly #HEIGHT_RATIO: number;
+    readonly #heightRatio: number;
 
-    // TODO - constructor should throw error for invalid parameters or configuration
     /**
      *  Create an aspect ratio using the given target width and height.
      *
      * @param width {number} - The target width of the canvas or graphic. Minimum value is {@link Sketch.MIN_RESOLUTION}.
      * @param height {number} - The target height of the canvas or graphic. Minimum value is {@link Sketch.MIN_RESOLUTION}.
      * @param name {string} - Optional name to use.
+     *
+     * @throws {Error} - If the given width or height is not a positive finite number greater than or equal to {@link Sketch.MIN_RESOLUTION}.
      */
     constructor(width: number, height: number, name?: string);
     /**
      * Create an aspect ratio using the given {@link AspectRatioConfig}.
      *
      * @param config {AspectRatioConfig} - The {@link AspectRatioConfig} to use.
+     *
+     * @throws {Error} - If the given config does not properly implement the {@link AspectRatioConfig} type.
      */
     constructor(config: AspectRatioConfig);
     constructor(arg1: AspectRatioConfig | number, arg2?: number, arg3?: string) {
         if (Discriminator.isAspectRatioConfig(arg1)) {
             const config: AspectRatioConfig = arg1;
-            this.#WIDTH_RATIO = config.WIDTH_RATIO;
-            this.#HEIGHT_RATIO = config.HEIGHT_RATIO;
-            this.#NAME = this.#buildName(config.NAME);
+            this.#widthRatio = config.widthRatio;
+            this.#heightRatio = config.heightRatio;
+            this.#name = this.#buildName(config.name);
         } else if ((NumberValidator.isPositiveFiniteNumber(arg1) && arg1 >= Sketch.MIN_RESOLUTION)
             && (typeof arg2 === 'number' && NumberValidator.isPositiveFiniteNumber(arg2) && arg2 >= Sketch.MIN_RESOLUTION)) {
             const width: number = arg1;
@@ -83,35 +86,33 @@ export class AspectRatio {
             const minDim: number = Math.min(width, height);
             const widthRatioCalculated: number = width / minDim;
             const heightRatioCalculated: number = height / minDim;
-            this.#WIDTH_RATIO = parseFloat(widthRatioCalculated.toFixed(2));
-            this.#HEIGHT_RATIO = parseFloat(heightRatioCalculated.toFixed(2));
-            this.#NAME = this.#buildName(name);
+            this.#widthRatio = parseFloat(widthRatioCalculated.toFixed(2));
+            this.#heightRatio = parseFloat(heightRatioCalculated.toFixed(2));
+            this.#name = this.#buildName(name);
         } else {
-            this.#WIDTH_RATIO = 1;
-            this.#HEIGHT_RATIO = 1;
-            this.#NAME = this.#buildName();
+            throw new Error('Invalid arguments for AspectRatio constructor.');
         }
     }
 
     /**
      * @returns {string} The name of the aspect ratio.
      */
-    public get NAME(): string {
-        return this.#NAME;
+    public get name(): string {
+        return this.#name;
     }
 
     /**
      * @returns {number} The width component of the aspect ratio.
      */
-    public get WIDTH_RATIO(): number {
-        return this.#WIDTH_RATIO;
+    public get widthRatio(): number {
+        return this.#widthRatio;
     }
 
     /**
      * @returns {number} The height component of the aspect ratio.
      */
-    public get HEIGHT_RATIO(): number {
-        return this.#HEIGHT_RATIO;
+    public get heightRatio(): number {
+        return this.#heightRatio;
     }
 
     // TODO - resolution must be positive and finite
@@ -123,7 +124,7 @@ export class AspectRatio {
      * @returns {number} The width of the canvas or graphic given the target resolution.
      */
     public getWidth(resolution: number, applyToLongSide?: boolean): number {
-        return Math.floor(this.#calculateUnit(resolution, applyToLongSide) * this.#WIDTH_RATIO);
+        return Math.floor(this.#calculateUnit(resolution, applyToLongSide) * this.#widthRatio);
     }
 
     // TODO - resolution must be positive and finite
@@ -135,7 +136,7 @@ export class AspectRatio {
      * @returns {number} The height of the canvas or graphic given the target resolution.
      */
     public getHeight(resolution: number, applyToLongSide?: boolean): number {
-        return Math.floor(this.#calculateUnit(resolution, applyToLongSide) * this.#HEIGHT_RATIO);
+        return Math.floor(this.#calculateUnit(resolution, applyToLongSide) * this.#heightRatio);
     }
 
     // TODO - resolution must be positive and finite
@@ -154,10 +155,10 @@ export class AspectRatio {
         }
 
         if (applyToLongSide) {
-            return resolution / Math.max(this.#WIDTH_RATIO, this.#HEIGHT_RATIO);
+            return resolution / Math.max(this.#widthRatio, this.#heightRatio);
         }
 
-        return resolution / Math.min(this.#WIDTH_RATIO, this.#HEIGHT_RATIO);
+        return resolution / Math.min(this.#widthRatio, this.#heightRatio);
     }
 
     /**
@@ -174,6 +175,6 @@ export class AspectRatio {
             return name.trim().toLowerCase();
         }
 
-        return `${this.#WIDTH_RATIO}:${this.#HEIGHT_RATIO}`;
+        return `${this.#widthRatio}:${this.#heightRatio}`;
     }
 }
