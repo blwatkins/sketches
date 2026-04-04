@@ -91,3 +91,9 @@ layout: page
 
 ## AI-Assisted Development
 - [GitHub Copilot](https://github.com/features/copilot)
+
+## Assets
+
+### Favicon
+- [Favicon Generator](https://favicon.io/)
+- [Favicon Generator - Emoji Favicons > Artist Palette](https://favicon.io/emoji-favicons/artist-palette)
