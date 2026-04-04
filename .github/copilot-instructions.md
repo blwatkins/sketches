@@ -15,12 +15,13 @@ This repository contains generative art sketches built using [p5.js](https://p5j
 | Tool | Version | Purpose |
 |---|---|---|
 | Node.js | `^20.19.0 \|\| ^22.13.0 \|\| >=24` | Runtime |
-| TypeScript | `^5.9.3` | Language |
-| p5.js | `^2.2.2` | Creative coding / rendering |
-| Zod | `^4.3.6` | Runtime schema validation |
-| Vitest | `^4.1.0` | Unit testing |
+| TypeScript | `^6.0.2` | Language |
+| p5.js | `^2.2.3` | Creative coding / rendering |
+| TypeBox | `^1.1.14` | Runtime schema validation (TypeBox-based types) |
+| Zod | `^4.3.6` | Runtime schema validation (Zod-based types) |
+| Vitest | `^4.1.2` | Unit testing |
 | Webpack | `^5.105.4` | Bundling |
-| TypeDoc | `^0.28.17` | API documentation |
+| TypeDoc | `^0.28.18` | API documentation |
 | ESLint | `^10.1.0` | Linting (JS and TS) |
 
 ---
@@ -38,13 +39,14 @@ sketches/
 │   │   ├── number/           # NumberValidator
 │   │   ├── palette/          # Palette
 │   │   ├── palette-color/    # PaletteColor
-│   │   ├── sketch/           # Sketch, SketchGrid, AspectRatio, render utilities
+│   │   ├── sketch/           # Sketch, SketchGrid, AspectRatio, render/graphics utilities
 │   │   ├── string/           # StringValidator
 │   │   └── index.ts          # Barrel export for the entire library
 │   ├── sketches/             # Individual p5.js sketch implementations
 │   └── main.ts               # Application entry point
-├── tests/
-│   └── lib/                  # Unit tests mirroring the src/lib/ structure
+├── test/
+│   ├── lib/                  # Unit tests mirroring the src/lib/ structure
+│   └── utils/                # Shared test input helpers and test-case builders
 ├── typedoc/                  # Custom TypeDoc CSS
 ├── _compiled/                # TypeScript compiler output (gitignored)
 ├── _coverage/                # Vitest coverage output (gitignored)
@@ -91,15 +93,23 @@ sketches/
 - **Output directory:** `_compiled/` (from `tsc`)
 - **No implicit `any`**, no implicit returns, no unused locals or parameters
 - **`noEmitOnError: true`** — the compiler will not emit output if there are errors
-- **Type definitions:** Use `interface` (not `type`) for object type definitions, enforced by ESLint rule `@typescript-eslint/consistent-type-definitions: ['error', 'interface']`. **Exception:** Types derived from Zod schemas must use `type` (e.g., `type Palette = z.infer<typeof PALETTE_SCHEMA>`).
+- **Type definitions:** Use `interface` (not `type`) for object type definitions, enforced by ESLint rule `@typescript-eslint/consistent-type-definitions: ['error', 'interface']`. **Exception:** Types derived from Zod or TypeBox schemas must use `type` (e.g., `type Palette = z.infer<typeof PALETTE_SCHEMA>`, `type AspectRatioConfig = Static<typeof AspectRatioConfigSchema>`).
 - **Module exports:** Use barrel `index.ts` files for each module in `src/lib/`
 
 ### Zod Schemas
 
-Types derived from Zod schemas (e.g., `Palette`, `PaletteColor`, `AspectRatioConfig`) follow this pattern:
-- Define a named `z.strictObject(...)` schema constant (e.g., `PALETTE_SCHEMA`, `PALETTE_COLOR_SCHEMA`, `ASPECT_RATIO_CONFIG_SCHEMA`)
+Types derived from Zod schemas (e.g., `Palette`, `PaletteColor`) follow this pattern:
+- Define a named `z.strictObject(...)` schema constant (e.g., `PALETTE_SCHEMA`, `PALETTE_COLOR_SCHEMA`)
 - Export a `type` alias derived via `z.infer<typeof SCHEMA>` instead of a separate `interface`
 - Include a `DISCRIMINATOR` field in the schema using `z.enum(Object.values(Discriminators)).extract([Discriminators.VALUE]).readonly()`
+- Document all schema fields with JSDoc comments
+
+### TypeBox Schemas
+
+Types derived from TypeBox schemas (e.g., `AspectRatioConfig`) follow this pattern:
+- Define a named `Type.Object(...)` schema constant (e.g., `AspectRatioConfigSchema`) with `{ additionalProperties: false }` to enforce strict objects
+- Export a `type` alias derived via `Static<typeof SCHEMA>` instead of a separate `interface`
+- Include a `DISCRIMINATOR` field in the schema using `Type.Readonly(Type.Literal(Discriminators.VALUE))`
 - Document all schema fields with JSDoc comments
 
 ### Static Classes
@@ -161,13 +171,14 @@ The project uses two ESLint configs:
 
 - **Framework:** Vitest (with `globals: true` in `vitest.config.ts`)
 - **Environment:** `jsdom`
-- **Test file location:** `tests/lib/<module>/<file>.test.ts` (mirrors `src/lib/` structure)
-- **Test file pattern:** `tests/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}`
+- **Test file location:** `test/lib/<module>/<file>.test.ts` (mirrors `src/lib/` structure)
+- **Test file pattern:** `test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}`
 - **Coverage output:** `_coverage/` (gitignored)
 - Always explicitly import Vitest utilities from `'vitest'` (e.g., `import { describe, test, expect } from 'vitest';`)
 - Parameterized tests use `test.each` with a descriptive label
 - Helper interfaces and functions for test cases are defined inside the enclosing `describe` block
 - Import library classes and types from `'../../../src/lib'` (via the barrel `index.ts`)
+- Shared test input data (e.g., number/string edge cases) lives under `test/utils/input/`; shared test-case builders live under `test/utils/test-case/`
 
 ---
 
