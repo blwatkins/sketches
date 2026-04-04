@@ -90,7 +90,22 @@ export class AspectRatio {
             this.#heightRatio = parseFloat(heightRatioCalculated.toFixed(2));
             this.#name = this.#buildName(name);
         } else {
-            throw new Error('Invalid arguments for AspectRatio constructor.');
+            let receivedArgs: string = typeof arg1;
+
+            if (arg2 !== undefined) {
+                receivedArgs += `, ${typeof arg2}`;
+            }
+
+            if (arg3 !== undefined) {
+                receivedArgs += `, ${typeof arg3}`;
+            }
+
+            throw new Error(
+                'Invalid arguments for AspectRatio constructor. '
+                + `Expected: (config: AspectRatioConfig) or (width: number, height: number, name?: string) `
+                + `where width and height are positive finite numbers >= ${Sketch.MIN_RESOLUTION}. `
+                + `Received: (${receivedArgs}).`
+            );
         }
     }
 
