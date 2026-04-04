@@ -2,6 +2,19 @@
 
 Generative art sketches built using p5.js with shared utility classes for creative coding.
 
+## Attributions
+
+### Favicon
+
+The favicon for this template project is an artist palette emoji, which is used to represent creativity and artistic expression.
+The favicon was generated from the Artist Palette emoji using [Favicon Generator](https://favicon.io/).
+
+This favicon was generated using the following graphics from Twitter Twemoji:
+- Graphics Title: 1f3a8.svg
+- Graphics Author: Copyright 2020 Twitter, Inc and other contributors (https://github.com/twitter/twemoji)
+- Graphics Source: https://github.com/twitter/twemoji/blob/master/assets/svg/1f3a8.svg
+- Graphics License: CC-BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+
 ## License
 
 The source code of this project is licensed under the [MIT License](https://opensource.org/license/mit).
@@ -29,10 +42,17 @@ The full text of the license is included with the project source code.
 - **Environment Management:** [n](https://github.com/tj/n), [rbenv](https://rbenv.org/)
 - **AI-Assisted Development:** [GitHub Copilot](https://github.com/features/copilot)
 
-## Additional Information
+### Skill Sources and Technical Notes
 
 - [Resources and References](https://blwatkins.github.io/sketches/resources-and-references.html)
 - [Portfolio Skills](https://blwatkins.github.io/sketches/portfolio-skills.html)
+
+## Thank Yous
+
+A huge thank you to all the open source contributors who have made this project possible by creating and maintaining the libraries and tools used in this template, and to the open source community for fostering collaboration and innovation.
+
+A special thank you to all the educators, mentors, and content creators who have shared their knowledge and expertise in the fields of web development and computer science.
+Thank you for giving me the tools, resources, opportunities, support, and inspiration to learn and grow as a developer.
 
 ----
 
