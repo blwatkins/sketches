@@ -18,17 +18,28 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import { Type, type Static } from 'typebox';
+
 import { type Discriminator } from './discriminator';
 import { Discriminators } from './discriminators';
 
 /**
- * Interface for objects that can be categorized by a discriminator value and the {@link Discriminator} class.
+ * TypeBox schema for validating that an object implements the {@link Discriminable} type.
  */
-export interface Discriminable {
-    /**
-     * Discriminator value for the implementing interface.
-     *
-     * @readonly
-     */
-    readonly DISCRIMINATOR: Discriminators;
-}
+export const DiscriminableSchema = Type.Object(
+    {
+        /**
+         * Discriminator value for the implementing interface.
+         *
+         * @readonly
+         */
+        discriminator: Type.Readonly(
+            Type.Enum(Discriminators),
+        )
+    }
+);
+
+/**
+ * Type for objects that can be categorized by a discriminator value and the {@link Discriminator} class.
+ */
+export type Discriminable = Static<typeof DiscriminableSchema>;
