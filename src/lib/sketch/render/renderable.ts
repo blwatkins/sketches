@@ -20,6 +20,9 @@
 
 import p5 from 'p5';
 
+/**
+ * Interface for any classes or objects that can be rendered to a p5.js context, canvas, and/or graphics buffer.
+ */
 export interface Renderable {
     drawToContext(ctx: p5 | p5.Graphics | p5.Renderer): void;
 }
