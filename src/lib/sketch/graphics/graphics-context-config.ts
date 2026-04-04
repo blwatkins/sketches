@@ -21,7 +21,6 @@
 import p5 from 'p5';
 
 import { AspectRatioConfig } from '../aspect-ratio';
-import { RenderType } from "../render/render-type";
 
 /**
  * Configuration options for {@link GraphicsContext} and {@link GraphicsContext.buildGraphics}.
@@ -58,15 +57,6 @@ export interface GraphicsContextConfig {
      * @readonly
      */
     readonly resolutionIsLongSide?: boolean;
-
-    /**
-     * The {@link RenderType} of the {@link GraphicsContext}.
-     * This property is optional.
-     * If no render type is provided, the graphics context will be created with the p5.P2D renderer.
-     *
-     * @readonly
-     */
-    readonly renderType?: RenderType;
 
     /**
      * The current p5.js context.

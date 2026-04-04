@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2026 Brittni Watkins.
+ * Copyright (c) 2024-2026 Brittni Watkins.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"),
@@ -21,37 +21,100 @@
 import p5 from 'p5';
 
 import { AspectRatio } from '../aspect-ratio';
-import { Renderable } from '../render/renderable';
 
 import { GraphicsContextConfig } from './graphics-context-config';
 
 /**
- * Abstract wrapper for a single p5.js graphics context.
+ * Wrapper for a single p5.js graphics context.
+ * p5.Graphics objects created with this class will always have a p5.P2D renderer.
+ * For p5.Graphics with WebGL renderers, see {@link WebGLGraphicsContext}.
  */
-export abstract class GraphicsContext implements Renderable {
+export class GraphicsContext {
     static #counter: number = 0;
 
     readonly #graphics: p5.Graphics;
+    readonly #p5Ctx: p5;
 
-    protected constructor(graphics: p5.Graphics) {
+    protected constructor(p5Ctx: p5, graphics: p5.Graphics) {
         this.#graphics = graphics;
+        this.#p5Ctx = p5Ctx;
     }
 
     public static buildGraphics(config: GraphicsContextConfig): p5.Graphics {
         const aspectRatio = new AspectRatio(config.aspectRatioConfig);
         const width: number = aspectRatio.getWidth(config.resolution, config.resolutionIsLongSide);
         const height: number = aspectRatio.getHeight(config.resolution, config.resolutionIsLongSide);
-        const graphics = config.p5Ctx.createGraphics(width, height, config.renderType ?? config.p5Ctx.P2D);
+        const graphics: p5.Graphics = GraphicsContext.buildGraphicsContext(config.p5Ctx, width, height);
         graphics.id(config.name ?? GraphicsContext.#buildName());
         return graphics;
     }
 
-    public abstract draw(): void;
-
-    public abstract drawToContext(ctx: p5 | p5.Graphics | p5.Renderer): void;
+    protected static buildGraphicsContext(p5Ctx: p5, width: number, height: number): p5.Graphics {
+        return p5Ctx.createGraphics(width, height, p5Ctx.P2D);
+    }
 
     public get graphics(): p5.Graphics {
         return this.#graphics;
+    }
+
+    public get width(): number {
+        return this.#graphics.width;
+    }
+
+    public get height(): number {
+        return this.#graphics.height;
+    }
+
+    public get minX(): number {
+        return 0;
+    }
+
+    public get minY(): number {
+        return 0;
+    }
+
+    public get maxX(): number {
+        return this.width;
+    }
+
+    public get maxY(): number {
+        return this.height;
+    }
+
+    public get centerX(): number  {
+        return this.width / 2.0;
+    }
+
+    public get centerY(): number  {
+        return this.height / 2.0;
+    }
+
+    public mapCoordinateToRatioY(coordinateY: number): number {
+        return this.#p5Ctx.map(coordinateY, this.minY, this.maxY, 0, 1);
+    }
+
+    public mapCoordinateToRatioX(coordinateX: number): number {
+        return this.#p5Ctx.map(coordinateX, this.minX, this.maxX, 0, 1);
+    }
+
+    public mapCoordinateToRatio(coordinateVector: p5.Vector): p5.Vector {
+        const coordinateX: number = this.mapCoordinateToRatioX(coordinateVector.x);
+        const coordinateY: number = this.mapCoordinateToRatioY(coordinateVector.y);
+        return this.#p5Ctx.createVector(coordinateX, coordinateY);
+    }
+
+    public mapRatioToCoordinateX(ratioX: number): number {
+        return this.#p5Ctx.map(ratioX, 0, 1, this.minX, this.maxX);
+    }
+
+    public mapRatioToCoordinateY(ratioY: number): number {
+        return this.#p5Ctx.map(ratioY, 0, 1, this.minY, this.maxY);
+    }
+
+    public mapRatioToCoordinate(ratioVector: p5.Vector): p5.Vector {
+        const coordinateX: number = this.mapRatioToCoordinateX(ratioVector.x);
+        const coordinateY: number = this.mapRatioToCoordinateY(ratioVector.y);
+        return this.#p5Ctx.createVector(coordinateX, coordinateY);
     }
 
     static get #count(): number {
