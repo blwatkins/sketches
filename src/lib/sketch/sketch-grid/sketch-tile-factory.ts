@@ -18,6 +18,10 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { test } from 'vitest';
+import p5 from 'p5';
 
-test.todo('unit tests');
+import { SketchTile } from './sketch-tile';
+
+export abstract class SketchTileFactory {
+    public abstract buildSketchTile(graphics: p5.Graphics): SketchTile;
+}

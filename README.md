@@ -1,6 +1,19 @@
-# Sketches
+# Sketches, by Brittni Watkins
 
 Generative art sketches built using p5.js with shared utility classes for creative coding.
+
+## [Documentation](https://blwatkins.github.io/sketches/doc/index.html)
+
+A note about the documentation:
+The documentation for this project is generated using TypeDoc.
+Due to configuration limitations, the documentation contains namespaces that are not present in the source code; they are solely used to organize the TypeDoc output.
+When using imports from the `lib/` directory, all imports should be made in a flat import style, without referencing any namespaces.
+
+For example, to import the `Sketch` class from a class in `/src/sketches/01-experiments/`, you would use the following import statement:
+
+```typescript
+import { Sketch } from '../../../lib';
+```
 
 ## Attributions
 
@@ -40,6 +53,7 @@ The full text of the license is included with the project source code.
 - **Versioning & Platform:** [Git](https://git-scm.com/), [GitHub](https://github.com/)
 - **CI/CD:** [GitHub Actions](https://github.com/features/actions), [GitHub Pages](https://docs.github.com/en/pages), [CodeQL](https://codeql.github.com/)
 - **Environment Management:** [n](https://github.com/tj/n), [rbenv](https://rbenv.org/)
+- **Development Environments:** [WebStorm](https://www.jetbrains.com/webstorm/), [Visual Studio Code](https://code.visualstudio.com/)
 - **AI-Assisted Development:** [GitHub Copilot](https://github.com/features/copilot)
 
 ### Skill Sources and Technical Notes

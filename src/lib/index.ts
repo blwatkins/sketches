@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2026 Brittni Watkins.
+ * Copyright (c) 2024-2026 Brittni Watkins.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"),
@@ -18,5 +18,18 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-export * from './sketch';
-export * as sketch from './sketch';
+export type { Discriminable } from './discriminator/discriminable';
+export { Discriminator } from './discriminator/discriminator';
+export { Discriminators } from './discriminator/discriminators';
+
+export { NumberValidator } from './number/number-validator';
+
+export { type Palette, PALETTE_SCHEMA } from './palette/palette';
+
+export { type PaletteColor, PALETTE_COLOR_SCHEMA } from './palette-color/palette-color';
+
+export * from './sketch/aspect-ratio';
+
+export { Sketch } from './sketch/sketch';
+
+export { StringValidator } from './string/string-validator';

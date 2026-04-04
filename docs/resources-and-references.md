@@ -10,6 +10,11 @@ layout: page
 
 ### JavaScript
 - [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [MDN Web Docs - JavaScript data types and data structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures)
+- [MDN Web Docs - Falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
+- [MDN Web Docs - Number.MIN_VALUE](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_VALUE)
+- [MDN Web Docs - Number.isNaN()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
+- [MDN Web Docs - String.prototype.padStart()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart)
 
 ### HTML
 - [MDN Web Docs - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
@@ -44,10 +49,12 @@ layout: page
 
 ## Testing
 - [Vitest](https://vitest.dev/)
+- [RegEx Pal](https://www.regexpal.com/)
 
 ## Code Quality
 - [ESLint](https://eslint.org/)
 - [ESLint Stylistic](https://eslint.style/)
+  - [ESLint Stylistic - operator-linebreak](https://eslint.style/rules/operator-linebreak)
 - [eslint-plugin-es-x](https://eslint-community.github.io/eslint-plugin-es-x/)
 - [typescript-eslint](https://typescript-eslint.io/)
 
@@ -79,7 +86,14 @@ layout: page
 
 ## Development Environments
 - [WebStorm](https://www.jetbrains.com/webstorm/)
+- [WebStorm - Disabling and enabling inspections](https://www.jetbrains.com/help/webstorm/disabling-and-enabling-inspections.html)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 ## AI-Assisted Development
 - [GitHub Copilot](https://github.com/features/copilot)
+
+## Assets
+
+### Favicon
+- [Favicon Generator](https://favicon.io/)
+- [Favicon Generator - Emoji Favicons > Artist Palette](https://favicon.io/emoji-favicons/artist-palette)

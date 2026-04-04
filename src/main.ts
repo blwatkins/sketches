@@ -22,11 +22,11 @@ import p5 from 'p5';
 
 import { Sketch } from './lib';
 
-import { HelloWorldSketch } from './sketches/00-hello-world';
+import { SketchGridSketch } from './sketches/01-experiments/00-sketch-grid/sketch-grid-sketch';
 
 import '../assets/css/main.css';
 
-const sketch: Sketch = new HelloWorldSketch();
+const sketch: Sketch = new SketchGridSketch();
 
 const main: (ctx: p5) => void = sketch.main.bind(sketch);
 

@@ -32,7 +32,8 @@ export default defineConfig([
         '_compiled/**',
         '_coverage/**',
         '_dist/**',
-        '_doc/**'
+        '_doc/**',
+        'docs/doc/**'
     ]),
     {
         files: [
@@ -153,7 +154,7 @@ export default defineConfig([
                 }
             }],
 
-            '@stylistic/operator-linebreak': ['error', 'after'],
+            '@stylistic/operator-linebreak': ['error', 'before'],
 
             '@stylistic/quotes': ['error',
                 'single',

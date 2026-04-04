@@ -35,7 +35,9 @@
     "serve:dev": "webpack-dev-server --mode development"
   },
   "dependencies": {
-    "p5": "^2.2.3"
+    "p5": "^2.2.3",
+    "typebox": "^1.1.14",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

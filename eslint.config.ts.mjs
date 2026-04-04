@@ -34,6 +34,7 @@ export default defineConfig([
         '_coverage/**',
         '_dist/**',
         '_doc/**',
+        'docs/doc/**',
         '**/*.js',
         '**/*.cjs',
         '**/*.mjs',
@@ -167,7 +168,7 @@ export default defineConfig([
                 }
             }],
 
-            '@stylistic/operator-linebreak': ['error', 'after'],
+            '@stylistic/operator-linebreak': ['error', 'before'],
 
             '@stylistic/quotes': ['error',
                 'single',
@@ -207,7 +208,7 @@ export default defineConfig([
             }],
 
             'no-unused-vars': 'off',
-            '@typescript-eslint/no-unused-vars': 'error',
+            '@typescript-eslint/no-unused-vars': 'warn',
 
             'no-use-before-define': 'off',
             '@typescript-eslint/no-use-before-define': 'error',
@@ -219,6 +220,8 @@ export default defineConfig([
 
             '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
 
+            '@typescript-eslint/no-dynamic-delete': 'warn',
+
             '@typescript-eslint/no-explicit-any': 'error',
 
             '@typescript-eslint/no-extraneous-class': ['error', {
@@ -226,6 +229,8 @@ export default defineConfig([
             }],
 
             '@typescript-eslint/no-inferrable-types': 'off',
+
+            '@typescript-eslint/no-unsafe-member-access': 'warn',
 
             '@typescript-eslint/prefer-for-of': 'error',
 
