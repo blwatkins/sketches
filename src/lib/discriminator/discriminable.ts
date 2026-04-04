@@ -29,7 +29,7 @@ import { Discriminators } from './discriminators';
 export const DiscriminableSchema = Type.Object(
     {
         /**
-         * Discriminator value for the implementing interface.
+         * Discriminator value for the implementing type.
          *
          * @readonly
          */

@@ -73,7 +73,7 @@ export const AspectRatioConfigSchema = Type.Intersect([
             ),
 
             /**
-             * Discriminator value for the {@link AspectRatioConfig} interface.
+             * Discriminator value for the {@link AspectRatioConfig} type.
              *
              * @see {@link Discriminable}
              * @see {@link Discriminators.ASPECT_RATIO_CONFIG}
