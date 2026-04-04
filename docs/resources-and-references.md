@@ -7,6 +7,7 @@ layout: page
 
 ### TypeScript
 - [TypeScript](https://www.typescriptlang.org/)
+- [TypeScript - Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
 
 ### JavaScript
 - [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
