@@ -20,71 +20,73 @@
 
 import { Type, type Static } from 'typebox';
 
-import { type Discriminable } from '../../discriminator/discriminable';
+import {type Discriminable, DiscriminableSchema} from '../../discriminator/discriminable';
 import { Discriminators } from '../../discriminator/discriminators';
 
 import { type AspectRatio } from './aspect-ratio';
 
-// TODO - update property case in schema, Discriminable, and Unit Tests
 /**
  * TypeBox schema for validating that an object implements the {@link AspectRatioConfig} type.
  *
  * @see {@link Discriminable}
  */
-export const AspectRatioConfigSchema = Type.Object(
-    {
-        /**
-         * The name of the aspect ratio.
-         * This property is optional.
-         *
-         * @readonly
-         */
-        NAME: Type.Optional(
-            Type.Readonly(
-                Type.String({
-                    minLength: 1
+export const AspectRatioConfigSchema = Type.Intersect([
+    DiscriminableSchema,
+    Type.Object(
+        { additionalProperties: false },
+        {
+            /**
+             * The name of the aspect ratio.
+             * This property is optional.
+             *
+             * @readonly
+             */
+            name: Type.Optional(
+                Type.Readonly(
+                    Type.String({
+                        minLength: 1
+                    })
+                )
+            ),
+
+            /**
+             * The width component of the aspect ratio.
+             * Must be greater than or equal to 1.
+             *
+             * @readonly
+             */
+            widthRatio: Type.Readonly(
+                Type.Number({
+                    minimum: 1
                 })
+            ),
+
+            /**
+             * The height component of the aspect ratio.
+             * Must be greater than or equal to 1.
+             *
+             * @readonly
+             */
+            heightRatio: Type.Readonly(
+                Type.Number({
+                    minimum: 1
+                })
+            ),
+
+            /**
+             * Discriminator value for the {@link AspectRatioConfig} interface.
+             *
+             * @see {@link Discriminable}
+             * @see {@link Discriminators.ASPECT_RATIO_CONFIG}
+             *
+             * @readonly
+             */
+            discriminator: Type.Readonly(
+                Type.Literal(Discriminators.ASPECT_RATIO_CONFIG)
             )
-        ),
-
-        /**
-         * The width component of the aspect ratio.
-         * Must be greater than or equal to 1.
-         *
-         * @readonly
-         */
-        WIDTH_RATIO: Type.Readonly(
-            Type.Number({
-                minimum: 1
-            })
-        ),
-
-        /**
-         * The height component of the aspect ratio.
-         * Must be greater than or equal to 1.
-         *
-         * @readonly
-         */
-        HEIGHT_RATIO: Type.Readonly(
-            Type.Number({
-                minimum: 1
-            })
-        ),
-
-        /**
-         * Discriminator value for the {@link AspectRatioConfig} interface.
-         *
-         * @see {@link Discriminable}
-         * @see {@link Discriminators.ASPECT_RATIO_CONFIG}
-         *
-         * @readonly
-         */
-        DISCRIMINATOR: Type.Readonly(
-            Type.Literal(Discriminators.ASPECT_RATIO_CONFIG)
-        )
-    },
-    { additionalProperties: false }
-);
+        }
+    )
+]);
 
 /**
  * A configuration for an {@link AspectRatio} object.
