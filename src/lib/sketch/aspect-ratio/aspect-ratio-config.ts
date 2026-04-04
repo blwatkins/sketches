@@ -33,7 +33,6 @@ import { type AspectRatio } from './aspect-ratio';
 export const AspectRatioConfigSchema = Type.Intersect([
     DiscriminableSchema,
     Type.Object(
-        { additionalProperties: false },
         {
             /**
              * The name of the aspect ratio.
@@ -84,7 +83,8 @@ export const AspectRatioConfigSchema = Type.Intersect([
             discriminator: Type.Readonly(
                 Type.Literal(Discriminators.ASPECT_RATIO_CONFIG)
             )
-        }
+        },
+        { additionalProperties: false },
     )
 ]);
 

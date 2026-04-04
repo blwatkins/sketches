@@ -20,7 +20,7 @@
 
 import { describe, test, expect } from 'vitest';
 
-import { ASPECT_RATIOS, AspectRatioConfig, Discriminator, Discriminators } from '../../../src/lib';
+import { AspectRatios, AspectRatioConfig, Discriminator, Discriminators } from '../../../src/lib';
 
 import {
     NEGATIVE_NUMBER_INPUTS,
@@ -130,7 +130,7 @@ describe('Discriminator', (): void => {
                 label: 'valid objects',
                 inputs: [
                     ...VALID_ASPECT_RATIO_CONFIGS,
-                    ...Object.values(ASPECT_RATIOS),
+                    ...Object.values(AspectRatios),
                     ...buildAspectRatioConfigInputs([VALID_ASPECT_RATIO_CONFIGS[0]], 'NAME', [
                         'UPPERCASE NAME',
                         'Mixed Case Name',
