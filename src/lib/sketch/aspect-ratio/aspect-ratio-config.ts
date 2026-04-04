@@ -18,60 +18,45 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import * as z from 'zod';
+import { Type, type Static } from 'typebox';
 
 import { type Discriminable } from '../../discriminator/discriminable';
 import { Discriminators } from '../../discriminator/discriminators';
 
 import { type AspectRatio } from './aspect-ratio';
 
-/**
- * Zod schema for validating that an object implements the {@link AspectRatioConfig} type.
- *
- * @see {@link Discriminable}
- */
-export const ASPECT_RATIO_CONFIG_SCHEMA = z.strictObject({
-    /**
-     * The name of the aspect ratio.
-     * Must be a non-empty string in lowercase when provided.
-     * Non-empty strings must contain at least one non-whitespace character.
-     * This property is optional.
-     *
-     * @readonly
-     */
-    NAME: z.string().trim().nonempty().lowercase().readonly().optional(),
 
-    /**
-     * The width component of the aspect ratio.
-     * Must be greater than or equal to 1.
-     *
-     * @readonly
-     */
-    WIDTH_RATIO: z.number().gte(1).readonly(),
-
-    /**
-     * The height component of the aspect ratio.
-     * Must be greater than or equal to 1.
-     *
-     * @readonly
-     */
-    HEIGHT_RATIO: z.number().gte(1).readonly(),
-
-    /**
-     * Discriminator value for the {@link AspectRatioConfig} interface.
-     *
-     * @see {@link Discriminable}
-     * @see {@link Discriminators.ASPECT_RATIO_CONFIG}
-     *
-     * @readonly
-     */
-    DISCRIMINATOR: z.enum(Object.values(Discriminators)).extract([Discriminators.ASPECT_RATIO_CONFIG]).readonly()
-});
+// TODO - update property case in schema, Discriminable, and Unit Tests
+export const AspectRatioConfigSchema = Type.Object(
+    {
+        NAME: Type.Optional(
+            Type.Readonly(
+                Type.String({
+                    minLength: 1
+                })
+            )
+        ),
+        WIDTH_RATIO: Type.Readonly(
+            Type.Number({
+                minimum: 1
+            })
+        ),
+        HEIGHT_RATIO: Type.Readonly(
+            Type.Number({
+                minimum: 1
+            })
+        ),
+        DISCRIMINATOR: Type.Readonly(
+            Type.Literal(Discriminators.ASPECT_RATIO_CONFIG)
+        )
+    },
+    { additionalProperties: false }
+);
 
 /**
  * A configuration for an {@link AspectRatio} object.
  *
  * @see {@link Discriminable}
- * @see {@link ASPECT_RATIO_CONFIG_SCHEMA}
+ * @see {@link AspectRatioConfigSchema}
  */
-export type AspectRatioConfig = z.infer<typeof ASPECT_RATIO_CONFIG_SCHEMA>;
+export type AspectRatioConfig = Static<typeof AspectRatioConfigSchema>;

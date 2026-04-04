@@ -130,7 +130,12 @@ describe('Discriminator', (): void => {
                 label: 'valid objects',
                 inputs: [
                     ...VALID_ASPECT_RATIO_CONFIGS,
-                    ...Object.values(ASPECT_RATIOS)
+                    ...Object.values(ASPECT_RATIOS),
+                    ...buildAspectRatioConfigInputs([VALID_ASPECT_RATIO_CONFIGS[0]], 'NAME', [
+                        'UPPERCASE NAME',
+                        'Mixed Case Name',
+                        ...EMPTY_STRING_INPUTS.filter(value => value !== '')
+                    ])
                 ],
                 expected: true
             },
@@ -196,9 +201,7 @@ describe('Discriminator', (): void => {
                 inputs: [
                     ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'NAME', [
                         ...NON_STRING_INPUTS.filter(value => value !== undefined),
-                        ...EMPTY_STRING_INPUTS,
-                        'Mixed Case Name',
-                        'CAPITALIZED NAME'
+                        ''
                     ])],
                 expected: false
             }

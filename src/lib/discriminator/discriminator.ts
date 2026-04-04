@@ -18,11 +18,15 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import Schema from 'typebox/schema';
+
 import * as z from 'zod';
+
+import { TObject } from 'typebox';
 
 import { PALETTE_SCHEMA, type Palette } from '../palette/palette';
 import { PALETTE_COLOR_SCHEMA, type PaletteColor } from '../palette-color/palette-color';
-import { ASPECT_RATIO_CONFIG_SCHEMA, type AspectRatioConfig } from '../sketch/aspect-ratio';
+import { AspectRatioConfigSchema, type AspectRatioConfig } from '../sketch/aspect-ratio';
 import { type Discriminable } from './discriminable';
 import { Discriminators } from './discriminators';
 
@@ -47,7 +51,7 @@ export class Discriminator {
      */
     public static isAspectRatioConfig(input: unknown): input is AspectRatioConfig {
         return (Discriminator.#hasDiscriminatorMatch(input, Discriminators.ASPECT_RATIO_CONFIG)
-            && Discriminator.#hasZodMatch(input, ASPECT_RATIO_CONFIG_SCHEMA));
+            && Discriminator.#hasTypeBoxMatch(input, AspectRatioConfigSchema));
     }
 
     /**
@@ -105,5 +109,9 @@ export class Discriminator {
     static #hasZodMatch(input: unknown, schema: z.ZodObject): boolean {
         const result = schema.safeParse(input);
         return result.success;
+    }
+
+    static #hasTypeBoxMatch(input: unknown, schema: TObject): boolean {
+        return Schema.Check(schema, input);
     }
 }
