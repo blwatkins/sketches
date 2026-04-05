@@ -23,7 +23,7 @@ import { describe, test, expect } from 'vitest';
 import { StringValidator } from '../../../src/lib';
 
 import { Scenario, TestCase, buildTestCases } from '../../utils/test-case/test-case';
-import { EMPTY_STRING_INPUTS, NON_EMPTY_STRING_INPUTS, NON_STRING_INPUTS } from '../../utils/input/string-inputs';
+import { emptyStringInputs, nonEmptyStringInputs, nonStringInputs } from '../../utils/input/string-inputs';
 
 describe('StringValidator', (): void => {
     describe('new StringValidator()', (): void => {
@@ -41,17 +41,17 @@ describe('StringValidator', (): void => {
         const SCENARIOS: Scenario[] = [
             {
                 LABEL: 'non-string inputs',
-                INPUTS: [...NON_STRING_INPUTS],
+                INPUTS: [...nonStringInputs],
                 EXPECTED: false
             },
             {
                 LABEL: 'empty string inputs',
-                INPUTS: [...EMPTY_STRING_INPUTS],
+                INPUTS: [...emptyStringInputs],
                 EXPECTED: false
             },
             {
                 LABEL: 'non-empty string inputs',
-                INPUTS: [...NON_EMPTY_STRING_INPUTS],
+                INPUTS: [...nonEmptyStringInputs],
                 EXPECTED: true
             }
         ];

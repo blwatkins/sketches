@@ -28,7 +28,11 @@ import {
     NON_NUMBER_INPUTS,
     ZERO_INPUTS
 } from '../../utils/input/number-inputs';
-import { EMPTY_STRING_INPUTS, NON_STRING_INPUTS } from '../../utils/input/string-inputs';
+import {
+    emptyStringInputs, multilineTrimmedInputs, multiTabTrimmedInputs,
+    nonStringInputs, singleLineLowercaseTrimmedInputs, singleLineMixedCaseTrimmedInputs,
+    singleLineUpperCaseTrimmedInputs, untrimmedInputs
+} from '../../utils/input/string-inputs';
 
 // TODO - test runtime constructor
 // TODO - use shared types
@@ -132,9 +136,7 @@ describe('Discriminator', (): void => {
                     ...VALID_ASPECT_RATIO_CONFIGS,
                     ...Object.values(AspectRatios),
                     ...buildAspectRatioConfigInputs([VALID_ASPECT_RATIO_CONFIGS[0]], 'name', [
-                        'UPPERCASE NAME',
-                        'Mixed Case Name',
-                        ...EMPTY_STRING_INPUTS.filter(value => value !== '')
+                        ...singleLineLowercaseTrimmedInputs
                     ])
                 ],
                 expected: true
@@ -187,8 +189,8 @@ describe('Discriminator', (): void => {
                 label: 'invalid discriminator values',
                 inputs: [
                     ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'discriminator', [
-                        ...NON_STRING_INPUTS,
-                        ...EMPTY_STRING_INPUTS,
+                        ...nonStringInputs,
+                        ...emptyStringInputs,
                         Discriminators.PALETTE,
                         Discriminators.PALETTE_COLOR,
                         'I_NOT_A_REAL_DISCRIMINATOR'
@@ -200,8 +202,13 @@ describe('Discriminator', (): void => {
                 label: 'invalid name values',
                 inputs: [
                     ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'name', [
-                        ...NON_STRING_INPUTS.filter(value => value !== undefined),
-                        ''
+                        ...nonStringInputs.filter(value => value !== undefined),
+                        ...emptyStringInputs,
+                        ...singleLineUpperCaseTrimmedInputs,
+                        ...singleLineMixedCaseTrimmedInputs,
+                        ...multilineTrimmedInputs,
+                        ...multiTabTrimmedInputs,
+                        ...untrimmedInputs
                     ])],
                 expected: false
             }
@@ -215,6 +222,10 @@ describe('Discriminator', (): void => {
             test.each(
                 testCases
             )('$input should return $expected', ({ input, expected: testExpected }: TestCase): void => {
+                if (Discriminator.isAspectRatioConfig(input) !== testExpected) {
+                    console.log(input);
+                }
+
                 expect(Discriminator.isAspectRatioConfig(input)).toBe(testExpected);
             });
         });
