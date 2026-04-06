@@ -20,7 +20,7 @@
 
 import { describe, test, expect } from 'vitest';
 
-import { aspectRatios, AspectRatioConfig, Discriminator, Discriminators } from '../../../src/lib';
+import {aspectRatios, AspectRatioConfig, Discriminator, Discriminators, StringValidator} from '../../../src/lib';
 
 import {
     negativeNumberInputs,
@@ -42,9 +42,6 @@ import {
 
 import { buildTestCases, Scenario, TestCase } from '../../utils/test-case/test-case';
 
-// TODO - test runtime constructor
-// TODO - use shared types
-// TODO - use shared test case builders
 // TODO - test palette and palette color interfaces
 describe('Discriminator', (): void => {
     // noinspection JSPrimitiveTypeWrapperUsage
@@ -101,6 +98,17 @@ describe('Discriminator', (): void => {
 
         return objects;
     }
+
+    describe('new Discriminator()', (): void => {
+        describe('Runtime behavior guards', (): void => {
+            test('Constructor should throw an error when instantiated at runtime', (): void => {
+                const RuntimeConstructor = Discriminator as unknown as new () => Discriminator;
+                expect((): Discriminator => new RuntimeConstructor()).toThrow(
+                    'Discriminator is a static class and cannot be instantiated.'
+                );
+            });
+        });
+    });
 
     describe('isAspectRatioConfig()', (): void => {
         function buildAspectRatioConfigInputs(validObjects: AspectRatioConfig[], key: string, values: unknown[]): unknown[] {
