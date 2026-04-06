@@ -26,7 +26,7 @@ import { Discriminators } from './discriminators';
 /**
  * TypeBox schema for validating that an object implements the {@link Discriminable} type.
  */
-export const DiscriminableSchema = Type.Object(
+export const discriminableSchema = Type.Object(
     {
         /**
          * Discriminator value for the implementing type.
@@ -42,4 +42,4 @@ export const DiscriminableSchema = Type.Object(
 /**
  * Type for objects that can be categorized by a discriminator value and the {@link Discriminator} class.
  */
-export type Discriminable = Static<typeof DiscriminableSchema>;
+export type Discriminable = Static<typeof discriminableSchema>;

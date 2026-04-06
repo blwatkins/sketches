@@ -20,7 +20,7 @@
 
 import { Type, type Static } from 'typebox';
 
-import { type Discriminable, DiscriminableSchema } from '../../discriminator/discriminable';
+import { type Discriminable, discriminableSchema } from '../../discriminator/discriminable';
 import { Discriminators } from '../../discriminator/discriminators';
 import { StringValidator } from '../../string/string-validator';
 
@@ -31,8 +31,8 @@ import { type AspectRatio } from './aspect-ratio';
  *
  * @see {@link Discriminable}
  */
-export const AspectRatioConfigSchema = Type.Intersect([
-    DiscriminableSchema,
+export const aspectRatioConfigSchema = Type.Intersect([
+    discriminableSchema,
     Type.Object(
         {
             /**
@@ -94,6 +94,6 @@ export const AspectRatioConfigSchema = Type.Intersect([
  * A configuration for an {@link AspectRatio} object.
  *
  * @see {@link Discriminable}
- * @see {@link AspectRatioConfigSchema}
+ * @see {@link aspectRatioConfigSchema}
  */
-export type AspectRatioConfig = Static<typeof AspectRatioConfigSchema>;
+export type AspectRatioConfig = Static<typeof aspectRatioConfigSchema>;

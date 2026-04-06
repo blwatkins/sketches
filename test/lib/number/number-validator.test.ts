@@ -23,10 +23,10 @@ import { describe, test, expect } from 'vitest';
 import { NumberValidator } from '../../../src/lib';
 import { buildTestCases, TestCase } from '../../utils/test-case/test-case';
 import {
-    NEGATIVE_NUMBER_INPUTS,
-    NON_FINITE_NUMBER_INPUTS,
-    NON_NUMBER_INPUTS,
-    POSITIVE_NUMBER_INPUTS, ZERO_INPUTS
+    negativeNumberInputs,
+    nonFiniteNumberInputs,
+    nonNumberInputs,
+    positiveNumberInputs, zeroInputs
 } from '../../utils/input/number-inputs';
 
 describe('NumberValidator', (): void => {
@@ -50,20 +50,20 @@ describe('NumberValidator', (): void => {
         }[] = [
             {
                 label: '(input)',
-                successInputs: [...POSITIVE_NUMBER_INPUTS],
-                failureInputs: [...NON_NUMBER_INPUTS, ...NON_FINITE_NUMBER_INPUTS, ...NEGATIVE_NUMBER_INPUTS, ...ZERO_INPUTS]
+                successInputs: [...positiveNumberInputs],
+                failureInputs: [...nonNumberInputs, ...nonFiniteNumberInputs, ...negativeNumberInputs, ...zeroInputs]
             },
             {
                 label: '(input, false)',
                 zeroInclusiveArg: false,
-                successInputs: [...POSITIVE_NUMBER_INPUTS],
-                failureInputs: [...NON_NUMBER_INPUTS, ...NON_FINITE_NUMBER_INPUTS, ...NEGATIVE_NUMBER_INPUTS, ...ZERO_INPUTS]
+                successInputs: [...positiveNumberInputs],
+                failureInputs: [...nonNumberInputs, ...nonFiniteNumberInputs, ...negativeNumberInputs, ...zeroInputs]
             },
             {
                 label: '(input, true)',
                 zeroInclusiveArg: true,
-                successInputs: [...POSITIVE_NUMBER_INPUTS, ...ZERO_INPUTS],
-                failureInputs: [...NON_NUMBER_INPUTS, ...NON_FINITE_NUMBER_INPUTS, ...NEGATIVE_NUMBER_INPUTS]
+                successInputs: [...positiveNumberInputs, ...zeroInputs],
+                failureInputs: [...nonNumberInputs, ...nonFiniteNumberInputs, ...negativeNumberInputs]
             }
         ];
 
@@ -85,7 +85,7 @@ describe('NumberValidator', (): void => {
 
             test.each(
                 testCases
-            )('({ input: $input, expected: $expected })', ({ INPUT: testInput, EXPECTED: testExpected }: TestCase): void => {
+            )('({ input: $input, expected: $expected })', ({ input: testInput, expected: testExpected }: TestCase): void => {
                 const actual = callIsPositiveFiniteNumber(testInput, zeroInclusiveArg);
                 expect(actual).toBe(testExpected);
             });

@@ -23,7 +23,7 @@ import { Discriminators } from '../../discriminator/discriminators';
 import { AspectRatioConfig } from './aspect-ratio-config';
 
 /**
- * Valid keys for the {@link AspectRatios} record.
+ * Valid keys for the {@link aspectRatios} record.
  * Each key corresponds to a pre-saved {@link AspectRatioConfig} object.
  */
 export enum AspectRatioKey {
@@ -66,7 +66,7 @@ export enum AspectRatioKey {
 /**
  * Pre-set {@link AspectRatioConfig} objects for easy access.
  */
-export const AspectRatios: Record<AspectRatioKey, AspectRatioConfig> = {
+export const aspectRatios: Record<AspectRatioKey, AspectRatioConfig> = {
     [AspectRatioKey.INSTAGRAM_PHOTO]: {
         name: '4:5',
         widthRatio: 4,
