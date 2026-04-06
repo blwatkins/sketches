@@ -19,7 +19,7 @@
  */
 
 // noinspection JSPrimitiveTypeWrapperUsage
-export const NON_NUMBER_INPUTS: unknown[] = [
+export const nonNumberInputs: unknown[] = [
     null,
     undefined,
     '',
@@ -40,13 +40,13 @@ export const NON_NUMBER_INPUTS: unknown[] = [
     ['value']
 ];
 
-export const NON_FINITE_NUMBER_INPUTS: number[] = [
+export const nonFiniteNumberInputs: number[] = [
     NaN,
     Infinity,
     -Infinity
 ];
 
-export const POSITIVE_NUMBER_INPUTS: number[] = [
+export const positiveNumberInputs: number[] = [
     10,
     10.01,
     Number.MIN_VALUE,
@@ -55,7 +55,7 @@ export const POSITIVE_NUMBER_INPUTS: number[] = [
     Number.EPSILON
 ];
 
-export const NEGATIVE_NUMBER_INPUTS: number[] = [
+export const negativeNumberInputs: number[] = [
     -10,
     -10.01,
     -Number.MIN_VALUE,
@@ -65,4 +65,4 @@ export const NEGATIVE_NUMBER_INPUTS: number[] = [
     Number.MIN_SAFE_INTEGER
 ];
 
-export const ZERO_INPUTS: number[] = [0, -0];
+export const zeroInputs: number[] = [0, -0];

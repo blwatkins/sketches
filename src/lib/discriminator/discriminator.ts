@@ -26,7 +26,7 @@ import { TSchema } from 'typebox';
 
 import { PALETTE_SCHEMA, type Palette } from '../palette/palette';
 import { PALETTE_COLOR_SCHEMA, type PaletteColor } from '../palette-color/palette-color';
-import { AspectRatioConfigSchema, type AspectRatioConfig } from '../sketch/aspect-ratio';
+import { aspectRatioConfigSchema, type AspectRatioConfig } from '../sketch/aspect-ratio';
 import { type Discriminable } from './discriminable';
 import { Discriminators } from './discriminators';
 
@@ -51,7 +51,7 @@ export class Discriminator {
      */
     public static isAspectRatioConfig(input: unknown): input is AspectRatioConfig {
         return (Discriminator.#hasDiscriminatorMatch(input, Discriminators.ASPECT_RATIO_CONFIG)
-            && Discriminator.#hasTypeBoxMatch(input, AspectRatioConfigSchema));
+            && Discriminator.#hasTypeBoxMatch(input, aspectRatioConfigSchema));
     }
 
     /**

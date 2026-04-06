@@ -23,7 +23,7 @@ import { describe, test, expect } from 'vitest';
 import { StringValidator } from '../../../src/lib';
 
 import { Scenario, TestCase, buildTestCases } from '../../utils/test-case/test-case';
-import { EMPTY_STRING_INPUTS, NON_EMPTY_STRING_INPUTS, NON_STRING_INPUTS } from '../../utils/input/string-inputs';
+import { emptyStringInputs, nonEmptyStringInputs, nonStringInputs } from '../../utils/input/string-inputs';
 
 describe('StringValidator', (): void => {
     describe('new StringValidator()', (): void => {
@@ -38,32 +38,32 @@ describe('StringValidator', (): void => {
     });
 
     describe('isNonEmptyString', (): void => {
-        const SCENARIOS: Scenario[] = [
+        const scenarios: Scenario[] = [
             {
-                LABEL: 'non-string inputs',
-                INPUTS: [...NON_STRING_INPUTS],
-                EXPECTED: false
+                label: 'non-string inputs',
+                inputs: [...nonStringInputs],
+                expected: false
             },
             {
-                LABEL: 'empty string inputs',
-                INPUTS: [...EMPTY_STRING_INPUTS],
-                EXPECTED: false
+                label: 'empty string inputs',
+                inputs: [...emptyStringInputs],
+                expected: false
             },
             {
-                LABEL: 'non-empty string inputs',
-                INPUTS: [...NON_EMPTY_STRING_INPUTS],
-                EXPECTED: true
+                label: 'non-empty string inputs',
+                inputs: [...nonEmptyStringInputs],
+                expected: true
             }
         ];
 
         describe.each(
-            SCENARIOS
-        )('$LABEL', ({ INPUTS: scenarioInputs, EXPECTED: scenarioExpected }: Scenario): void => {
-            const TEST_CASES: TestCase[] = buildTestCases(scenarioInputs, scenarioExpected);
+            scenarios
+        )('$label', ({ inputs: scenarioInputs, expected: scenarioExpected }: Scenario): void => {
+            const testCases: TestCase[] = buildTestCases(scenarioInputs, scenarioExpected);
 
             test.each(
-                TEST_CASES
-            )('$INPUT should return $EXPECTED', ({ INPUT: testInput, EXPECTED: testExpected }: TestCase): void => {
+                testCases
+            )('$input should return $expected', ({ input: testInput, expected: testExpected }: TestCase): void => {
                 expect(StringValidator.isNonEmptyString(testInput)).toBe(testExpected);
             });
         });

@@ -17,7 +17,7 @@ This repository contains generative art sketches built using [p5.js](https://p5j
 | Node.js | `^20.19.0 \|\| ^22.13.0 \|\| >=24` | Runtime |
 | TypeScript | `^6.0.2` | Language |
 | p5.js | `^2.2.3` | Creative coding / rendering |
-| TypeBox | `^1.1.14` | Runtime schema validation (TypeBox-based types) |
+| TypeBox | `^1.1.15` | Runtime schema validation (TypeBox-based types) |
 | Zod | `^4.3.6` | Runtime schema validation (Zod-based types) |
 | Vitest | `^4.1.2` | Unit testing |
 | Webpack | `^5.105.4` | Bundling |
@@ -35,7 +35,7 @@ sketches/
 ├── docs/                     # Jekyll-based GitHub Pages site (TypeDoc output copied here manually)
 ├── src/
 │   ├── lib/                  # Shared utility library (validators, palette, sketch, etc.)
-│   │   ├── discriminator/    # Discriminable type, DiscriminableSchema, Discriminator, Discriminators
+│   │   ├── discriminator/    # Discriminable type, discriminableSchema, Discriminator, Discriminators
 │   │   ├── number/           # NumberValidator
 │   │   ├── palette/          # Palette
 │   │   ├── palette-color/    # PaletteColor
@@ -93,7 +93,7 @@ sketches/
 - **Output directory:** `_compiled/` (from `tsc`)
 - **No implicit `any`**, no implicit returns, no unused locals or parameters
 - **`noEmitOnError: true`** — the compiler will not emit output if there are errors
-- **Type definitions:** Use `interface` (not `type`) for object type definitions, enforced by ESLint rule `@typescript-eslint/consistent-type-definitions: ['error', 'interface']`. **Exception:** Types derived from Zod or TypeBox schemas must use `type` (e.g., `type Palette = z.infer<typeof PALETTE_SCHEMA>`, `type Discriminable = Static<typeof DiscriminableSchema>`, `type AspectRatioConfig = Static<typeof AspectRatioConfigSchema>`).
+- **Type definitions:** Use `interface` (not `type`) for object type definitions, enforced by ESLint rule `@typescript-eslint/consistent-type-definitions: ['error', 'interface']`. **Exception:** Types derived from Zod or TypeBox schemas must use `type` (e.g., `type Palette = z.infer<typeof PALETTE_SCHEMA>`, `type Discriminable = Static<typeof discriminableSchema>`, `type AspectRatioConfig = Static<typeof aspectRatioConfigSchema>`).
 - **Module exports:** Use barrel `index.ts` files for each module in `src/lib/`
 
 ### Zod Schemas
@@ -107,15 +107,16 @@ Types derived from Zod schemas (e.g., `Palette`, `PaletteColor`) follow this pat
 ### TypeBox Schemas
 
 Types derived from TypeBox schemas (e.g., `Discriminable`, `AspectRatioConfig`) follow this pattern:
+- Define a named schema constant using **lowerCamelCase** (e.g., `discriminableSchema`, `aspectRatioConfigSchema`)
 - Export a `type` alias derived via `Static<typeof SCHEMA>` instead of a separate `interface`
 - Document all schema fields with JSDoc comments
 
-The base `Discriminable` type uses a shared `DiscriminableSchema`:
-- `DiscriminableSchema` is defined as `Type.Object({ discriminator: Type.Readonly(Type.Enum(Discriminators)) })`
-- `type Discriminable = Static<typeof DiscriminableSchema>`
+The base `Discriminable` type uses a shared `discriminableSchema`:
+- `discriminableSchema` is defined as `Type.Object({ discriminator: Type.Readonly(Type.Enum(Discriminators)) })`
+- `type Discriminable = Static<typeof discriminableSchema>`
 
 Types that implement `Discriminable` (e.g., `AspectRatioConfig`) use `Type.Intersect`:
-- Define a named schema constant using `Type.Intersect([DiscriminableSchema, Type.Object({...}, { additionalProperties: false })])` (e.g., `AspectRatioConfigSchema`)
+- Define a named schema constant using `Type.Intersect([discriminableSchema, Type.Object({...}, { additionalProperties: false })])` (e.g., `aspectRatioConfigSchema`)
 - Include a `discriminator` field in the `Type.Object` using `Type.Readonly(Type.Literal(Discriminators.VALUE))` to narrow the inherited `discriminator` to the specific value for that type
 
 ### Static Classes
@@ -152,12 +153,13 @@ The project uses two ESLint configs:
 
 ---
 
-## Hex Color String Conventions
+## StringValidator Patterns
 
-- Hex color strings are validated by the patterns in `StringValidator`:
+- `StringValidator` exposes the following regular expression patterns as static getters:
   - `HEX_COLOR_PATTERN` — matches `#RRGGBB` or `#RRGGBBAA`
   - `HEX_COLOR_PATTERN_RGB` — matches `#RRGGBB` only
   - `HEX_COLOR_PATTERN_RGBA` — matches `#RRGGBBAA` only
+  - `SINGLE_LINE_LOWERCASE_TRIMMED` — matches a single-line, all-lowercase, trimmed string (no leading/trailing whitespace, no tabs, no newlines, no uppercase letters; multiple interior spaces are allowed)
 - **Mixed case hex strings are not accepted.** Case must be consistent: either all uppercase (`#A1B2C3`) or all lowercase (`#a1b2c3`). Mixed case strings like `#A1b2C3` are invalid.
 
 ---
@@ -185,6 +187,7 @@ The project uses two ESLint configs:
 - Helper interfaces and functions for test cases are defined inside the enclosing `describe` block
 - Import library classes and types from `'../../../src/lib'` (via the barrel `index.ts`)
 - Shared test input data (e.g., number/string edge cases) lives under `test/utils/input/`; shared test-case builders live under `test/utils/test-case/`
+- Exported constants in `test/utils/input/` use **lowerCamelCase** naming (e.g., `nonNumberInputs`, `nonStringInputs`)
 
 ---
 

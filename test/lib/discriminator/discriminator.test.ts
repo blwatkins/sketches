@@ -20,29 +20,32 @@
 
 import { describe, test, expect } from 'vitest';
 
-import { AspectRatios, AspectRatioConfig, Discriminator, Discriminators } from '../../../src/lib';
+import { aspectRatios, AspectRatioConfig, Discriminator, Discriminators } from '../../../src/lib';
 
 import {
-    NEGATIVE_NUMBER_INPUTS,
-    NON_FINITE_NUMBER_INPUTS,
-    NON_NUMBER_INPUTS,
-    ZERO_INPUTS
+    negativeNumberInputs,
+    nonFiniteNumberInputs,
+    nonNumberInputs,
+    zeroInputs
 } from '../../utils/input/number-inputs';
-import { EMPTY_STRING_INPUTS, NON_STRING_INPUTS } from '../../utils/input/string-inputs';
 
-// TODO - test runtime constructor
-// TODO - use shared types
-// TODO - use shared test case builders
+import {
+    emptyStringInputs,
+    multilineTrimmedInputs,
+    multiTabTrimmedInputs,
+    nonStringInputs,
+    singleLineLowercaseTrimmedInputs,
+    singleLineMixedCaseTrimmedInputs,
+    singleLineUpperCaseTrimmedInputs,
+    untrimmedInputs
+} from '../../utils/input/string-inputs';
+
+import { buildTestCases, Scenario, TestCase } from '../../utils/test-case/test-case';
+
 // TODO - test palette and palette color interfaces
 describe('Discriminator', (): void => {
-    interface TestCase { input: unknown; expected: boolean; }
-
-    function buildTestCases(inputs: readonly unknown[], expected: boolean): TestCase[] {
-        return inputs.map((input: unknown): TestCase => ({ input, expected }));
-    }
-
     // noinspection JSPrimitiveTypeWrapperUsage
-    const NON_DISCRIMINABLE_TYPE_INPUTS: unknown[] = [
+    const nonDiscriminableTypeInputs: unknown[] = [
         null,
         undefined,
         '',
@@ -68,7 +71,7 @@ describe('Discriminator', (): void => {
         new String('value')
     ];
 
-    const VALID_ASPECT_RATIO_CONFIGS: AspectRatioConfig[] = [
+    const validAspectRatioConfigs: AspectRatioConfig[] = [
         {
             name: 'test config',
             widthRatio: 1,
@@ -95,6 +98,17 @@ describe('Discriminator', (): void => {
 
         return objects;
     }
+
+    describe('new Discriminator()', (): void => {
+        describe('Runtime behavior guards', (): void => {
+            test('Constructor should throw an error when instantiated at runtime', (): void => {
+                const RuntimeConstructor = Discriminator as unknown as new () => Discriminator;
+                expect((): Discriminator => new RuntimeConstructor()).toThrow(
+                    'Discriminator is a static class and cannot be instantiated.'
+                );
+            });
+        });
+    });
 
     describe('isAspectRatioConfig()', (): void => {
         function buildAspectRatioConfigInputs(validObjects: AspectRatioConfig[], key: string, values: unknown[]): unknown[] {
@@ -125,44 +139,42 @@ describe('Discriminator', (): void => {
             return objects;
         }
 
-        const SCENARIOS: { label: string; inputs: unknown[]; expected: boolean; }[] = [
+        const scenarios: Scenario[] = [
             {
                 label: 'valid objects',
                 inputs: [
-                    ...VALID_ASPECT_RATIO_CONFIGS,
-                    ...Object.values(AspectRatios),
-                    ...buildAspectRatioConfigInputs([VALID_ASPECT_RATIO_CONFIGS[0]], 'name', [
-                        'UPPERCASE NAME',
-                        'Mixed Case Name',
-                        ...EMPTY_STRING_INPUTS.filter(value => value !== '')
+                    ...validAspectRatioConfigs,
+                    ...Object.values(aspectRatios),
+                    ...buildAspectRatioConfigInputs([validAspectRatioConfigs[0]], 'name', [
+                        ...singleLineLowercaseTrimmedInputs
                     ])
                 ],
                 expected: true
             },
             {
                 label: 'objects with extra key',
-                inputs: [...buildInputsWithAdditionalKey(VALID_ASPECT_RATIO_CONFIGS)],
+                inputs: [...buildInputsWithAdditionalKey(validAspectRatioConfigs)],
                 expected: false
 
             },
             {
                 label: 'objects with missing key',
-                inputs: [...buildAspectRatioConfigInputsWithoutKeys(VALID_ASPECT_RATIO_CONFIGS, ['widthRatio', 'heightRatio', 'discriminator'])],
+                inputs: [...buildAspectRatioConfigInputsWithoutKeys(validAspectRatioConfigs, ['widthRatio', 'heightRatio', 'discriminator'])],
                 expected: false
             },
             {
                 label: 'non-discriminable objects',
-                inputs: [...NON_DISCRIMINABLE_TYPE_INPUTS],
+                inputs: [...nonDiscriminableTypeInputs],
                 expected: false
             },
             {
                 label: 'invalid widthRatio values',
                 inputs: [
-                    ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'widthRatio', [
-                        ...NON_NUMBER_INPUTS,
-                        ...NON_FINITE_NUMBER_INPUTS,
-                        ...NEGATIVE_NUMBER_INPUTS,
-                        ...ZERO_INPUTS,
+                    ...buildAspectRatioConfigInputs(validAspectRatioConfigs, 'widthRatio', [
+                        ...nonNumberInputs,
+                        ...nonFiniteNumberInputs,
+                        ...negativeNumberInputs,
+                        ...zeroInputs,
                         0.5,
                         Number.MIN_VALUE,
                         Number.EPSILON
@@ -172,11 +184,11 @@ describe('Discriminator', (): void => {
             {
                 label: 'invalid heightRatio values',
                 inputs: [
-                    ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'heightRatio', [
-                        ...NON_NUMBER_INPUTS,
-                        ...NON_FINITE_NUMBER_INPUTS,
-                        ...NEGATIVE_NUMBER_INPUTS,
-                        ...ZERO_INPUTS,
+                    ...buildAspectRatioConfigInputs(validAspectRatioConfigs, 'heightRatio', [
+                        ...nonNumberInputs,
+                        ...nonFiniteNumberInputs,
+                        ...negativeNumberInputs,
+                        ...zeroInputs,
                         0.5,
                         Number.MIN_VALUE,
                         Number.EPSILON
@@ -186,9 +198,9 @@ describe('Discriminator', (): void => {
             {
                 label: 'invalid discriminator values',
                 inputs: [
-                    ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'discriminator', [
-                        ...NON_STRING_INPUTS,
-                        ...EMPTY_STRING_INPUTS,
+                    ...buildAspectRatioConfigInputs(validAspectRatioConfigs, 'discriminator', [
+                        ...nonStringInputs,
+                        ...emptyStringInputs,
                         Discriminators.PALETTE,
                         Discriminators.PALETTE_COLOR,
                         'I_NOT_A_REAL_DISCRIMINATOR'
@@ -199,23 +211,28 @@ describe('Discriminator', (): void => {
             {
                 label: 'invalid name values',
                 inputs: [
-                    ...buildAspectRatioConfigInputs(VALID_ASPECT_RATIO_CONFIGS, 'name', [
-                        ...NON_STRING_INPUTS.filter(value => value !== undefined),
-                        ''
+                    ...buildAspectRatioConfigInputs(validAspectRatioConfigs, 'name', [
+                        ...nonStringInputs.filter(value => value !== undefined),
+                        ...emptyStringInputs,
+                        ...singleLineUpperCaseTrimmedInputs,
+                        ...singleLineMixedCaseTrimmedInputs,
+                        ...multilineTrimmedInputs,
+                        ...multiTabTrimmedInputs,
+                        ...untrimmedInputs
                     ])],
                 expected: false
             }
         ];
 
         describe.each(
-            SCENARIOS
-        )('$label', ({ inputs, expected: scenarioExpected }): void => {
-            const testCases: TestCase[] = buildTestCases(inputs, scenarioExpected);
+            scenarios
+        )('$label', ({ inputs: scenarioInputs, expected: scenarioExpected }: Scenario): void => {
+            const testCases: TestCase[] = buildTestCases(scenarioInputs, scenarioExpected);
 
             test.each(
                 testCases
-            )('$input should return $expected', ({ input, expected: testExpected }: TestCase): void => {
-                expect(Discriminator.isAspectRatioConfig(input)).toBe(testExpected);
+            )('$input should return $expected', ({ input: testInput, expected: testExpected }: TestCase): void => {
+                expect(Discriminator.isAspectRatioConfig(testInput)).toBe(testExpected);
             });
         });
     });
