@@ -187,8 +187,7 @@ The project uses two ESLint configs:
 - Helper interfaces and functions for test cases are defined inside the enclosing `describe` block
 - Import library classes and types from `'../../../src/lib'` (via the barrel `index.ts`)
 - Shared test input data (e.g., number/string edge cases) lives under `test/utils/input/`; shared test-case builders live under `test/utils/test-case/`
-- Exported constants in `test/utils/input/` use **lowerCamelCase** naming (e.g., `nonNumberInputs`, `nonStringInputs`, `emptyStringInputs`, `nonEmptyStringInputs`, `positiveNumberInputs`, `negativeNumberInputs`, `zeroInputs`, `nonFiniteNumberInputs`, `untrimmedInputs`, `multilineTrimmedInputs`, `multiTabTrimmedInputs`, `singleLineLowercaseTrimmedInputs`, `singleLineUpperCaseTrimmedInputs`, `singleLineMixedCaseTrimmedInputs`)
-- `TestCase` and `Scenario` interface properties use **lowerCamelCase** naming: `input`, `expected`, `label`, `inputs`
+- Exported constants in `test/utils/input/` use **lowerCamelCase** naming (e.g., `nonNumberInputs`, `nonStringInputs`)
 
 ---
 
