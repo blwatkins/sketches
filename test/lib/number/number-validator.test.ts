@@ -21,13 +21,15 @@
 import { describe, test, expect } from 'vitest';
 
 import { NumberValidator } from '../../../src/lib';
-import { buildTestCases, TestCase } from '../../utils/test-case/test-case';
+
 import {
     negativeNumberInputs,
     nonFiniteNumberInputs,
     nonNumberInputs,
     positiveNumberInputs, zeroInputs
 } from '../../utils/input/number-inputs';
+
+import { buildTestCases, TestCase } from '../../utils/test-case/test-case';
 
 describe('NumberValidator', (): void => {
     describe('new NumberValidator()', (): void => {
@@ -42,7 +44,7 @@ describe('NumberValidator', (): void => {
     });
 
     describe('isPositiveFiniteNumber', (): void => {
-        const FUNCTION_SCENARIOS: {
+        const functionScenarios: {
             label: string;
             zeroInclusiveArg?: boolean;
             successInputs: readonly unknown[];
@@ -76,7 +78,7 @@ describe('NumberValidator', (): void => {
         }
 
         describe.each(
-            FUNCTION_SCENARIOS
+            functionScenarios
         )('$label', ({ zeroInclusiveArg, successInputs, failureInputs }: { label: string; zeroInclusiveArg?: boolean; successInputs: readonly unknown[]; failureInputs: readonly unknown[]; }): void => {
             const testCases: TestCase[] = [
                 ...buildTestCases(failureInputs, false),
@@ -85,7 +87,7 @@ describe('NumberValidator', (): void => {
 
             test.each(
                 testCases
-            )('({ input: $input, expected: $expected })', ({ input: testInput, expected: testExpected }: TestCase): void => {
+            )('{ input: $input, expected: $expected }', ({ input: testInput, expected: testExpected }: TestCase): void => {
                 const actual = callIsPositiveFiniteNumber(testInput, zeroInclusiveArg);
                 expect(actual).toBe(testExpected);
             });

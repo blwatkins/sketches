@@ -38,7 +38,7 @@ describe('StringValidator', (): void => {
     });
 
     describe('isNonEmptyString', (): void => {
-        const SCENARIOS: Scenario[] = [
+        const scenarios: Scenario[] = [
             {
                 label: 'non-string inputs',
                 inputs: [...nonStringInputs],
@@ -57,13 +57,13 @@ describe('StringValidator', (): void => {
         ];
 
         describe.each(
-            SCENARIOS
-        )('$LABEL', ({ inputs: scenarioInputs, expected: scenarioExpected }: Scenario): void => {
-            const TEST_CASES: TestCase[] = buildTestCases(scenarioInputs, scenarioExpected);
+            scenarios
+        )('$label', ({ inputs: scenarioInputs, expected: scenarioExpected }: Scenario): void => {
+            const testCases: TestCase[] = buildTestCases(scenarioInputs, scenarioExpected);
 
             test.each(
-                TEST_CASES
-            )('$INPUT should return $EXPECTED', ({ input: testInput, expected: testExpected }: TestCase): void => {
+                testCases
+            )('$input should return $expected', ({ input: testInput, expected: testExpected }: TestCase): void => {
                 expect(StringValidator.isNonEmptyString(testInput)).toBe(testExpected);
             });
         });
