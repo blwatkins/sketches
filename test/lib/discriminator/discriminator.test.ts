@@ -20,7 +20,7 @@
 
 import { describe, test, expect } from 'vitest';
 
-import {aspectRatios, AspectRatioConfig, Discriminator, Discriminators } from '../../../src/lib';
+import { aspectRatios, AspectRatioConfig, Discriminator, Discriminators } from '../../../src/lib';
 
 import {
     negativeNumberInputs,

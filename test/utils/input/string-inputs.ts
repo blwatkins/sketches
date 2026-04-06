@@ -71,7 +71,7 @@ export const multiTabTrimmedInputs: string[] = [
     'UPPERCASE\t\tMULTI-TAB\t\tVALUE',
     'lowercase\t\tmulti-tab\t\tvalue',
     'MixedCase\t\tMulti-Tab\t\tValue'
-]
+];
 
 export const singleLineMixedCaseTrimmedInputs: string[] = [
     'Single Line Mixed Case Input',
