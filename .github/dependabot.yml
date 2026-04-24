@@ -62,7 +62,7 @@ updates:
       - "github actions"
 
   - package-ecosystem: bundler
-    directory: "/"
+    directory: "/docs"
     schedule:
       interval: monthly
     target-branch: "main"
