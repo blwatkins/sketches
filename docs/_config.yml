@@ -2,13 +2,22 @@
 remote_theme: jekyll/minima
 plugins:
   - jekyll-remote-theme
+  - jekyll-github-metadata
+  - jekyll-seo-tag
+  - jekyll-coffeescript
+  - jekyll-commonmark-ghpages
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+  - jekyll-toc
 
 # valid social icon names can be found at https://fontawesome.com/search?ic=brands
 
 minima:
   skin: auto
   hide_site_feed_link: true
-  show_excerpts: true
+  show_excerpts: false
   social_links:
     - title: "Source Code"
       icon: git-alt
@@ -31,6 +40,9 @@ minima:
 title: "Sketches, by Brittni Watkins"
 description: "Generative art sketches built using p5.js with shared utility classes for creative coding."
 show_downloads: true
+
+sass:
+  quiet_deps: true
 
 exclude:
   - .ruby-version
