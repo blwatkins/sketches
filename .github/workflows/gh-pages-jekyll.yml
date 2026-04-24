@@ -30,6 +30,7 @@ jobs:
         with:
           bundler: 4.0.8
           bundler-cache: true
+          working-directory: docs
       - name: Setup Pages
         id: setup_pages
         uses: actions/configure-pages@v6.0.0
