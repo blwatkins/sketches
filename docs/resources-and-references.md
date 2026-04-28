@@ -75,10 +75,14 @@ layout: page
 - [Git](https://git-scm.com/)
 - [GitHub](https://github.com/)
 
-## CI/CD
+## Automation
 - [GitHub Actions](https://github.com/features/actions)
+
+## Hosting & Deployment
 - [GitHub Docs - GitHub Pages documentation](https://docs.github.com/en/pages)
-- [GitHub Docs - Dependabot](https://docs.github.com/en/code-security/concepts/supply-chain-security/about-dependabot-alerts)
+
+## Dependency Automation
+- [GitHub Docs - Dependabot](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-dependabot-version-updates)
 - [GitHub Docs - Dependabot quickstart guide](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide)
 
 ## Environment Management
