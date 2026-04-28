@@ -82,7 +82,6 @@ The project is structured to support iterative development and experimentation w
 - Build and test validation is configured through GitHub Actions workflow files.
 - Build and test workflows run across multiple Node.js versions to improve compatibility confidence.
 - Evidence:
-  - [`.github/workflows/npm-build.yml`](https://github.com/blwatkins/sketches/blob/main/.github/workflows/npm-build.yml)
   - [`.github/workflows/npm-test.yml`](https://github.com/blwatkins/sketches/blob/main/.github/workflows/npm-test.yml)
 
 ### Documentation and delivery workflows
