@@ -3,7 +3,7 @@ title: "Resources and References"
 layout: page
 ---
 
-## Programming Languages
+## Languages
 
 ### TypeScript
 - [TypeScript](https://www.typescriptlang.org/)
@@ -70,8 +70,6 @@ layout: page
 
 ## Dependency Management
 - [npm](https://www.npmjs.com/)
-- [GitHub Docs - Dependabot](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies)
-- [GitHub Docs - Dependabot quickstart guide](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide)
 
 ## Versioning & Platform
 - [Git](https://git-scm.com/)
@@ -80,6 +78,8 @@ layout: page
 ## CI/CD
 - [GitHub Actions](https://github.com/features/actions)
 - [GitHub Docs - GitHub Pages documentation](https://docs.github.com/en/pages)
+- [GitHub Docs - Dependabot](https://docs.github.com/en/code-security/concepts/supply-chain-security/about-dependabot-alerts)
+- [GitHub Docs - Dependabot quickstart guide](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide)
 
 ## Environment Management
 - [n](https://github.com/tj/n)
