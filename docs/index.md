@@ -31,7 +31,6 @@ The full text of the license is included with the project source code.
 ## Demonstrated Skills
 
 - **Creative Coding:** Generative Art, Creative Problem-Solving
-- **Creative Coding:** Generative Art, Creative Problem-Solving
 - **Languages:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [Markdown](https://www.markdownguide.org/), [YAML](https://yaml.org/)
 - **Runtime & Libraries:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/)
 - **TypeSafety & Validation:** [TypeBox](https://github.com/sinclairzx81/typebox), [Zod](https://zod.dev/)

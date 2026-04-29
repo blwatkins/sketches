@@ -16,7 +16,7 @@ The project is structured to support iterative development and experimentation w
 - **Primary Runtime:** [Node.js](https://nodejs.org/en)
 - **Rendering Library:** [p5.js](https://p5js.org/)
 - **Primary Implementation Language:** [TypeScript](https://www.typescriptlang.org/)
-- **Automation:** GitHub Actions workflows for build and test validation
+- **Automation:** GitHub Actions workflow for build and test validation
 - **Dependency Automation:** Automated dependency update management with Dependabot
 - **Documentation Pattern:** Source-linked evidence with generated API docs via [TypeDoc](https://typedoc.org/)
 
