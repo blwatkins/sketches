@@ -7,21 +7,22 @@ This page is a living technical record of skills, tools, and engineering practic
 
 ## Project Overview
 
+*Sketches* is a collection of generative art sketches implemented in p5.js, showcasing a variety of visual styles and techniques.
+The project is structured to support iterative development and experimentation with creative coding concepts, while also demonstrating a range of software engineering skills and best practices.
+
+## At a Glance
+
 - **Project Type:** Creative Coding / Generative Art
 - **Primary Runtime:** [Node.js](https://nodejs.org/en)
 - **Rendering Library:** [p5.js](https://p5js.org/)
 - **Primary Implementation Language:** [TypeScript](https://www.typescriptlang.org/)
-
-## At a Glance
-
-- **Current sketch count (wired to runtime):** 1
-- **CI runtime coverage:** 3 Node.js versions (`20.x`, `22.x`, `24.x`)
-- **Automation workflows:** 4 GitHub Actions workflows (build, test, security analysis, deployment)
-- **Documentation approach:** Source-linked evidence + generated API docs
+- **Automation:** GitHub Actions workflow for build and test validation
+- **Dependency Automation:** Automated dependency update management with Dependabot
+- **Documentation Pattern:** Source-linked evidence with generated API docs via [TypeDoc](https://typedoc.org/)
 
 ## Skills and Tooling Inventory
 
-- **Programming Languages:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [Markdown](https://www.markdownguide.org/), [YAML](https://yaml.org/)
+- **Languages:** [TypeScript](https://www.typescriptlang.org/), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), [Markdown](https://www.markdownguide.org/), [YAML](https://yaml.org/)
 - **Runtime & Libraries:** [Node.js](https://nodejs.org/en), [p5.js](https://p5js.org/)
 - **TypeSafety & Validation:** [TypeBox](https://github.com/sinclairzx81/typebox), [Zod](https://zod.dev/)
 - **Testing:** [Vitest](https://vitest.dev/)
@@ -29,9 +30,12 @@ This page is a living technical record of skills, tools, and engineering practic
 - **Code Quality:** [ESLint](https://eslint.org/)
 - **Documentation:** [TypeDoc](https://typedoc.org/)
 - **Site Generation:** [Bundler](https://bundler.io/), [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)
-- **Dependency Management:** [npm](https://www.npmjs.com/), [GitHub Dependabot](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies)
+- **Dependency Management:** [npm](https://www.npmjs.com/)
 - **Versioning & Platform:** [Git](https://git-scm.com/), [GitHub](https://github.com/)
-- **CI/CD:** [GitHub Actions](https://github.com/features/actions), [GitHub Pages](https://docs.github.com/en/pages), [CodeQL](https://codeql.github.com/)
+- **Automation:** [GitHub Actions](https://github.com/features/actions)
+- **Hosting & Deployment:** [GitHub Pages](https://docs.github.com/en/pages)
+- **Code Analysis / Security:** [CodeQL](https://codeql.github.com/)
+- **Dependency Automation:** [Dependabot](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-dependabot-version-updates)
 - **Environment Management:** [n](https://github.com/tj/n), [rbenv](https://rbenv.org/)
 - **Development Environments:** [WebStorm](https://www.jetbrains.com/webstorm/), [Visual Studio Code](https://code.visualstudio.com/)
 - **AI-Assisted Development:** [GitHub Copilot](https://github.com/features/copilot)
@@ -47,7 +51,7 @@ This page is a living technical record of skills, tools, and engineering practic
 - Parameterized unit testing with Vitest
 - CI-based lint, build, and test verification
 - Automated static site deployment and project documentation generation
-- AI-assisted feature development and pair programming using GitHub Copilot agentic workflows
+- AI-assisted development and pair programming using GitHub Copilot workflows
 
 ## Detailed Technical Notes
 
@@ -68,22 +72,22 @@ This page is a living technical record of skills, tools, and engineering practic
 ### Sketch implementation pattern
 
 - Sketch behavior is encapsulated in class methods mapped to p5 lifecycle hooks (`setup`, `draw`).
-- This supports focused iteration on visual behavior while preserving shared conventions.
+- This supports focused iteration on visual behavior while preserving shared conventions across sketch implementations.
 - Evidence:
   - [`src/sketches/00-hello-world/hello-world-sketch.ts`](https://github.com/blwatkins/sketches/blob/main/src/sketches/00-hello-world/hello-world-sketch.ts)
+  - [`src/sketches/01-experiments/00-sketch-grid/sketch-grid-sketch.ts`](https://github.com/blwatkins/sketches/blob/main/src/sketches/01-experiments/00-sketch-grid/sketch-grid-sketch.ts)
 
 ### Quality validation workflows
 
-- CI runs lint/build and test checks on `push` and `pull_request` to `main`.
-- Build and test workflows run across multiple Node.js versions to improve compatibility confidence.
+- Build and test validation is configured through a GitHub Actions workflow file.
+- This workflow runs across multiple Node.js versions to improve compatibility confidence.
 - Evidence:
-  - [`.github/workflows/npm-build.yml`](https://github.com/blwatkins/sketches/blob/main/.github/workflows/npm-build.yml)
   - [`.github/workflows/npm-test.yml`](https://github.com/blwatkins/sketches/blob/main/.github/workflows/npm-test.yml)
 
 ### Documentation and delivery workflows
 
 - TypeDoc is configured for API documentation generation.
-- GitHub Pages deployment is automated via Jekyll workflow configuration.
+- GitHub Pages site delivery is configured through the Jekyll workflow and the `docs/` site structure.
 - Evidence:
   - [`typedoc.json`](https://github.com/blwatkins/sketches/blob/main/typedoc.json)
   - [`.github/workflows/gh-pages-jekyll.yml`](https://github.com/blwatkins/sketches/blob/main/.github/workflows/gh-pages-jekyll.yml)
@@ -91,7 +95,7 @@ This page is a living technical record of skills, tools, and engineering practic
 
 ### AI-assisted development with GitHub Copilot
 
-- GitHub Copilot is used for agentic coding workflows, including automated code generation, refactoring, and implementation of new features via natural language prompts.
+- GitHub Copilot is used for AI-assisted coding workflows, including code generation, refactoring, and implementation of new features via natural language prompts.
 - Copilot pair programming is used interactively during development to accelerate iteration and maintain code quality.
 - Evidence:
   - [`.github/copilot-instructions.md`](https://github.com/blwatkins/sketches/blob/main/.github/copilot-instructions.md)
@@ -134,3 +138,10 @@ This page is a living technical record of skills, tools, and engineering practic
   - [`test/lib/discriminator/discriminator.test.ts`](https://github.com/blwatkins/sketches/blob/main/test/lib/discriminator/discriminator.test.ts)
   - [`test/utils/input/`](https://github.com/blwatkins/sketches/tree/main/test/utils/input)
   - [`test/utils/test-case/`](https://github.com/blwatkins/sketches/tree/main/test/utils/test-case)
+
+## Current Gaps / Future Improvements
+
+- Sketch coverage is intentionally narrow at this stage (single runtime-wired sketch); expand to additional sketches to demonstrate broader rendering patterns.
+- End-to-end/browser-level tests are not yet implemented; current validation is focused on unit tests for shared library modules.
+- Portfolio evidence coverage can be strengthened by adding direct links to workflow trigger blocks and bundling/output configuration where claims reference CI triggers or build output behavior.
+- Documentation publishing remains partly manual (TypeDoc output copied into the docs site); automate this handoff to reduce maintenance overhead.
