@@ -23,8 +23,9 @@ import { describe, test, expect } from 'vitest';
 import { Discriminators } from '../../../src/lib';
 
 describe('Discriminators', (): void => {
-    test('All Discriminators should be unique.', (): void => {
-        const valuesSet: Set<string> = new Set<string>(Object.values(Discriminators));
-        expect(valuesSet.size).toBe(Object.values(Discriminators).length);
+    test('All Discriminators should be unique', (): void => {
+        const enumValues: Discriminators[] = Object.values(Discriminators);
+        const valuesSet: Set<string> = new Set<string>(enumValues);
+        expect(valuesSet.size).toBe(enumValues.length);
     });
 });
