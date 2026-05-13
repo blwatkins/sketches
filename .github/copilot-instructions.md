@@ -14,7 +14,7 @@ This repository contains generative art sketches built using [p5.js](https://p5j
 
 | Tool | Version | Purpose |
 |---|---|---|
-| Node.js | `^20.19.0 \|\| ^22.13.0 \|\| >=24` | Runtime |
+| Node.js | `^22.13.0 \|\| >=24` | Runtime |
 | TypeScript | `^6.0.2` | Language |
 | p5.js | `^2.2.3` | Creative coding / rendering |
 | TypeBox | `^1.1.15` | Runtime schema validation (TypeBox-based types) |
@@ -202,7 +202,7 @@ The following workflows run on pull requests:
 | CodeQL | `codeql.yml` | Static code analysis |
 | GitHub Pages | `gh-pages-jekyll.yml` | Deploys the Jekyll docs site |
 
-CI uses a Node.js matrix of `20.x`, `22.x`, and `24.x`.
+CI uses a Node.js matrix of `22.x` and `24.x`.
 
 ---
 
