@@ -18,6 +18,14 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { test } from 'vitest';
+import { describe, test, expect } from 'vitest';
 
-test.todo('All Discriminators should be unique');
+import { Discriminators } from '../../../src/lib';
+
+describe('Discriminators', (): void => {
+    test('All Discriminators should be unique', (): void => {
+        const enumValues: Discriminators[] = Object.values(Discriminators);
+        const valuesSet: Set<Discriminators> = new Set<Discriminators>(enumValues);
+        expect(valuesSet.size).toBe(enumValues.length);
+    });
+});

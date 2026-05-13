@@ -14,15 +14,15 @@ This repository contains generative art sketches built using [p5.js](https://p5j
 
 | Tool | Version | Purpose |
 |---|---|---|
-| Node.js | `^20.19.0 \|\| ^22.13.0 \|\| >=24` | Runtime |
-| TypeScript | `^6.0.2` | Language |
+| Node.js | `^22.13.0 \|\| >=24` | Runtime |
+| TypeScript | `^6.0.3` | Language |
 | p5.js | `^2.2.3` | Creative coding / rendering |
-| TypeBox | `^1.1.15` | Runtime schema validation (TypeBox-based types) |
-| Zod | `^4.3.6` | Runtime schema validation (Zod-based types) |
-| Vitest | `^4.1.2` | Unit testing |
-| Webpack | `^5.105.4` | Bundling |
-| TypeDoc | `^0.28.18` | API documentation |
-| ESLint | `^10.1.0` | Linting (JS and TS) |
+| TypeBox | `^1.1.38` | Runtime schema validation (TypeBox-based types) |
+| Zod | `^4.4.3` | Runtime schema validation (Zod-based types) |
+| Vitest | `^4.1.6` | Unit testing |
+| Webpack | `^5.106.2` | Bundling |
+| TypeDoc | `^0.28.19` | API documentation |
+| ESLint | `^10.3.0` | Linting (JS and TS) |
 
 ---
 
@@ -202,7 +202,7 @@ The following workflows run on pull requests:
 | CodeQL | `codeql.yml` | Static code analysis |
 | GitHub Pages | `gh-pages-jekyll.yml` | Deploys the Jekyll docs site |
 
-CI uses a Node.js matrix of `20.x`, `22.x`, and `24.x`.
+CI uses a Node.js matrix of `22.x` and `24.x`.
 
 ---
 
