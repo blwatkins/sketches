@@ -25,7 +25,7 @@ import { Discriminators } from '../../../src/lib';
 describe('Discriminators', (): void => {
     test('All Discriminators should be unique', (): void => {
         const enumValues: Discriminators[] = Object.values(Discriminators);
-        const valuesSet: Set<string> = new Set<string>(enumValues);
+        const valuesSet: Set<Discriminators> = new Set<Discriminators>(enumValues);
         expect(valuesSet.size).toBe(enumValues.length);
     });
 });
