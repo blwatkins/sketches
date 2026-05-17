@@ -45,7 +45,7 @@ export const aspectRatioConfigSchema = Type.Intersect([
                 Type.Readonly(
                     Type.String({
                         minLength: 1,
-                        pattern: StringUtility.SINGLE_LINE_LOWERCASE_TRIMMED
+                        pattern: StringUtility.singleLineLowercaseTrimmed
                     })
                 )
             ),

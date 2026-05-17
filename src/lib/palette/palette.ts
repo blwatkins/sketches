@@ -85,8 +85,8 @@ export const PALETTE_SCHEMA = z.strictObject({
      * @readonly
      */
     CONTRAST_MAP: z.record(
-        z.string().regex(StringUtility.HEX_COLOR_PATTERN_RGB),
-        z.array(z.string().regex(StringUtility.HEX_COLOR_PATTERN_RGB)).readonly()
+        z.string().regex(StringUtility.hexColorPatternRGB),
+        z.array(z.string().regex(StringUtility.hexColorPatternRGB)).readonly()
     ).readonly().optional(),
 
     /**
