@@ -129,11 +129,11 @@ The project is structured to support iterative development and experimentation w
 
 ### Static validator utilities
 
-- `NumberValidator` and `StringValidator` are static utility classes that expose reusable validation predicates and regular expression patterns (e.g., hex color format matching, single-line lowercase trimmed string validation).
+- `NumberValidator` and `StringUtility` are static utility classes that expose reusable validation predicates and regular expression patterns (e.g., hex color format matching, single-line lowercase trimmed string validation).
 - All static utility classes (including `Discriminator`) use a private constructor with a runtime `throw` to prevent instantiation, ensuring they are always used as namespaces rather than objects. Runtime constructor guards are covered by unit tests.
 - Evidence:
   - [`src/lib/number/number-validator.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/number/number-validator.ts)
-  - [`src/lib/string/string-validator.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/string/string-validator.ts)
+  - [`src/lib/string/string-utility.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/string/string-utility.ts)
   - [`src/lib/discriminator/discriminator.ts`](https://github.com/blwatkins/sketches/blob/main/src/lib/discriminator/discriminator.ts)
 
 ### Parameterized unit testing with Vitest
@@ -142,7 +142,7 @@ The project is structured to support iterative development and experimentation w
 - Shared test input constants and test-case builder utilities are centralized under `test/utils/` and reused across test suites to keep coverage consistent and reduce duplication.
 - Evidence:
   - [`test/lib/number/number-validator.test.ts`](https://github.com/blwatkins/sketches/blob/main/test/lib/number/number-validator.test.ts)
-  - [`test/lib/string/string-validator.test.ts`](https://github.com/blwatkins/sketches/blob/main/test/lib/string/string-validator.test.ts)
+  - [`test/lib/string/string-utility.test.ts`](https://github.com/blwatkins/sketches/blob/main/test/lib/string/string-utility.test.ts)
   - [`test/lib/discriminator/discriminator.test.ts`](https://github.com/blwatkins/sketches/blob/main/test/lib/discriminator/discriminator.test.ts)
   - [`test/utils/input/`](https://github.com/blwatkins/sketches/tree/main/test/utils/input)
   - [`test/utils/test-case/`](https://github.com/blwatkins/sketches/tree/main/test/utils/test-case)

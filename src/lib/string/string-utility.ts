@@ -19,54 +19,54 @@
  */
 
 const RegularExpressions = {
-    HEX_COLOR_PATTERN: /^(#[A-F0-9]{6}(?:[A-F0-9]{2})?|#[a-f0-9]{6}(?:[a-f0-9]{2})?)$/,
-    HEX_COLOR_PATTERN_RGB: /^(#[A-F0-9]{6}|#[a-f0-9]{6})$/,
-    HEX_COLOR_PATTERN_RGBA: /^(#[A-F0-9]{8}|#[a-f0-9]{8})$/,
-    SINGLE_LINE_LOWERCASE_TRIMMED: /^(?!\s)(?!.*\s$)(?!.*[A-Z])[^\t\r\n]+$/
+    hexColorPattern: /^(#[A-F0-9]{6}(?:[A-F0-9]{2})?|#[a-f0-9]{6}(?:[a-f0-9]{2})?)$/,
+    hexColorPatternRGB: /^(#[A-F0-9]{6}|#[a-f0-9]{6})$/,
+    hexColorPatternRGBA: /^(#[A-F0-9]{8}|#[a-f0-9]{8})$/,
+    singleLineLowercaseTrimmed: /^(?!\s)(?!.*\s$)(?!.*[A-Z])[^\t\r\n]+$/
 };
 
 /**
- * Static properties and methods for validating string types.
+ * Static properties and methods for string types.
  */
-export class StringValidator {
+export class StringUtility {
     // noinspection JSUnusedLocalSymbols
     /**
-     * @throws {Error} - StringValidator is a static class and cannot be instantiated.
+     * @throws {Error} - StringUtility is a static class and cannot be instantiated.
      */
     private constructor() {
-        throw new Error('StringValidator is a static class and cannot be instantiated.');
+        throw new Error('StringUtility is a static class and cannot be instantiated.');
     }
 
     /**
      * Regular expression pattern for validating hex color strings in the formats `#RRGGBB` and `#RRGGBBAA`.
      * Case must be consistent in hex color strings: either all lowercase or all uppercase.
      */
-    public static get HEX_COLOR_PATTERN(): RegExp {
-        return RegularExpressions.HEX_COLOR_PATTERN;
+    public static get hexColorPattern(): RegExp {
+        return RegularExpressions.hexColorPattern;
     }
 
     /**
      * Regular expression pattern for validating hex color strings in the format `#RRGGBB`.
      * Case must be consistent in hex color strings: either all lowercase or all uppercase.
      */
-    public static get HEX_COLOR_PATTERN_RGB(): RegExp {
-        return RegularExpressions.HEX_COLOR_PATTERN_RGB;
+    public static get hexColorPatternRGB(): RegExp {
+        return RegularExpressions.hexColorPatternRGB;
     }
 
     /**
      * Regular expression pattern for validating hex color strings in the format `#RRGGBBAA`.
      * Case must be consistent in hex color strings: either all lowercase or all uppercase.
      */
-    public static get HEX_COLOR_PATTERN_RGBA(): RegExp {
-        return RegularExpressions.HEX_COLOR_PATTERN_RGBA;
+    public static get hexColorPatternRGBA(): RegExp {
+        return RegularExpressions.hexColorPatternRGBA;
     }
 
     /**
      * Regular expression pattern for validating single-line lowercase strings.
      * This expression does allow multiple spaces within the string, but does not allow tab breaks, new lines, leading whitespace, or trailing whitespace.
      */
-    public static get SINGLE_LINE_LOWERCASE_TRIMMED(): RegExp {
-        return RegularExpressions.SINGLE_LINE_LOWERCASE_TRIMMED;
+    public static get singleLineLowercaseTrimmed(): RegExp {
+        return RegularExpressions.singleLineLowercaseTrimmed;
     }
 
     /**

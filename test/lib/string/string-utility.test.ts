@@ -20,18 +20,18 @@
 
 import { describe, test, expect } from 'vitest';
 
-import { StringValidator } from '../../../src/lib';
+import { StringUtility } from '../../../src/lib';
 
 import { Scenario, TestCase, buildTestCases } from '../../utils/test-case/test-case';
 import { emptyStringInputs, nonEmptyStringInputs, nonStringInputs } from '../../utils/input/string-inputs';
 
-describe('StringValidator', (): void => {
-    describe('new StringValidator()', (): void => {
+describe('StringUtility', (): void => {
+    describe('new StringUtility()', (): void => {
         describe('Runtime behavior guards', (): void => {
             test('Constructor should throw an error when instantiated at runtime', (): void => {
-                const RuntimeConstructor = StringValidator as unknown as new () => StringValidator;
-                expect((): StringValidator => new RuntimeConstructor()).toThrow(
-                    'StringValidator is a static class and cannot be instantiated.'
+                const RuntimeConstructor = StringUtility as unknown as new () => StringUtility;
+                expect((): StringUtility => new RuntimeConstructor()).toThrow(
+                    'StringUtility is a static class and cannot be instantiated.'
                 );
             });
         });
@@ -64,7 +64,7 @@ describe('StringValidator', (): void => {
             test.each(
                 testCases
             )('$input should return $expected', ({ input: testInput, expected: testExpected }: TestCase): void => {
-                expect(StringValidator.isNonEmptyString(testInput)).toBe(testExpected);
+                expect(StringUtility.isNonEmptyString(testInput)).toBe(testExpected);
             });
         });
     });

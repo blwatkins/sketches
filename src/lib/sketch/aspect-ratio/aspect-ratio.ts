@@ -20,7 +20,7 @@
 
 import { Discriminator } from '../../discriminator/discriminator';
 import { NumberValidator } from '../../number/number-validator';
-import { StringValidator } from '../../string/string-validator';
+import { StringUtility } from '../../string/string-utility';
 
 import { Sketch } from '../sketch';
 
@@ -186,7 +186,7 @@ export class AspectRatio {
      * @private
      */
     #buildName(name?: string): string {
-        if (name && StringValidator.isNonEmptyString(name)) {
+        if (name && StringUtility.isNonEmptyString(name)) {
             return name.trim().toLowerCase();
         }
 

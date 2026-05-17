@@ -22,7 +22,7 @@ import { Type, type Static } from 'typebox';
 
 import { type Discriminable, discriminableSchema } from '../../discriminator/discriminable';
 import { Discriminators } from '../../discriminator/discriminators';
-import { StringValidator } from '../../string/string-validator';
+import { StringUtility } from '../../string/string-utility';
 
 import { type AspectRatio } from './aspect-ratio';
 
@@ -45,7 +45,7 @@ export const aspectRatioConfigSchema = Type.Intersect([
                 Type.Readonly(
                     Type.String({
                         minLength: 1,
-                        pattern: StringValidator.SINGLE_LINE_LOWERCASE_TRIMMED
+                        pattern: StringUtility.singleLineLowercaseTrimmed
                     })
                 )
             ),
