@@ -142,7 +142,7 @@ The project is structured to support iterative development and experimentation w
 - Shared test input constants and test-case builder utilities are centralized under `test/utils/` and reused across test suites to keep coverage consistent and reduce duplication.
 - Evidence:
   - [`test/lib/number/number-validator.test.ts`](https://github.com/blwatkins/sketches/blob/main/test/lib/number/number-validator.test.ts)
-  - [`test/lib/string/string-validator.test.ts`](https://github.com/blwatkins/sketches/blob/main/test/lib/string/string-validator.test.ts)
+  - [`test/lib/string/string-utility.test.ts`](https://github.com/blwatkins/sketches/blob/main/test/lib/string/string-utility.test.ts)
   - [`test/lib/discriminator/discriminator.test.ts`](https://github.com/blwatkins/sketches/blob/main/test/lib/discriminator/discriminator.test.ts)
   - [`test/utils/input/`](https://github.com/blwatkins/sketches/tree/main/test/utils/input)
   - [`test/utils/test-case/`](https://github.com/blwatkins/sketches/tree/main/test/utils/test-case)
