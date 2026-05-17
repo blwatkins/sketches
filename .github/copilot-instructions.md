@@ -197,8 +197,7 @@ The following workflows run on pull requests:
 
 | Workflow | File | Description |
 |---|---|---|
-| Build | `npm-build.yml` | Runs `npm run build:check` |
-| Test | `npm-test.yml` | Runs `npm test` |
+| Lint, Build, and Test | `npm-test.yml` | Runs `npm run lint:all`, `npm run build:check`, and `npm run test` |
 | CodeQL | `codeql.yml` | Static code analysis |
 | GitHub Pages | `gh-pages-jekyll.yml` | Deploys the Jekyll docs site |
 

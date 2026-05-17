@@ -1,6 +1,11 @@
 ---
 title: "Resources and References"
-layout: page
+layout: post
+author:
+  - Brittni Watkins
+date: 2026-03-19
+modified_date: 2026-05-17
+toc: true
 ---
 
 ## Languages

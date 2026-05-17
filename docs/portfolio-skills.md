@@ -1,7 +1,15 @@
 ---
-title: "Portfolio Skills"
-layout: page
+title: "Demonstrated Portfolio Skills"
+layout: post
+author:
+  - Brittni Watkins
+  - GitHub Copilot
+date: 2026-03-19
+modified_date: 2026-05-17
+toc: true
 ---
+
+## About This Page
 
 This page is a living technical record of skills, tools, and engineering practices demonstrated in this project.
 
@@ -16,7 +24,7 @@ The project is structured to support iterative development and experimentation w
 - **Primary Runtime:** [Node.js](https://nodejs.org/en)
 - **Rendering Library:** [p5.js](https://p5js.org/)
 - **Primary Implementation Language:** [TypeScript](https://www.typescriptlang.org/)
-- **Automation:** GitHub Actions workflow for build and test validation
+- **Automation:** GitHub Actions workflow for lint, build, and test validation
 - **Dependency Automation:** Automated dependency update management with Dependabot
 - **Documentation Pattern:** Source-linked evidence with generated API docs via [TypeDoc](https://typedoc.org/)
 
@@ -79,7 +87,7 @@ The project is structured to support iterative development and experimentation w
 
 ### Quality validation workflows
 
-- Build and test validation is configured through a GitHub Actions workflow file.
+- Lint, build, and test validation is configured through a GitHub Actions workflow file.
 - This workflow runs across multiple Node.js versions to improve compatibility confidence.
 - Evidence:
   - [`.github/workflows/npm-test.yml`](https://github.com/blwatkins/sketches/blob/main/.github/workflows/npm-test.yml)
