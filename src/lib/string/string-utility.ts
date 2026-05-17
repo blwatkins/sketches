@@ -26,15 +26,15 @@ const RegularExpressions = {
 };
 
 /**
- * Static properties and methods for validating string types.
+ * Static properties and methods for string types.
  */
-export class StringValidator {
+export class StringUtility {
     // noinspection JSUnusedLocalSymbols
     /**
-     * @throws {Error} - StringValidator is a static class and cannot be instantiated.
+     * @throws {Error} - StringUtility is a static class and cannot be instantiated.
      */
     private constructor() {
-        throw new Error('StringValidator is a static class and cannot be instantiated.');
+        throw new Error('StringUtility is a static class and cannot be instantiated.');
     }
 
     /**

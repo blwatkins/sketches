@@ -23,7 +23,7 @@ import * as z from 'zod';
 import { type Discriminable } from '../discriminator/discriminable';
 import { Discriminators } from '../discriminator/discriminators';
 import { type Palette } from '../palette/palette';
-import { StringValidator } from '../string/string-validator';
+import { StringUtility } from '../string/string-utility';
 
 /**
  * Zod schema for validating that an object implements the {@link PaletteColor} type.
@@ -33,12 +33,12 @@ import { StringValidator } from '../string/string-validator';
 export const PALETTE_COLOR_SCHEMA = z.strictObject({
     /**
      * The hex string representation of the color (format: `#RRGGBB`).
-     * Must match the regular expression defined in {@link StringValidator.HEX_COLOR_PATTERN_RGB}.
+     * Must match the regular expression defined in {@link StringUtility.HEX_COLOR_PATTERN_RGB}.
      * Case must be consistent in hex color strings: either all lowercase or all uppercase.
      *
      * @readonly
      */
-    HEX: z.hex().regex(StringValidator.HEX_COLOR_PATTERN_RGB).readonly(),
+    HEX: z.hex().regex(StringUtility.HEX_COLOR_PATTERN_RGB).readonly(),
 
     /**
      * The name of the color.

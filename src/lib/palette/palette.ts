@@ -23,7 +23,7 @@ import * as z from 'zod';
 import { type Discriminable } from '../discriminator/discriminable';
 import { Discriminators } from '../discriminator/discriminators';
 import { type PaletteColor, PALETTE_COLOR_SCHEMA } from '../palette-color/palette-color';
-import { StringValidator } from '../string/string-validator';
+import { StringUtility } from '../string/string-utility';
 
 /**
  * Zod schema for validating that an object implements the {@link Palette} type.
@@ -85,8 +85,8 @@ export const PALETTE_SCHEMA = z.strictObject({
      * @readonly
      */
     CONTRAST_MAP: z.record(
-        z.string().regex(StringValidator.HEX_COLOR_PATTERN_RGB),
-        z.array(z.string().regex(StringValidator.HEX_COLOR_PATTERN_RGB)).readonly()
+        z.string().regex(StringUtility.HEX_COLOR_PATTERN_RGB),
+        z.array(z.string().regex(StringUtility.HEX_COLOR_PATTERN_RGB)).readonly()
     ).readonly().optional(),
 
     /**

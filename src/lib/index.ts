@@ -32,4 +32,4 @@ export * from './sketch/aspect-ratio';
 
 export { Sketch } from './sketch/sketch';
 
-export { StringValidator } from './string/string-validator';
+export { StringUtility } from './string/string-utility';
