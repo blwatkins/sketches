@@ -40,7 +40,7 @@ sketches/
 │   │   ├── palette/          # Palette
 │   │   ├── palette-color/    # PaletteColor
 │   │   ├── sketch/           # Sketch, SketchGrid, AspectRatio, render/graphics utilities
-│   │   ├── string/           # StringValidator
+│   │   ├── string/           # StringUtility
 │   │   └── index.ts          # Barrel export for the entire library
 │   ├── sketches/             # Individual p5.js sketch implementations
 │   └── main.ts               # Application entry point
@@ -121,7 +121,7 @@ Types that implement `Discriminable` (e.g., `AspectRatioConfig`) use `Type.Inter
 
 ### Static Classes
 
-Static utility classes (e.g., `StringValidator`, `NumberValidator`) must:
+Static utility classes (e.g., `StringUtility`, `NumberValidator`) must:
 - Have a `private constructor()` that throws an `Error` to prevent instantiation
 - Expose public static getters or methods only
 - Include a JSDoc `@throws` on the constructor documenting the instantiation error
@@ -153,13 +153,13 @@ The project uses two ESLint configs:
 
 ---
 
-## StringValidator Patterns
+## StringUtility Patterns
 
-- `StringValidator` exposes the following regular expression patterns as static getters:
-  - `HEX_COLOR_PATTERN` — matches `#RRGGBB` or `#RRGGBBAA`
-  - `HEX_COLOR_PATTERN_RGB` — matches `#RRGGBB` only
-  - `HEX_COLOR_PATTERN_RGBA` — matches `#RRGGBBAA` only
-  - `SINGLE_LINE_LOWERCASE_TRIMMED` — matches a single-line, all-lowercase, trimmed string (no leading/trailing whitespace, no tabs, no newlines, no uppercase letters; multiple interior spaces are allowed)
+- `StringUtility` exposes the following regular expression patterns as static getters:
+  - `hexColorPattern` — matches `#RRGGBB` or `#RRGGBBAA`
+  - `hexColorPatternRGB` — matches `#RRGGBB` only
+  - `hexColorPatternRGBA` — matches `#RRGGBBAA` only
+  - `singleLineLowercaseTrimmed` — matches a single-line, all-lowercase, trimmed string (no leading/trailing whitespace, no tabs, no newlines, no uppercase letters; multiple interior spaces are allowed)
 - **Mixed case hex strings are not accepted.** Case must be consistent: either all uppercase (`#A1B2C3`) or all lowercase (`#a1b2c3`). Mixed case strings like `#A1b2C3` are invalid.
 
 ---
