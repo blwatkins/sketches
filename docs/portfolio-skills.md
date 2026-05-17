@@ -1,7 +1,15 @@
 ---
-title: "Portfolio Skills"
-layout: page
+title: "Demonstrated Portfolio Skills"
+layout: post
+author:
+  - Brittni Watkins
+  - GitHub Copilot
+date: 2026-03-19
+modified_date: 2026-05-17
+toc: true
 ---
+
+## About This Page
 
 This page is a living technical record of skills, tools, and engineering practices demonstrated in this project.
 
