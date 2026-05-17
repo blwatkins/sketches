@@ -20,7 +20,7 @@
 
 const RegularExpressions = {
     hexColorPattern: /^(#[A-F0-9]{6}(?:[A-F0-9]{2})?|#[a-f0-9]{6}(?:[a-f0-9]{2})?)$/,
-    hexColorPattenRGB: /^(#[A-F0-9]{6}|#[a-f0-9]{6})$/,
+    hexColorPatternRGB: /^(#[A-F0-9]{6}|#[a-f0-9]{6})$/,
     hexColorPatternRGBA: /^(#[A-F0-9]{8}|#[a-f0-9]{8})$/,
     singleLineLowercaseTrimmed: /^(?!\s)(?!.*\s$)(?!.*[A-Z])[^\t\r\n]+$/
 };
@@ -50,7 +50,7 @@ export class StringUtility {
      * Case must be consistent in hex color strings: either all lowercase or all uppercase.
      */
     public static get hexColorPatternRGB(): RegExp {
-        return RegularExpressions.hexColorPattenRGB;
+        return RegularExpressions.hexColorPatternRGB;
     }
 
     /**
