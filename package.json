@@ -35,8 +35,8 @@
     "serve:dev": "webpack-dev-server --mode development"
   },
   "dependencies": {
-    "p5": "^2.2.3",
-    "typebox": "^1.1.38",
+    "p5": "^2.3.0",
+    "typebox": "^1.1.39",
     "zod": "^4.4.3"
   },
   "devDependencies": {
